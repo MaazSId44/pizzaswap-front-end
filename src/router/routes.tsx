@@ -127,6 +127,7 @@ const routes = [
         // element: <LoginBoxed />,
         layout: 'blank',
     },
+    
     {
         path: '*',
         element: <PageNotFound />,
