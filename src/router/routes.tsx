@@ -122,16 +122,16 @@ const routes = [
     },
 
     //Authentication
-    // {
-    //     path: '/auth/boxed-signin',
-    //     element: <LoginBoxed />,
-    //     layout: 'blank',
-    // },
-    // {
-    //     path: '*',
-    //     element: <PageNotFound />,
-    //     // layout: 'blank',
-    // },
+    {
+        // path: '/auth/boxed-signin',
+        // element: <LoginBoxed />,
+        layout: 'blank',
+    },
+    {
+        path: '*',
+        element: <PageNotFound />,
+        // layout: 'blank',
+    },
 ];
 
 export { routes };
