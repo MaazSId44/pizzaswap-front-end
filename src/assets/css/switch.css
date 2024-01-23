@@ -1,0 +1,296 @@
+/* Smaller toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  /* Adjust the width */
+  height: 20px;
+  /* Adjust the height */
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  /* Adjust the height */
+  width: 16px;
+  /* Adjust the width */
+  left: 2px;
+  /* Adjust the position */
+  bottom: 2px;
+  /* Adjust the position */
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #09ad09;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #09ad09;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(16px);
+  /* Adjust the translation */
+  -ms-transform: translateX(16px);
+  /* Adjust the translation */
+  transform: translateX(16px);
+  /* Adjust the translation */
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 20px;
+  /* Adjust the border-radius */
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+.osList:active {
+  color: blue;
+}
+
+.focus\:ring:focus {
+  box-shadow: none !important
+}
+
+.focus\:border-blue-300:focus {
+  border-color: lightgray !important
+}
+
+.border-gray-300 {
+  border-color: lightgray !important
+}
+
+.focus\:border-blue-500:focus {
+  border-color: lightgray !important;
+  outline: 2px solid transparent;
+  ;
+}
+
+.custom-quill-editor {
+  background-color: rgb(243, 244, 246, 1) !important;
+}
+
+/* styles.css */
+.custom-file-input {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.custom-file-input input[type="file"] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Add these styles to your CSS/SCSS file */
+.modal_react {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 4px;
+  padding: 20px;
+  width: auto;
+  width: auto;
+  /* max-height: 600px;  */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close-button {
+  background-color: rgb(67, 97, 238);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+
+@media (max-width: 630px) {
+  .modal-image {
+    width: 100%;
+    height: 200px !important;
+  }
+
+  .modal_react {
+    width: auto;
+    width: 400px;
+    /* max-height: 600px;  */
+  }
+
+}
+
+
+
+@media (max-width: 468px) {
+  .modal-image {
+    width: auto;
+    height: 200px !important;
+  }
+
+  .modal_react {
+    width: auto;
+    width: 300px;
+    /* max-height: 600px;  */
+  }
+
+}
+
+.modal-image {
+  width: 100%;
+  height: 400px;
+}
+
+.pass-wrapper {
+  align-items: center;
+  display: flex;
+  position: relative;
+  z-index: 0;
+}
+
+.form-error {
+  color: #b22b27 !important;
+  font-size: 16 !important;
+  margin-top: 5px;
+  font-family: inherit;
+}
+
+.headerDropdown {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.css-13cymwt-control {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(243 244 246) !important;
+  border-color: lightgray !important;
+}
+
+.css-t3ipsp-control {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(243 244 246) !important;
+  border-color: lightgray !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+:is([dir="ltr"] table thead tr th),
+:is([dir="ltr"] table tfoot tr th),
+:is([dir="ltr"] table tbody tr td) {
+  text-align: center !important;
+}
+
+.datatables thead tr th .mantine-Group-root.mantine-1d34tqu {
+  justify-content: center !important;
+}
+
+table.mantine-Table-root.mantine-cdbiq {
+  position: relative;
+  z-index: 0;
+}
+
+.modal_react {
+  border-radius: 30px !important;
+}
+
+.leftHeading span {
+  color: #262626;
+  font-family: 'Nunito';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+
+.rightHeading span {
+  color: #9B9B9B;
+  font-family: 'Nunito';
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.userSubHeading {
+  color: #262626;
+  font-family: 'Nunito';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.subDetailsMainHeading {
+  color: #262626;
+  font-family: 'Nunito';
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
