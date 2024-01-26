@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 const Home = lazy(() => import('../pages/Home'));
 
-const StudentList = lazy(() => import('../pages/Apps/StudentsList'));
+const BuyPizza = lazy(() => import('../pages/Apps/BuyPizza'));
 
 const Profile = lazy(() => import('../pages/Users/Profile'));
 const RevenueDetails = lazy(() => import('../pages/Users/RevenueDetails'));
@@ -39,8 +39,8 @@ const routes = [
         element: <Home />,
     },
     {
-        path: '/apps/students-list',
-        element: <StudentList />,
+        path: '/apps/buy-pizzaswap',
+        element: <BuyPizza />,
     },
     {
         path: '/organizations-list',

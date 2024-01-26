@@ -438,7 +438,7 @@ const Profile = () => {
 
 
     const handleNavigate = () => {
-        navigate("/apps/students-list")
+        navigate("/apps/buy-pizzaswap")
     }
 
     const isRtl = useSelector((state: IRootState) => state.themeConfig.rtlClass) === 'rtl' ? true : false;
@@ -449,7 +449,7 @@ const Profile = () => {
 
                 <ul className="flex space-x-2 rtl:space-x-reverse">
                     <li>
-                        <Link onClick={handleNavigate} to="/apps/students-list" className="text-primary hover:underline">
+                        <Link onClick={handleNavigate} to="/apps/buy-pizzaswap" className="text-primary hover:underline">
                             Students List
                         </Link>
                     </li>

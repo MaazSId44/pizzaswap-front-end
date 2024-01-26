@@ -22,29 +22,11 @@ const Home = () => {
     useEffect(() => {
         dispatch(setPageTitle('Home'));
     });
-    const [students, setStudents] = useState<any[]>([]);
-    const [organizations, setOrganizations] = useState<any[]>([]);
-    const [events, setEvents] = useState<any[]>([]);
-    const [totalIncome, setTotalIncome] = useState('0');
-    const [expese, setExpense] = useState<any>([]);
+ 
     const [graphMonth, setGraphMonth] = useState<any[]>([]);
-    const [graphMax, setGraphMax] = useState<any>(0);
     const date = new Date();
     const month = date.getMonth();
     const currentmonth = month;
-
-    const navigate = useNavigate();
-    const token = secureLocalStorage.getItem('token');
-    useEffect(() => {
-        // if (!token) {
-        //     navigate('/auth/boxed-signin');
-        // }
-        GetStudentsData();
-        GetOrganizationData();
-        GetEventsData();
-        GetSubscriptionData();
-    }, []);
-
     const data = [
         { label: 'Market Cap', value: '$2,358' },
         { label: 'Total Minted', value: '101,066,256' },
@@ -64,7 +46,7 @@ const Home = () => {
             title: 'Exclusive Rewards and Perks: The NFT Loyalty Program',
             description: 'Your loyalty deserves to be rewarded! The NFT Loyalty Program showers you with exclusive benefits, early access to drops...',
         },
-       {
+        {
             image: '../../public/assets/images/card3.png',
             title: 'Curate Your Digital Oasis: The Personalized NFT Gallery',
             description: 'Transform your dashboard into a haven of artistic expression! The Personalized NFT Gallery lets you curate your collection...',
@@ -88,125 +70,6 @@ const Home = () => {
         backgroundPosition: 'center',
     };
 
-    const GetSubscriptionData = () => {
-        const headers = {
-            Authorization: 'Bearer ' + token,
-        };
-
-        const formData = new FormData();
-
-        axios
-            .post(API_ENDPOINTS.GetAllSubscription, formData, { headers })
-            .then((response) => {
-                if (response.status === 200) {
-                    const dataArray = response?.data?.data;
-                    const formattedData = dataArray.map((item: any) => {
-                        const { userPlanId, renewAuto, _id } = item;
-                        return userPlanId?.planId?.price;
-                    });
-                    const convertedData: number[] = formattedData.map((value: any) => parseFloat(value.replace(',', '.')));
-                    const sum: number = convertedData.reduce((acc, value) => acc + value, 0);
-                    const totalSum: string = sum?.toFixed(2);
-                    const monthlySums: number[] = new Array(12).fill(0);
-                    dataArray.forEach((item: any) => {
-                        const monthIndex = new Date(item.date).getMonth() - 1;
-                        const price = item.userPlanId?.planId?.price;
-                        const parsedPrice = price ? Number(price.replace(',', '.')) : 0;
-
-                        if (!isNaN(parsedPrice)) {
-                            monthlySums[monthIndex] += Number(parsedPrice.toFixed(2));
-                        }
-                    });
-
-                    const roundedArray = monthlySums.map((value) => {
-                        if (typeof value === 'number') {
-                            return Number(value.toFixed(2));
-                        }
-
-                        return value;
-                    });
-
-                    setGraphMonth(roundedArray);
-                    setTotalIncome(totalSum);
-                    setExpense(formattedData);
-                } else {
-                    showMessage(response?.data.message);
-                }
-            })
-            .catch((error) => {
-                console.error('An error occurred:', error);
-            });
-    };
-
-    const GetStudentsData = () => {
-        const headers = {
-            Authorization: 'Bearer ' + token,
-        };
-
-        const formData = new FormData();
-
-        axios
-            .post(API_ENDPOINTS.AllStudents, formData, { headers })
-            .then((response) => {
-                if (response.status == 200) {
-                    const newData = response?.data?.data;
-                    setStudents(response?.data?.data);
-                    // showMessage(response?.data.message)
-                } else {
-                    showMessage(response?.data.message);
-                }
-            })
-            .catch((error) => {
-                console.error('An error occurred:', error);
-            });
-    };
-
-    const GetOrganizationData = () => {
-        const headers = {
-            Authorization: 'Bearer ' + token,
-        };
-
-        const formData = new FormData();
-
-        axios
-            .post(API_ENDPOINTS.AllOrganizations, formData, { headers })
-            .then((response) => {
-                if (response.status == 200) {
-                    const newData = response?.data?.data;
-                    setOrganizations(newData);
-                } else {
-                    showMessage(response?.data.message);
-                }
-            })
-            .catch((error) => {
-                console.error('An error occurred:', error);
-            });
-    };
-
-    const GetEventsData = () => {
-        const headers = {
-            Authorization: 'Bearer ' + token,
-        };
-
-        const formData = new FormData();
-
-        axios
-            .post(API_ENDPOINTS.AllEvents, formData, { headers })
-            .then((response) => {
-                if (response.status == 200) {
-                    // setImagePreviews(response?.data.data.images)
-
-                    const newData = response?.data?.data;
-                    setEvents(newData);
-                } else {
-                    showMessage(response?.data.message);
-                }
-            })
-            .catch((error) => {
-                console.error('An error occurred:', error);
-                // setLoader(false)
-            });
-    };
 
     const isDark = useSelector((state: IRootState) => state.themeConfig.theme === 'dark' || state.themeConfig.isDarkMode);
     const isRtl = useSelector((state: IRootState) => state.themeConfig.rtlClass) === 'rtl' ? true : false;
@@ -367,15 +230,15 @@ const Home = () => {
             <div className="flex items-center gap-[10px] pb-[21px]">
                 <img src={avatar} alt="avatar" />
                 <div className="mt-[10px]">
-                    <h1 className="text-[28px] text-customblackbg font-[700] text-[Poppins] ">Welcome Back, John 👋</h1>
-                    <p className="text-[16px] text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">Your current status and analytics are here</p>
+                    <h1 className="text-[28px] dark:text-white text-customblackbg font-[700] text-[Poppins] ">Welcome Back, John 👋</h1>
+                    <p className="text-[16px] dark:text-customlightgraybg text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">Your current status and analytics are here</p>
                 </div>
             </div>
             <div className="pt-5">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-[40px] mb-[40px]">
                     <div className="panel h-full">
                         <div className="flex justify-between dark:text-white-light mb-5">
-                            <h5 className="text-[22px] text-customblackbg font-[700] text-[Urbanist]">Farms & Staking</h5>
+                            <h5 className="text-[22px] dark:text-white text-customblackbg font-[700] text-[Urbanist]">Farms & Staking</h5>
                         </div>
                         <div>
                             <div className="flex items-center gap-[12px] text-[#e95f2b] ">
@@ -436,10 +299,10 @@ const Home = () => {
                                         </clipPath>
                                     </defs>
                                 </svg>
-                                <div className="rounded-[40px] cursor-pointer  border border-solid bg-custombluebg py-[12px] px-[34px] ">
+                                <div className="rounded-[40px] cursor-pointer bg-custombluebg py-[12px] px-[34px] ">
                                     <div className="text-[16px] text-white font-[500] text-[Urbanist]">Buy PizzaSwap</div>
                                 </div>
-                                <div className="flex gap-[10px] rounded-[40px] cursor-pointer  border border-solid bg-custombluebg py-[12px] px-[34px]">
+                                <div className="flex gap-[10px] rounded-[40px] cursor-pointer   bg-custombluebg py-[12px] px-[34px]">
                                     <div className="text-[16px] text-white font-[500] text-[Urbanist]">Connect </div>
                                     <img src={connect} alt='connect' />
                                 </div>
@@ -447,22 +310,22 @@ const Home = () => {
                             <div className='pt-[40px]'>
                                 <div>
                                     <div className="flex justify-between">
-                                        <h2 className="text-[16px] text-custommediumgraybg font-[500] text-[Urbanist]">PizzaSwap to Harvest</h2>
+                                        <h2 className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Urbanist]">PizzaSwap to Harvest</h2>
                                         <p className="text-[16px] text-customred font-[500] text-[Urbanist]">Locked</p>
                                     </div>
-                                    <h1 className="text-[22px] text-customblackbg font-[600] text-[Urbanist] pt-[10px]">~$0.000</h1>
+                                    <h1 className="text-[22px] dark:text-white text-customblackbg font-[600] text-[Urbanist] pt-[10px]">~$0.000</h1>
                                 </div>
 
                                 <div className="pt-[28px]">
                                     <div className="flex justify-between">
-                                        <h2 className="text-[16px] text-custommediumgraybg font-[500] text-[Urbanist]">PizzaSwap in Wallet</h2>
+                                        <h2 className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Urbanist]">PizzaSwap in Wallet</h2>
                                         <p className="text-[16px] text-customred font-[500] text-[Urbanist]">Locked</p>
                                     </div>
-                                    <h1 className="text-[22px] text-customblackbg font-[600] text-[Urbanist] pt-[10px]">~$576.000</h1>
+                                    <h1 className="text-[22px] dark:text-white text-customblackbg font-[600] text-[Urbanist] pt-[10px]">~$576.000</h1>
                                 </div>
                             </div>
 
-                            <div className="flex mt-[40px] items-center justify-center gap-[10px] rounded-[40px] cursor-pointer  border border-solid bg-custombluebg py-[22px] px-[34px] ">
+                            <div className="flex mt-[40px] items-center justify-center gap-[10px] rounded-[40px] cursor-pointer bg-custombluebg py-[22px] px-[34px] ">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path
                                         d="M3.95833 1.66666C2.70009 1.66666 1.66666 2.70009 1.66666 3.95832V6.87499C1.66549 6.95781 1.68079 7.04004 1.71167 7.11689C1.74256 7.19375 1.78841 7.2637 1.84656 7.32268C1.90471 7.38166 1.97401 7.4285 2.05042 7.46046C2.12683 7.49243 2.20883 7.50889 2.29166 7.50889C2.37449 7.50889 2.45649 7.49243 2.5329 7.46046C2.60931 7.4285 2.67861 7.38166 2.73676 7.32268C2.79491 7.2637 2.84076 7.19375 2.87165 7.11689C2.90253 7.04004 2.91783 6.95781 2.91666 6.87499V3.95832C2.91666 3.37573 3.37573 2.91666 3.95833 2.91666H6.87499C6.95781 2.91783 7.04004 2.90253 7.1169 2.87164C7.19375 2.84076 7.2637 2.79491 7.32268 2.73676C7.38166 2.67861 7.4285 2.60931 7.46047 2.5329C7.49243 2.45649 7.5089 2.37449 7.5089 2.29166C7.5089 2.20883 7.49243 2.12683 7.46047 2.05042C7.4285 1.97401 7.38166 1.90471 7.32268 1.84656C7.2637 1.78841 7.19375 1.74255 7.1169 1.71167C7.04004 1.68079 6.95781 1.66549 6.87499 1.66666H3.95833ZM13.125 1.66666C13.0422 1.66549 12.9599 1.68079 12.8831 1.71167C12.8062 1.74255 12.7363 1.78841 12.6773 1.84656C12.6183 1.90471 12.5715 1.97401 12.5395 2.05042C12.5076 2.12683 12.4911 2.20883 12.4911 2.29166C12.4911 2.37449 12.5076 2.45649 12.5395 2.5329C12.5715 2.60931 12.6183 2.67861 12.6773 2.73676C12.7363 2.79491 12.8062 2.84076 12.8831 2.87164C12.9599 2.90253 13.0422 2.91783 13.125 2.91666H16.0417C16.6243 2.91666 17.0833 3.37573 17.0833 3.95832V6.87499C17.0822 6.95781 17.0975 7.04004 17.1283 7.11689C17.1592 7.19375 17.2051 7.2637 17.2632 7.32268C17.3214 7.38166 17.3907 7.4285 17.4671 7.46046C17.5435 7.49243 17.6255 7.50889 17.7083 7.50889C17.7912 7.50889 17.8732 7.49243 17.9496 7.46046C18.026 7.4285 18.0953 7.38166 18.1534 7.32268C18.2116 7.2637 18.2574 7.19375 18.2883 7.11689C18.3192 7.04004 18.3345 6.95781 18.3333 6.87499V3.95832C18.3333 2.70009 17.2999 1.66666 16.0417 1.66666H13.125ZM9.99999 4.16666C9.08241 4.16666 8.21159 4.3887 7.44465 4.78108C7.3698 4.81741 7.30295 4.86833 7.24803 4.93083C7.1931 4.99334 7.15122 5.06619 7.12482 5.1451C7.09842 5.22401 7.08804 5.3074 7.09429 5.39037C7.10055 5.47335 7.1233 5.55424 7.16123 5.6283C7.19915 5.70236 7.25148 5.76811 7.31515 5.82168C7.37882 5.87525 7.45255 5.91558 7.53201 5.94028C7.61146 5.96499 7.69505 5.97358 7.77787 5.96555C7.86069 5.95753 7.94108 5.93305 8.01432 5.89355C8.61071 5.58842 9.28341 5.41666 9.99999 5.41666C12.4181 5.41666 14.375 7.37354 14.375 9.79166V13.5417C14.3738 13.6245 14.3891 13.7067 14.42 13.7836C14.4509 13.8604 14.4967 13.9304 14.5549 13.9893C14.613 14.0483 14.6823 14.0952 14.7588 14.1271C14.8352 14.1591 14.9172 14.1756 15 14.1756C15.0828 14.1756 15.1648 14.1591 15.2412 14.1271C15.3176 14.0952 15.3869 14.0483 15.4451 13.9893C15.5032 13.9304 15.5491 13.8604 15.58 13.7836C15.6109 13.7067 15.6262 13.6245 15.625 13.5417V9.79166C15.625 6.69561 13.096 4.16666 9.99999 4.16666ZM5.95214 6.24267C5.85055 6.24168 5.75024 6.26547 5.65991 6.31198C5.56959 6.35849 5.49196 6.42632 5.43375 6.50959C4.76848 7.433 4.37499 8.57038 4.37499 9.79166V13.5417C4.37382 13.6245 4.38912 13.7067 4.42001 13.7836C4.45089 13.8604 4.49674 13.9304 4.55489 13.9893C4.61305 14.0483 4.68234 14.0952 4.75875 14.1271C4.83516 14.1591 4.91717 14.1756 4.99999 14.1756C5.08282 14.1756 5.16482 14.1591 5.24123 14.1271C5.31765 14.0952 5.38694 14.0483 5.44509 13.9893C5.50325 13.9304 5.5491 13.8604 5.57998 13.7836C5.61086 13.7067 5.62616 13.6245 5.62499 13.5417V9.79166C5.62499 8.83794 5.92968 7.95948 6.44775 7.24039C6.5165 7.14782 6.5583 7.03804 6.56854 6.92319C6.57878 6.80834 6.55704 6.69289 6.50575 6.58962C6.45445 6.48636 6.37559 6.39929 6.27788 6.33806C6.18018 6.27682 6.06744 6.24381 5.95214 6.24267ZM9.99999 6.66666C8.28239 6.66666 6.87499 8.07406 6.87499 9.79166V14.7917C6.87382 14.8745 6.88912 14.9567 6.92001 15.0336C6.95089 15.1104 6.99674 15.1804 7.05489 15.2393C7.11305 15.2983 7.18234 15.3452 7.25875 15.3771C7.33516 15.4091 7.41717 15.4256 7.49999 15.4256C7.58282 15.4256 7.66482 15.4091 7.74123 15.3771C7.81765 15.3452 7.88694 15.2983 7.94509 15.2393C8.00325 15.1804 8.0491 15.1104 8.07998 15.0336C8.11086 14.9567 8.12616 14.8745 8.12499 14.7917V9.79166C8.12499 8.75176 8.96009 7.91666 9.99999 7.91666C10.0526 7.91666 10.1046 7.91886 10.1554 7.92317C10.2385 7.93265 10.3226 7.92537 10.4028 7.90176C10.483 7.87815 10.5577 7.8387 10.6224 7.78573C10.687 7.73276 10.7404 7.66735 10.7794 7.59337C10.8183 7.5194 10.8421 7.43836 10.8491 7.35506C10.8562 7.27175 10.8465 7.18788 10.8206 7.10839C10.7947 7.0289 10.7531 6.95542 10.6983 6.8923C10.6434 6.82917 10.5765 6.77769 10.5015 6.74089C10.4264 6.70409 10.3447 6.68272 10.2612 6.67805C10.1746 6.6707 10.0874 6.66666 9.99999 6.66666ZM11.993 7.6953C11.8794 7.70024 11.7694 7.73605 11.6746 7.79889C11.5799 7.86172 11.5041 7.94919 11.4554 8.0519C11.4067 8.1546 11.3869 8.26865 11.3982 8.38176C11.4094 8.49487 11.4513 8.60277 11.5194 8.69384C11.744 9.00372 11.875 9.37933 11.875 9.79166V14.7917C11.8738 14.8745 11.8891 14.9567 11.92 15.0336C11.9509 15.1104 11.9967 15.1804 12.0549 15.2393C12.113 15.2983 12.1823 15.3452 12.2588 15.3771C12.3352 15.4091 12.4172 15.4256 12.5 15.4256C12.5828 15.4256 12.6648 15.4091 12.7412 15.3771C12.8176 15.3452 12.8869 15.2983 12.9451 15.2393C13.0032 15.1804 13.0491 15.1104 13.08 15.0336C13.1109 14.9567 13.1262 14.8745 13.125 14.7917V9.79166C13.125 9.11065 12.9038 8.47489 12.5309 7.9606C12.4707 7.87483 12.3899 7.80558 12.2959 7.75922C12.2019 7.71286 12.0977 7.69088 11.993 7.6953ZM9.99023 9.15771C9.82461 9.16029 9.66679 9.22851 9.55143 9.34738C9.43608 9.46624 9.37262 9.62604 9.37499 9.79166V11.0417C9.37382 11.1245 9.38912 11.2067 9.42001 11.2836C9.45089 11.3604 9.49674 11.4304 9.55489 11.4893C9.61305 11.5483 9.68234 11.5952 9.75875 11.6271C9.83516 11.6591 9.91717 11.6756 9.99999 11.6756C10.0828 11.6756 10.1648 11.6591 10.2412 11.6271C10.3176 11.5952 10.3869 11.5483 10.4451 11.4893C10.5032 11.4304 10.5491 11.3604 10.58 11.2836C10.6109 11.2067 10.6262 11.1245 10.625 11.0417V9.79166C10.6262 9.70801 10.6106 9.62496 10.5791 9.54745C10.5476 9.46994 10.5009 9.39954 10.4417 9.34042C10.3825 9.2813 10.312 9.23467 10.2345 9.20328C10.1569 9.1719 10.0739 9.1564 9.99023 9.15771ZM2.28189 12.491C2.11628 12.4936 1.95846 12.5618 1.8431 12.6807C1.72774 12.7996 1.66428 12.9594 1.66666 13.125V16.0417C1.66666 17.2999 2.70009 18.3333 3.95833 18.3333H6.87499C6.95781 18.3345 7.04004 18.3192 7.1169 18.2883C7.19375 18.2574 7.2637 18.2116 7.32268 18.1534C7.38166 18.0953 7.4285 18.026 7.46047 17.9496C7.49243 17.8732 7.5089 17.7912 7.5089 17.7083C7.5089 17.6255 7.49243 17.5435 7.46047 17.4671C7.4285 17.3907 7.38166 17.3214 7.32268 17.2632C7.2637 17.2051 7.19375 17.1592 7.1169 17.1283C7.04004 17.0975 6.95781 17.0822 6.87499 17.0833H3.95833C3.37573 17.0833 2.91666 16.6243 2.91666 16.0417V13.125C2.91786 13.0413 2.90225 12.9583 2.87077 12.8808C2.83928 12.8033 2.79256 12.7329 2.73336 12.6738C2.67417 12.6146 2.60371 12.568 2.52616 12.5366C2.44861 12.5052 2.36554 12.4897 2.28189 12.491ZM9.99023 12.491C9.82461 12.4936 9.66679 12.5618 9.55143 12.6807C9.43608 12.7996 9.37262 12.9594 9.37499 13.125V15.625C9.37382 15.7078 9.38912 15.79 9.42001 15.8669C9.45089 15.9437 9.49674 16.0137 9.55489 16.0727C9.61305 16.1317 9.68234 16.1785 9.75875 16.2105C9.83516 16.2424 9.91717 16.2589 9.99999 16.2589C10.0828 16.2589 10.1648 16.2424 10.2412 16.2105C10.3176 16.1785 10.3869 16.1317 10.4451 16.0727C10.5032 16.0137 10.5491 15.9437 10.58 15.8669C10.6109 15.79 10.6262 15.7078 10.625 15.625V13.125C10.6262 13.0413 10.6106 12.9583 10.5791 12.8808C10.5476 12.8033 10.5009 12.7329 10.4417 12.6738C10.3825 12.6146 10.312 12.568 10.2345 12.5366C10.1569 12.5052 10.0739 12.4897 9.99023 12.491ZM17.6986 12.491C17.5329 12.4936 17.3751 12.5618 17.2598 12.6807C17.1444 12.7996 17.081 12.9594 17.0833 13.125V16.0417C17.0833 16.6243 16.6243 17.0833 16.0417 17.0833H13.125C13.0422 17.0822 12.9599 17.0975 12.8831 17.1283C12.8062 17.1592 12.7363 17.2051 12.6773 17.2632C12.6183 17.3214 12.5715 17.3907 12.5395 17.4671C12.5076 17.5435 12.4911 17.6255 12.4911 17.7083C12.4911 17.7912 12.5076 17.8732 12.5395 17.9496C12.5715 18.026 12.6183 18.0953 12.6773 18.1534C12.7363 18.2116 12.8062 18.2574 12.8831 18.2883C12.9599 18.3192 13.0422 18.3345 13.125 18.3333H16.0417C17.2999 18.3333 18.3333 17.2999 18.3333 16.0417V13.125C18.3345 13.0413 18.3189 12.9583 18.2874 12.8808C18.256 12.8033 18.2092 12.7329 18.15 12.6738C18.0908 12.6146 18.0204 12.568 17.9428 12.5366C17.8653 12.5052 17.7822 12.4897 17.6986 12.491Z"
@@ -486,17 +349,17 @@ const Home = () => {
 
                     <div className="panel h-full">
                         <div className="flex justify-between dark:text-white-light mb-5">
-                            <h5 className="text-[22px] text-customblackbg font-[700] text-[Urbanist]">PizzaSwap Stats</h5>
+                            <h5 className="text-[22px] dark:text-white text-customblackbg font-[700] text-[Urbanist]">PizzaSwap Stats</h5>
                         </div>
                         <div>
                             <ul className='mt-[40px]'>
                                 {data.map((item, index) => (
                                     <div key={index}>
                                         <div className='flex justify-between'>
-                                            <li className='text-[16px] text-custommediumgraybg font-[600] text-[Urbanist]'>
+                                            <li className='text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[600] text-[Urbanist]'>
                                                 {item.label}
                                             </li>
-                                            <li className='text-[16px] text-customblackbg font-[600] text-[Urbanist]'>
+                                            <li className='text-[16px] dark:text-white text-customblackbg font-[600] text-[Urbanist]'>
                                                 {item.value}
                                             </li>
                                         </div>
@@ -580,7 +443,7 @@ const Home = () => {
             <div className="grid xl:grid-cols-1 gap-6">
                 <div className="panel xl:col-span-2">
                     <div className='flex items-center justify-between'>
-                        <h5 className="text-[22px] text-customblackbg font-[700] text-[Urbanist]">Announcements</h5>
+                        <h5 className="text-[22px] dark:text-white text-customblackbg font-[700] text-[Urbanist]">Announcements</h5>
                         <div className='flex items-center gap-[5px] cursor-pointer'>
                             <p className="text-[18px] text-customlightgraybg font-[600] text-[Urbanist] cursor-pointer">View All</p>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -592,15 +455,15 @@ const Home = () => {
                     <div className="flex flex-wrap pt-[40px]">
                         {cardData.map((card, index) => (
                             <div key={index} className="w-full md:w-1/2 lg:w-1/4 px-3 mb-8">
-                                <div className="rounded-[18px] bg-[rgba(178, 190, 195, 0.25)] border border-solid border-customgray py-[25px] px-[30px] overflow-hidden ">
+                                <div className="rounded-[18px] dark:bg-[#2F3334] bg-[rgba(178, 190, 195, 0.25)] border border-solid border-customgray py-[25px] px-[30px] overflow-hidden ">
                                     <img
                                         className="w-full rounded-[15px] h-48 object-cover object-center"
                                         src={card.image}
                                         alt={card.title}
                                     />
                                     <div className="p-4">
-                                        <h3 className="text-[16px] text-customblackbg font-[600] text-[Urbanist] mb-[12px]">{card.title}</h3>
-                                        <p className="text-[15px] text-custommediumgraybg font-[400] text-[Urbanist]">{card.description}</p>
+                                        <h3 className="text-[16px] dark:text-white text-customblackbg font-[600] text-[Urbanist] mb-[12px]">{card.title}</h3>
+                                        <p className="text-[15px] dark:customlightgraybg text-custommediumgraybg font-[400] text-[Urbanist]">{card.description}</p>
                                     </div>
                                 </div>
                             </div>

@@ -53,16 +53,17 @@
     }
 
     body {
-        @apply bg-[#fafafa] font-nunito;
+        @apply bg-[#F0F3F5] font-nunito;
+
     }
 
     body.dark {
-        @apply bg-[#060818];
+        @apply bg-[#2D3436];
     }
 
     /* Panel */
     .panel {
-        @apply relative rounded-[20px] bg-white pt-[35px] pb-[52px] px-[30px]  shadow dark:bg-black;
+        @apply relative rounded-[20px] bg-white pt-[35px] pb-[52px] px-[30px]  shadow dark:bg-[#1A1E1F];
     }
 
     /* Navbar */
