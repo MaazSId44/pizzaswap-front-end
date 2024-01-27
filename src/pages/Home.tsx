@@ -1,19 +1,9 @@
-import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import ReactApexChart from 'react-apexcharts';
 import { useDispatch, useSelector } from 'react-redux';
 import { IRootState } from '../store';
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import Dropdown from '../components/Dropdown';
 import { useEffect } from 'react';
 import { setPageTitle } from '../store/themeConfigSlice';
-import student from '../assets/Images/student.svg';
-import organization from '../assets/Images/organization.svg';
-import event from '../assets/Images/event.svg';
-import secureLocalStorage from 'react-secure-storage';
-import axios from 'axios';
-import API_ENDPOINTS from '../Routes/API_routes';
-import { showMessage } from '../components/Reuseable/Tostify';
+
 import avatar from '../../public/assets/images/avatar.png';
 import connect from '../../public/assets/images/connectImage.svg';
 
@@ -23,10 +13,8 @@ const Home = () => {
         dispatch(setPageTitle('Home'));
     });
  
-    const [graphMonth, setGraphMonth] = useState<any[]>([]);
     const date = new Date();
     const month = date.getMonth();
-    const currentmonth = month;
     const data = [
         { label: 'Market Cap', value: '$2,358' },
         { label: 'Total Minted', value: '101,066,256' },
@@ -69,161 +57,9 @@ const Home = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
     };
-
-
-    const isDark = useSelector((state: IRootState) => state.themeConfig.theme === 'dark' || state.themeConfig.isDarkMode);
-    const isRtl = useSelector((state: IRootState) => state.themeConfig.rtlClass) === 'rtl' ? true : false;
-    const [loading] = useState(false);
-
-    //Revenue Chart
-    const revenueChart: any = {
-        series: [
-            {
-                name: 'Income',
-                data: graphMonth,
-            },
-            // {
-            //     name: 'Expenses',
-            //     data: [16500, 17500, 16200, 17300, 16000, 19500, 16000, 17000, 16000, 19000, 18000, 19000],
-            // },
-        ],
-        options: {
-            chart: {
-                height: 325,
-                type: 'area',
-                fontFamily: 'Nunito, sans-serif',
-                zoom: {
-                    enabled: false,
-                },
-                toolbar: {
-                    show: false,
-                },
-            },
-
-            dataLabels: {
-                enabled: false,
-            },
-            stroke: {
-                show: true,
-                curve: 'smooth',
-                width: 2,
-                lineCap: 'square',
-            },
-            dropShadow: {
-                enabled: true,
-                opacity: 0.2,
-                blur: 10,
-                left: -7,
-                top: 22,
-            },
-            colors: isDark ? ['#2196F3', '#E7515A'] : ['#1B55E2', '#E7515A'],
-            markers: {
-                discrete: [
-                    {
-                        seriesIndex: 0,
-                        dataPointIndex: currentmonth,
-                        fillColor: '#1B55E2',
-                        strokeColor: 'transparent',
-                        size: 7,
-                    },
-                    {
-                        seriesIndex: 1,
-                        dataPointIndex: 5,
-                        fillColor: '#E7515A',
-                        strokeColor: 'transparent',
-                        size: 7,
-                    },
-                ],
-            },
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-            xaxis: {
-                axisBorder: {
-                    show: false,
-                },
-                axisTicks: {
-                    show: false,
-                },
-                crosshairs: {
-                    show: true,
-                },
-                labels: {
-                    offsetX: isRtl ? 2 : 0,
-                    offsetY: 5,
-                    style: {
-                        fontSize: '12px',
-                        cssClass: 'apexcharts-xaxis-title',
-                    },
-                },
-            },
-            yaxis: {
-                tickAmount: 7,
-                labels: {
-                    formatter: (value: number) => {
-                        return value / 1000 + 'K';
-                    },
-                    offsetX: isRtl ? -30 : -10,
-                    offsetY: 0,
-                    style: {
-                        fontSize: '12px',
-                        cssClass: 'apexcharts-yaxis-title',
-                    },
-                },
-                opposite: isRtl ? true : false,
-            },
-            grid: {
-                borderColor: isDark ? '#191E3A' : '#E0E6ED',
-                strokeDashArray: 5,
-                xaxis: {
-                    lines: {
-                        show: true,
-                    },
-                },
-                yaxis: {
-                    lines: {
-                        show: false,
-                    },
-                },
-                padding: {
-                    top: 0,
-                    right: 0,
-                    bottom: 0,
-                    left: 0,
-                },
-            },
-            legend: {
-                position: 'top',
-                horizontalAlign: 'right',
-                fontSize: '16px',
-                markers: {
-                    width: 10,
-                    height: 10,
-                    offsetX: -2,
-                },
-                itemMargin: {
-                    horizontal: 10,
-                    vertical: 5,
-                },
-            },
-            tooltip: {
-                marker: {
-                    show: true,
-                },
-                x: {
-                    show: false,
-                },
-            },
-            fill: {
-                type: 'gradient',
-                gradient: {
-                    shadeIntensity: 1,
-                    inverseColors: !1,
-                    opacityFrom: isDark ? 0.19 : 0.28,
-                    opacityTo: 0.05,
-                    stops: isDark ? [100, 100] : [45, 100],
-                },
-            },
-        },
-    };
+    // const isDark = useSelector((state: IRootState) => state.themeConfig.theme === 'dark' || state.themeConfig.isDarkMode);
+    // const isRtl = useSelector((state: IRootState) => state.themeConfig.rtlClass) === 'rtl' ? true : false;
+    // const [loading] = useState(false);
 
     return (
         <div>
@@ -241,7 +77,7 @@ const Home = () => {
                             <h5 className="text-[22px] dark:text-white text-customblackbg font-[700] text-[Urbanist]">Farms & Staking</h5>
                         </div>
                         <div>
-                            <div className="flex items-center gap-[12px] text-[#e95f2b] ">
+                            <div className="flex flex-wrap items-center gap-[12px] text-[#e95f2b]">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
                                     <g clip-path="url(#clip0_37_117)">
                                         <path
@@ -335,16 +171,6 @@ const Home = () => {
                                 <div className="text-[18px] text-center text-white font-[500] text-[Urbanist]">Unlock Wallet</div>
                             </div>
                         </div>
-
-                        {/* <div className="flex items-center justify-between">
-                            <div className="w-full rounded-full h-5 p-1 bg-dark-light overflow-hidden shadow-3xl dark:shadow-none dark:bg-dark-light/10">
-                                <div
-                                    className="bg-gradient-to-r from-[#4361ee] to-[#805dca] w-full h-full rounded-full relative before:absolute before:inset-y-0 ltr:before:right-0.5 rtl:before:left-0.5 before:bg-white before:w-2 before:h-2 before:rounded-full before:m-auto"
-                                    style={{ width: '65%' }}
-                                ></div>
-                            </div>
-                            <span className="ltr:ml-5 rtl:mr-5 dark:text-white-light">57%</span>
-                        </div> */}
                     </div>
 
                     <div className="panel h-full">
@@ -398,7 +224,7 @@ const Home = () => {
                                 <h5 className="text-[22px] text-customblackbg font-[700] text-[Urbanist]">Lottery Winning Numbers</h5>
 
                             </div>
-                            <div className=" flex item-center gap-[15px]  pt-[30px]">
+                            <div className=" flex flex-wrap item-center gap-[15px]  pt-[30px]">
                                 <div className='bg-white py-[12px] px-[34px] rounded-[40px]'>
                                     5
                                 </div>
@@ -425,19 +251,6 @@ const Home = () => {
 
                     </div>
                 </div>
-
-
-
-                {/* <div
-                        className="panel h-full overflow-hidden before:bg-[#1937cc] before:absolute before:-right-44 before:top-0 before:bottom-0 before:m-auto before:rounded-full before:w-96 before:h-96 grid grid-cols-1 content-between"
-                        style={{ background: 'linear-gradient(0deg,#00c6fb -227%,#005bea)' }}
-                    >
-                        <div className="flex items-start justify-between text-white-light mb-16 z-[7]">
-                            <h5 className="font-bold text-lg">Total Earnings</h5>
-
-                            <div className="relative text-xl whitespace-nowrap">€ {totalIncome ? totalIncome : '0'}</div>
-                        </div>
-                    </div> */}
             </div>
 
             <div className="grid xl:grid-cols-1 gap-6">
@@ -479,17 +292,3 @@ const Home = () => {
 };
 
 export default Home;
-//   const monthlySums: number[] = new Array(12).fill(0);
-
-//   dataArray.forEach((item: any) => {
-//     const monthIndex = new Date(item.date).getMonth();
-//     const price = item.userPlanId?.planId?.price;
-//     const parsedPrice = price ? parseFloat(price.replace(',', '.')) : 0;
-
-//     if (!isNaN(parsedPrice)) {
-//       monthlySums[monthIndex] += parsedPrice;
-//     }
-//   });
-
-//   console.log(monthlySums);
-//   setGraphMonth(monthlySums)

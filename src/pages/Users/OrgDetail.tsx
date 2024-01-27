@@ -52,7 +52,7 @@ const OrgDetail = () => {
     }
     const isRtl = useSelector((state: IRootState) => state.themeConfig.rtlClass) === 'rtl' ? true : false;
     const handleNavigate =()=>{
-        navigate("/organizations-list")
+        navigate("/trade")
     }
     
     return (
@@ -61,7 +61,7 @@ const OrgDetail = () => {
         <div>
             <ul className="flex space-x-2 rtl:space-x-reverse mb-md-10">
                 <li>
-                    <Link onClick={handleNavigate} to="/organizations-list" className="text-primary hover:underline">
+                    <Link onClick={handleNavigate} to="/trade" className="text-primary hover:underline">
                     Organizations List
                     </Link>
                 </li>

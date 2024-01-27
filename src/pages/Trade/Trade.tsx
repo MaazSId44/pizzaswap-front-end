@@ -28,37 +28,48 @@ import takenIcon5 from '../../../public/assets/images/takenIcon5.png';
 import takenIcon6 from '../../../public/assets/images/takenIcon6.png';
 import takenIcon7 from '../../../public/assets/images/takenIcon7.png';
 
-import pizzaBlue from '../../../public/assets/images/pizzaBlue.png';
-
-const PizzaSwap = () => {
-    const navigate = useNavigate();
+const Trade = () => {
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(setPageTitle('BuyPizzaSwap'));
+        dispatch(setPageTitle('Trade'));
     });
     const [tokenModal, setTokenModal] = useState<any>(false);
     const [settingModal, setSettingModal] = useState<any>(false);
     const [recentTransactions, setRecentTransactions] = useState<any>(false);
     const [connectWallet, setConnectWallet] = useState<any>(false);
     const [tokenImported, setTokenImported] = useState<any>(false);
+
+    const [value, setValue] = useState<any>('list');
+    const [defaultParams] = useState({
+        id: null,
+        name: '',
+        email: '',
+        phone: '',
+        role: '',
+        location: '',
+    });
+
+    const [page, setPage] = useState(1);
+    const PAGE_SIZES = [10, 20, 30, 50, 100];
+    const [pageSize, setPageSize] = useState(PAGE_SIZES[0]);
+
+    const [initialRecords, setInitialRecords] = useState<any[]>([]);
+    const [recordsData, setRecordsData] = useState<any[]>(initialRecords);
     const [loader, setLoader] = useState(false);
+
+   
     const [isUnderstand, setIsUnderstand] = useState(false);
 
-    const handleCheckboxChange = () => {
-        setIsUnderstand(!isUnderstand);
-    };
+    const token = secureLocalStorage.getItem('token');
 
-
-    const handleConnect = () => {
-        setTokenImported(false)
-        navigate('/trade')
-        console.log("Connect button clicked");
-    };
     useEffect(() => {
-
+        // if (!token) {
+        //     navigate('/auth/boxed-signin');
+        // }
         setTokenImported(true)
     }, []);
     const theme = localStorage.getItem('theme');
+
     const itemsConnect = [
         { id: 1, name: 'Metamask', icon: connect1 },
         { id: 2, name: 'TrustWallet', icon: connect2 },
@@ -86,11 +97,20 @@ const PizzaSwap = () => {
         { id: 7, name: 'The Graph', icon: takenIcon7 },
 
     ];
+
     const [activeTab, setActiveTab] = useState("Swap");
+    const [mainTitle, setMainTitle] = useState("Exchange");
 
     const handleTabClick = (title: string) => {
         setActiveTab(title);
-    };
+        if (title == 'swap') {
+            setMainTitle('Exchange')
+        } else if (title == 'Liquidity') {
+            setMainTitle('Liquidity')
+        }else if(title == 'Bridge'){
+            setMainTitle('Bridge')
+        }
+    }
     const navItems = [
         { title: 'Swap', value: 'Swap content goes here' },
         { title: 'Liquidity', value: 'Liquidity content goes here' },
@@ -102,13 +122,13 @@ const PizzaSwap = () => {
             {loader && <Loader />}
             <div className="flex items-center justify-between flex-wrap gap-4">
                 <div>
-                    <h1 className="text-[28px] dark:text-white text-customblackbg font-[700] text-[Poppins] ">Buy PizzaSwap</h1>
+                    <h1 className="text-[28px] dark:text-white text-customblackbg font-[700] text-[Poppins] ">{mainTitle}</h1>
                     <p className="text-[16px] dark:text-customlightgraybg text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">Lorem ipsum dolor sit amet</p>
                 </div>
 
             </div>
             <div className="flex items-center justify-center w-full">
-                <div className="flex  items-center justify-between w-[45%] rounded-[100px] gap-[30px]  py-[12px] px-[34px] bg-white dark:bg-[#1A1E1F]">
+                <div className="flex items-center justify-between w-[45%] rounded-[100px] gap-[30px]  py-[12px] px-[34px] bg-white dark:bg-[#1A1E1F]">
                     {navItems.map((item) => (
                         <div
                             key={item.title}
@@ -249,7 +269,61 @@ const PizzaSwap = () => {
                             </div>
 
                         }
-                        {activeTab === "Liquidity" && <div className="p-4"></div>}
+                        {activeTab === "Liquidity" &&
+                            <div>
+                                <div className='flex flex-wrap items-center justify-between'>
+                                    <div> <h5 className="text-[22px] dark:text-white text-customblackbg font-[700] text-[Urbanist]">Liquidity</h5>
+                                        <p className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Poppins] mt-[5px]">Add liquidity to receive LP tokens</p>
+                                    </div>
+                                    <div className='flex gap-[12px]'>
+                                        <div className='p-[14px] bg-customgraybg rounded-[10px]'
+                                            onClick={() => setSettingModal(true)}
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                                <path d="M19.2172 12.2354C18.831 11.9522 18.6003 11.4972 18.6003 11.0178C18.6003 10.5384 18.831 10.0834 19.2167 9.80066L21.0009 8.49253C21.2853 8.28345 21.4029 7.91566 21.2918 7.58037C20.8325 6.2002 20.1061 4.94137 19.1322 3.83799C18.8977 3.57366 18.5196 3.49024 18.1962 3.63216L16.1872 4.51562C15.7495 4.70845 15.2398 4.68083 14.8243 4.44087C14.4094 4.20145 14.131 3.77462 14.0784 3.29849L13.8369 1.09283C13.7984 0.741826 13.5373 0.455825 13.1917 0.384867C11.785 0.0972421 10.3068 0.0923673 8.8752 0.379451C8.52745 0.449326 8.26582 0.735326 8.22736 1.08795L7.98795 3.27953C7.9354 3.7562 7.65699 4.18303 7.24099 4.42245C6.82607 4.66187 6.31799 4.69058 5.8787 4.4972L3.85882 3.60887C3.53815 3.46695 3.15899 3.54928 2.92445 3.81308C1.94728 4.91212 1.21765 6.16932 0.753447 7.54841C0.64078 7.88316 0.75778 8.25312 1.04324 8.46274L2.81611 9.76274C3.20286 10.0466 3.43361 10.5016 3.43361 10.9809C3.43361 11.4603 3.20286 11.9153 2.8172 12.1981L1.03295 13.5062C0.748571 13.7153 0.63103 14.0831 0.742072 14.4184C1.2014 15.7985 1.92778 17.0574 2.9017 18.1607C3.13624 18.4256 3.5154 18.5096 3.8377 18.3666L5.84674 17.4831C6.2844 17.2903 6.79357 17.3179 7.20957 17.5579C7.62449 17.7973 7.9029 18.2241 7.95545 18.7002L8.19703 20.9059C8.23549 21.2569 8.49657 21.5429 8.84215 21.6139C9.5539 21.759 10.2852 21.8327 11.0169 21.8327C11.7309 21.8327 12.4513 21.7607 13.1582 21.6187C13.5059 21.5489 13.7675 21.2629 13.806 20.9102L14.0459 18.7187C14.0985 18.242 14.3769 17.8152 14.7929 17.5757C15.2078 17.3369 15.7164 17.3087 16.1552 17.501L18.1751 18.3893C18.4968 18.5318 18.8749 18.4494 19.1094 18.1851C20.0866 17.0861 20.8162 15.8289 21.2804 14.4498C21.3931 14.115 21.2761 13.7451 20.9907 13.5354L19.2172 12.2354ZM11.0169 14.791C8.92286 14.791 7.22528 13.0934 7.22528 10.9994C7.22528 8.90528 8.92286 7.2077 11.0169 7.2077C13.111 7.2077 14.8086 8.90528 14.8086 10.9994C14.8086 13.0934 13.111 14.791 11.0169 14.791Z" fill="#636E72" />
+                                            </svg>
+                                        </div>
+
+
+                                        <div onClick={() => setRecentTransactions(true)} className='p-[14px] bg-customgraybg rounded-[10px]'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                                <path d="M11.1667 0.166626C8.21825 0.166626 5.5398 1.35142 3.58336 3.26957V2.33329C3.58534 2.18844 3.55826 2.04467 3.5037 1.91047C3.44915 1.77627 3.36824 1.65438 3.26576 1.552C3.16328 1.44961 3.04131 1.36882 2.90705 1.3144C2.7728 1.25998 2.629 1.23303 2.48416 1.23515C2.19703 1.23936 1.92331 1.35738 1.72315 1.56329C1.52299 1.76921 1.41277 2.04616 1.41669 2.33329V6.12496C1.41704 6.40454 1.52546 6.67317 1.71927 6.87467C1.91309 7.07618 2.17729 7.19496 2.45665 7.20618C2.61729 7.2441 2.78446 7.24483 2.94542 7.20829H6.29169C6.43525 7.21032 6.57778 7.1838 6.71099 7.13027C6.84421 7.07674 6.96545 6.99726 7.06769 6.89647C7.16992 6.79567 7.2511 6.67556 7.30651 6.54311C7.36192 6.41067 7.39046 6.26853 7.39046 6.12496C7.39046 5.98139 7.36192 5.83925 7.30651 5.70681C7.2511 5.57436 7.16992 5.45425 7.06769 5.35345C6.96545 5.25265 6.84421 5.17318 6.71099 5.11965C6.57778 5.06612 6.43525 5.0396 6.29169 5.04163H4.87722C6.45484 3.37577 8.68346 2.33329 11.1667 2.33329C15.9659 2.33329 19.8334 6.20074 19.8334 11C19.8334 15.7992 15.9659 19.6666 11.1667 19.6666C6.36748 19.6666 2.50003 15.7992 2.50003 11C2.50206 10.8564 2.47554 10.7139 2.422 10.5807C2.36847 10.4474 2.289 10.3262 2.1882 10.224C2.0874 10.1217 1.96729 10.0406 1.83485 9.98514C1.7024 9.92973 1.56026 9.9012 1.41669 9.9012C1.27312 9.9012 1.13099 9.92973 0.998542 9.98514C0.866097 10.0406 0.745985 10.1217 0.645187 10.224C0.544389 10.3262 0.464915 10.4474 0.411383 10.5807C0.357851 10.7139 0.33133 10.8564 0.33336 11C0.33336 16.9702 5.19649 21.8333 11.1667 21.8333C17.1369 21.8333 22 16.9702 22 11C22 5.02976 17.1369 0.166626 11.1667 0.166626ZM11.1508 5.02681C10.8637 5.03102 10.59 5.14905 10.3898 5.35496C10.1897 5.56087 10.0794 5.83782 10.0834 6.12496V12.0833C10.0834 12.3706 10.1975 12.6461 10.4007 12.8493C10.6039 13.0525 10.8794 13.1666 11.1667 13.1666H14.9584C15.1019 13.1687 15.2444 13.1421 15.3777 13.0886C15.5109 13.0351 15.6321 12.9556 15.7344 12.8548C15.8366 12.754 15.9178 12.6339 15.9732 12.5014C16.0286 12.369 16.0571 12.2269 16.0571 12.0833C16.0571 11.9397 16.0286 11.7976 15.9732 11.6651C15.9178 11.5327 15.8366 11.4126 15.7344 11.3118C15.6321 11.211 15.5109 11.1315 15.3777 11.078C15.2444 11.0245 15.1019 10.9979 14.9584 11H12.25V6.12496C12.252 5.98011 12.2249 5.83634 12.1704 5.70214C12.1158 5.56794 12.0349 5.44605 11.9324 5.34366C11.8299 5.24128 11.708 5.16049 11.5737 5.10606C11.4395 5.05164 11.2957 5.02469 11.1508 5.02681Z" fill="#636E72" />
+                                            </svg>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div className="border-b border-solid border-customlightgraybg opacity-[0.25] my-[43px]"></div>
+
+
+                                <div>
+                                    <div className="flex  items-center justify-center gap-[10px] rounded-[40px] cursor-pointer bg-custombluebg py-[22px] px-[34px] ">
+                                        <div className="text-[18px] text-center text-white font-[500] text-[Urbanist]">Add Liquidity</div>
+                                    </div>
+
+                                    <div className='flex justify-between py-[30px]'>
+                                        <p className="text-[20px] dark:text-white text-custommediumgraybg font-[500] text-[Poppins] mt-[5px]">Your Liquidity</p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M12 2C6.48603 2 2 6.48604 2 12C2 17.514 6.48603 22 12 22C17.514 22 22 17.514 22 12C22 6.48604 17.514 2 12 2ZM12 3.5C16.7033 3.5 20.5 7.2967 20.5 12C20.5 16.7033 16.7033 20.5 12 20.5C7.29669 20.5 3.5 16.7033 3.5 12C3.5 7.2967 7.29669 3.5 12 3.5ZM12 7C11.7348 7 11.4804 7.10536 11.2929 7.29289C11.1054 7.48043 11 7.73478 11 8C11 8.26522 11.1054 8.51957 11.2929 8.70711C11.4804 8.89464 11.7348 9 12 9C12.2652 9 12.5196 8.89464 12.7071 8.70711C12.8946 8.51957 13 8.26522 13 8C13 7.73478 12.8946 7.48043 12.7071 7.29289C12.5196 7.10536 12.2652 7 12 7ZM11.9883 10.4893C11.7895 10.4924 11.6002 10.5742 11.4617 10.7169C11.3233 10.8595 11.2471 11.0513 11.25 11.25V16.75C11.2486 16.8494 11.267 16.9481 11.304 17.0403C11.3411 17.1325 11.3961 17.2164 11.4659 17.2872C11.5357 17.358 11.6188 17.4142 11.7105 17.4526C11.8022 17.4909 11.9006 17.5107 12 17.5107C12.0994 17.5107 12.1978 17.4909 12.2895 17.4526C12.3812 17.4142 12.4643 17.358 12.5341 17.2872C12.6039 17.2164 12.6589 17.1325 12.696 17.0403C12.733 16.9481 12.7514 16.8494 12.75 16.75V11.25C12.7514 11.1496 12.7327 11.05 12.6949 10.957C12.6571 10.8639 12.6011 10.7795 12.53 10.7085C12.459 10.6376 12.3745 10.5816 12.2814 10.544C12.1883 10.5063 12.0887 10.4877 11.9883 10.4893Z" fill="#2B70FA" />
+                                        </svg>
+                                    </div>
+
+                                    <div className='cursor-pointer'>
+                                        <div className='flex justify-center'>
+                                            <svg className='fill-customlightgraybg dark:fill-custommediumgraybg' xmlns="http://www.w3.org/2000/svg" width="85" height="84" viewBox="0 0 85 84" fill="none">
+                                                <path d="M13.625 38.5C15.074 38.5 16.25 37.324 16.25 35.875V34.125C16.25 32.676 15.074 31.5 13.625 31.5C12.176 31.5 11 32.676 11 34.125V35.875C11 37.324 12.176 38.5 13.625 38.5ZM34.625 15.75H36.375C37.824 15.75 39 14.574 39 13.125C39 11.676 37.824 10.5 36.375 10.5H34.625C33.176 10.5 32 11.676 32 13.125C32 14.574 33.176 15.75 34.625 15.75ZM16.25 49.875V48.125C16.25 46.676 15.074 45.5 13.625 45.5C12.176 45.5 11 46.676 11 48.125V49.875C11 51.324 12.176 52.5 13.625 52.5C15.074 52.5 16.25 51.324 16.25 49.875ZM46 13.125C46 14.574 47.176 15.75 48.625 15.75H50.375C51.824 15.75 53 14.574 53 13.125C53 11.676 51.824 10.5 50.375 10.5H48.625C47.176 10.5 46 11.676 46 13.125ZM62.625 15.75H64.375C66.7918 15.75 68.75 17.7083 68.75 20.125V21.875C68.75 23.324 69.926 24.5 71.375 24.5C72.824 24.5 74 23.324 74 21.875V20.125C74 14.8085 69.6915 10.5 64.375 10.5H62.625C61.176 10.5 60 11.676 60 13.125C60 14.574 61.176 15.75 62.625 15.75ZM39 70.875C39 69.426 37.824 68.25 36.375 68.25H34.625C33.176 68.25 32 69.426 32 70.875C32 72.324 33.176 73.5 34.625 73.5H36.375C37.824 73.5 39 72.324 39 70.875ZM16.25 21.875V20.125C16.25 17.7083 18.2083 15.75 20.625 15.75H22.375C23.824 15.75 25 14.574 25 13.125C25 11.676 23.824 10.5 22.375 10.5H20.625C15.3085 10.5 11 14.8085 11 20.125V21.875C11 23.324 12.176 24.5 13.625 24.5C15.074 24.5 16.25 23.324 16.25 21.875ZM68.75 62.125V63.875C68.75 66.2918 66.7918 68.25 64.375 68.25H62.625C61.176 68.25 60 69.426 60 70.875C60 72.324 61.176 73.5 62.625 73.5H64.375C69.6915 73.5 74 69.1915 74 63.875V62.125C74 60.676 72.824 59.5 71.375 59.5C69.926 59.5 68.75 60.676 68.75 62.125ZM22.375 68.25H20.625C18.2083 68.25 16.25 66.2918 16.25 63.875V62.125C16.25 60.676 15.074 59.5 13.625 59.5C12.176 59.5 11 60.676 11 62.125V63.875C11 69.1915 15.3085 73.5 20.625 73.5H22.375C23.824 73.5 25 72.324 25 70.875C25 69.426 23.824 68.25 22.375 68.25ZM71.375 45.5C69.926 45.5 68.75 46.676 68.75 48.125V49.875C68.75 51.324 69.926 52.5 71.375 52.5C72.824 52.5 74 51.324 74 49.875V48.125C74 46.676 72.824 45.5 71.375 45.5ZM68.75 34.125V35.875C68.75 37.324 69.926 38.5 71.375 38.5C72.824 38.5 74 37.324 74 35.875V34.125C74 32.676 72.824 31.5 71.375 31.5C69.926 31.5 68.75 32.676 68.75 34.125ZM50.375 68.25H48.625C47.176 68.25 46 69.426 46 70.875C46 72.324 47.176 73.5 48.625 73.5H50.375C51.824 73.5 53 72.324 53 70.875C53 69.426 51.824 68.25 50.375 68.25Z" fill="" />
+                                            </svg>
+                                        </div>
+                                        <p className="text-[30px] dark:text-custommediumgraybg text-center pt-[10px] text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">Connect to a wallet to view your liquidity.</p>
+
+                                    </div>
+
+                                    <div className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Poppins] mt-[60px]">
+                                        Or, if you staked your LP tokens in a farm, unstake them to see them here.
+                                    </div>
+                                </div>
+                            </div>
+                        }
                         {activeTab === "Bridge" && <div className="p-4">Bridge</div>}
                     </div>
                 </div>
@@ -550,92 +624,6 @@ const PizzaSwap = () => {
                 </Dialog>
             </Transition>
 
-            {/* Token Imported */}
-            <Transition appear show={tokenImported} as={Fragment}>
-                <Dialog as="div" open={tokenImported} onClose={() => setTokenImported(true)} className="relative z-[51]">
-                    <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0" enterTo="opacity-100" leave="ease-in duration-200" leaveFrom="opacity-100" leaveTo="opacity-0">
-                        <div className="fixed inset-0 bg-[black]/60" />
-                    </Transition.Child>
-                    <div className="fixed inset-0 overflow-y-auto">
-                        <div className="flex min-h-full items-center justify-center px-4 pt-10">
-                            <Transition.Child
-                                as={Fragment}
-                                enter="ease-out duration-300"
-                                enterFrom="opacity-0 scale-95"
-                                enterTo="opacity-100 scale-100"
-                                leave="ease-in duration-200"
-                                leaveFrom="opacity-100 scale-100"
-                                leaveTo="opacity-0 scale-95"
-                            >
-                                <Dialog.Panel className="panel !h-[730px] border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
-                                    <div className='px-[25px]'>
-                                        <div className="text-[22px] pt-[35px] dark:text-white text-customblackbg font-[700] text-[Urbanist] ltr:pl-5 rtl:pr-5 py-3 ltr:pr-[50px] rtl:pl-[50px]">
-                                            <div className='flex items-center gap-2'>
-                                                <span>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                                                        <path d="M25.3348 20.5881L16.3036 4.27463C15.8328 3.42471 14.9718 2.91663 14 2.91663C13.0282 2.91663 12.1672 3.42471 11.6964 4.27463L2.66526 20.5881C2.20851 21.4135 2.22135 22.3906 2.70085 23.2032C3.17918 24.0152 4.02735 24.5 4.96943 24.5H23.0312C23.9727 24.5 24.8208 24.0152 25.2998 23.2032C25.7781 22.3912 25.7915 21.4135 25.3348 20.5881ZM13.125 10.2083C13.125 9.72471 13.517 9.33329 14 9.33329C14.483 9.33329 14.875 9.72471 14.875 10.2083V16.0416C14.875 16.5252 14.483 16.9166 14 16.9166C13.517 16.9166 13.125 16.5252 13.125 16.0416V10.2083ZM14 21C13.3554 21 12.8333 20.4779 12.8333 19.8333C12.8333 19.1887 13.3554 18.6666 14 18.6666C14.6446 18.6666 15.1667 19.1887 15.1667 19.8333C15.1667 20.4779 14.6446 21 14 21Z" fill="#F94025" />
-                                                    </svg>
-                                                </span>
-                                                Token Imported
-
-                                            </div>
-                                        </div>
-                                        <div className="border-b border-solid border-customlightgraybg opacity-[0.25] mt-[15px] mx-5"></div>
-
-                                    </div>
-                                    <div className="px-[25px] pt-[30px]">
-                                        <div className=''>
-                                            <p className='text-[20px] leading-[170%] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Urbanist]'>
-                                                Anyone can create an BEP20 token on BSC with any name, including creating fake versions of existing tokens and tokens that claim to represent projects that do not have a token.
-                                            </p>
-
-                                            <p className='text-[20px] mt-8 leading-[170%] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Urbanist]'>
-                                                This interface can load arbitrary tokens by token addresses. Please take extra caution and do your research when interacting with arbitrary BEP20 tokens.
-                                            </p>
-
-                                            <p className='text-[20px] mt-8 leading-[170%] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Urbanist]'>
-                                                If you purchase an arbitrary token, <span className='text-[#F94025] font-[700]'> you may be unable to sell it back.</span>
-                                            </p>
-
-                                        </div>
-
-
-                                        <div className='flex mt-[12px] gap-[10px] items-center py-[15px] px-[20px] bg-customgraybg dark:bg-customblackbg rounded-[15px] cursor-pointer'>
-                                            <img src={pizzaBlue} alt='pizzaBlue' />
-                                            <div>
-                                                <p className='text-[20px] dark:text-white text-customblackbg font-[700] text-[Urbanist]'>PizzaSwap Token (PizzaSwap)</p>
-
-                                                <p className='text-[18px]  dark:text-white text-custommediumgraybg font-[500] text-[Urbanist]'>0x3778....BB3C (View on BscScan)</p>
-                                            </div>
-
-                                        </div>
-                                        <div className='flex items-center justify-between py-[30px]'>
-                                            <div className="flex items-center mb-4 mt-4">
-                                                <input
-                                                    id="default-checkbox"
-                                                    type="checkbox"
-                                                    value=""
-                                                    className="w-4 cursor-pointer h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                                                    onChange={handleCheckboxChange}
-                                                />
-                                                <label htmlFor="default-checkbox" className="ms-2 mb-0 text-[18px]  dark:text-white text-customblackbg font-[500] text-[Urbanist]">I Understand</label>
-                                            </div>
-
-                                            <div className={`flex justify-center}`}>
-                                                <div onClick={() => isUnderstand ? handleConnect() : ""} className={`rounded-full cursor-pointer  py-[12px] px-[34px] ${isUnderstand ? ' bg-custombluebg ' : 'bg-customgraybg dark:bg-customblackbg'}`} >
-                                                    <div className={`text-[16px]   text-center font-[500]  text-[Urbanist] ${isUnderstand ? ' text-white' : 'text-customlightgraybg dark:custommediumgraybg'}`}>Connect</div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </Dialog.Panel>
-                            </Transition.Child>
-                        </div>
-                    </div>
-                </Dialog>
-            </Transition>
-
 
 
 
@@ -648,4 +636,4 @@ const PizzaSwap = () => {
     );
 };
 
-export default PizzaSwap;
+export default Trade;

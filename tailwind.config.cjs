@@ -91,6 +91,11 @@ module.exports = {
                     light: '#2D3436',
                     dark: '#2D3436',
                 },
+                customMainblackbg: {
+                    DEFAULT: '#1A1E1F',
+                    light: '#1A1E1F',
+                    dark: '#1A1E1F',
+                },
                 customred: {
                     DEFAULT: '#F94025',
                     light: '#F94025',

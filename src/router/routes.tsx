@@ -9,7 +9,7 @@ const Landing = lazy(() => import('../pages/LandingPage'));
 const NotificationList = lazy(() => import('../pages/Notifications'));
 
 const OrgProfile = lazy(() => import('../pages/Users/OrgDetail'));
-const OrgList = lazy(() => import('../pages/OrganizationsList'));
+const Trade = lazy(() => import('../pages/Trade/Trade'));
 const RevinueList = lazy(() => import('../pages/Revenue/RevenueList'));
 
 const LoginBoxed = lazy(() => import('../pages/Authentication/LoginBoxed'));
@@ -43,8 +43,8 @@ const routes = [
         element: <BuyPizza />,
     },
     {
-        path: '/organizations-list',
-        element: <OrgList />,
+        path: '/trade',
+        element: <Trade />,
     },
     {
         path: '/addfaq',
