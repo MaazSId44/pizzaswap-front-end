@@ -4,7 +4,7 @@ import { IRootState } from '../store';
 import { useEffect } from 'react';
 import { setPageTitle } from '../store/themeConfigSlice';
 
-import avatar from '../assets/images/avatar.png';
+import avatar from '../../public/assets/images/avatar.png';
 import connect from '../assets/images/connectImage.svg';
 
 const Home = () => {
@@ -40,7 +40,7 @@ const Home = () => {
             description: 'Transform your dashboard into a haven of artistic expression! The Personalized NFT Gallery lets you curate your collection...',
         },
         {
-            image: '../public/assets/images/card4.png',
+            image: '../assets/images/card4.png',
             title: 'Curate Your Digital Oasis: The Personalized NFT Gallery',
             description: 'Transform your dashboard into a haven of artistic expression! The Personalized NFT Gallery lets you curate your collection...',
         },
