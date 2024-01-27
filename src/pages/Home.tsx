@@ -4,8 +4,8 @@ import { IRootState } from '../store';
 import { useEffect } from 'react';
 import { setPageTitle } from '../store/themeConfigSlice';
 
-import avatar from '../../public/assets/images/avatar.png';
-import connect from '../../public/assets/images/connectImage.svg';
+import avatar from '../assets/images/avatar.png';
+import connect from '../assets/images/connectImage.svg';
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -25,22 +25,22 @@ const Home = () => {
 
     const cardData = [
         {
-            image: '../../public/assets/images/card1.png',
+            image: '../assets/images/card1.png',
             title: 'Unleash Your Inner Artist: The NFT Creator Studio',
             description: 'No artistic skills? No problem! The NFT Creator Studio empowers everyone to become an NFT artist. Craft unique digital masterpieces...',
         },
         {
-            image: '../../public/assets/images/card2.png',
+            image: '../assets/images/card2.png',
             title: 'Exclusive Rewards and Perks: The NFT Loyalty Program',
             description: 'Your loyalty deserves to be rewarded! The NFT Loyalty Program showers you with exclusive benefits, early access to drops...',
         },
         {
-            image: '../../public/assets/images/card3.png',
+            image: '../assets/images/card3.png',
             title: 'Curate Your Digital Oasis: The Personalized NFT Gallery',
             description: 'Transform your dashboard into a haven of artistic expression! The Personalized NFT Gallery lets you curate your collection...',
         },
         {
-            image: '../../public/assets/images/card4.png',
+            image: '../public/assets/images/card4.png',
             title: 'Curate Your Digital Oasis: The Personalized NFT Gallery',
             description: 'Transform your dashboard into a haven of artistic expression! The Personalized NFT Gallery lets you curate your collection...',
         },
