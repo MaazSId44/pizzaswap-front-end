@@ -6,43 +6,44 @@ import { setPageTitle } from '../store/themeConfigSlice';
 
 import avatar from '../../public/assets/images/avatar.png';
 import connect from '../assets/images/connectImage.svg';
+import { homeData } from '../components/Constants/Constant'
 
 const Home = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(setPageTitle('Home'));
     });
- 
+
     const date = new Date();
     const month = date.getMonth();
     const data = [
-        { label: 'Market Cap', value: '$2,358' },
-        { label: 'Total Minted', value: '101,066,256' },
-        { label: 'Total Burned', value: '164,043' },
-        { label: 'Supply', value: '100,902,213' },
-        { label: 'Market Cap', value: '$2,358' },
+        { label: homeData.PizzaSwapStats.MarketCap, value: homeData.PizzaSwapStats.amount },
+        { label: homeData.PizzaSwapStats.TotalMinted, value: homeData.PizzaSwapStats.amount2 },
+        { label: homeData.PizzaSwapStats.TotalBurned, value: homeData.PizzaSwapStats.amount3 },
+        { label: homeData.PizzaSwapStats.Supply, value: homeData.PizzaSwapStats.amount4 },
+        { label: homeData.PizzaSwapStats.MarketCap, value: homeData.PizzaSwapStats.amount },
     ];
 
     const cardData = [
         {
             image: '../assets/images/card1.png',
-            title: 'Unleash Your Inner Artist: The NFT Creator Studio',
-            description: 'No artistic skills? No problem! The NFT Creator Studio empowers everyone to become an NFT artist. Craft unique digital masterpieces...',
+            title: homeData.Announcements.NFTCreatorStudio,
+            description: homeData.Announcements.NFTCreatorStudioDescription,
         },
         {
             image: '../assets/images/card2.png',
-            title: 'Exclusive Rewards and Perks: The NFT Loyalty Program',
-            description: 'Your loyalty deserves to be rewarded! The NFT Loyalty Program showers you with exclusive benefits, early access to drops...',
+            title: homeData.Announcements.NFTLoyaltyProgram,
+            description: homeData.Announcements.NFTLoyaltyProgramDescription,
         },
         {
             image: '../assets/images/card3.png',
-            title: 'Curate Your Digital Oasis: The Personalized NFT Gallery',
-            description: 'Transform your dashboard into a haven of artistic expression! The Personalized NFT Gallery lets you curate your collection...',
+            title: homeData.Announcements.PersonalizedNFTGallery,
+            description: homeData.Announcements.PersonalizedNFTGalleryDescription,
         },
         {
             image: '../assets/images/card4.png',
-            title: 'Curate Your Digital Oasis: The Personalized NFT Gallery',
-            description: 'Transform your dashboard into a haven of artistic expression! The Personalized NFT Gallery lets you curate your collection...',
+            title: homeData.Announcements.PersonalizedNFTGallery,
+            description: homeData.Announcements.PersonalizedNFTGalleryDescription,
         },
     ];
 
@@ -66,18 +67,19 @@ const Home = () => {
             <div className="flex items-center gap-[10px] pb-[21px]">
                 <img src={avatar} alt="avatar" />
                 <div className="mt-[10px]">
-                    <h1 className="text-[28px] dark:text-white text-customblackbg font-[700] text-[Poppins] ">Welcome Back, John 👋</h1>
-                    <p className="text-[16px] dark:text-customlightgraybg text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">Your current status and analytics are here</p>
+                    <h1 className="text-[28px] dark:text-white text-customblackbg font-[700] text-[Poppins] ">{homeData.WelcomeMessage}</h1>
+                    <p className="text-[16px] dark:text-customlightgraybg text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">{homeData.StatusAndAnalytics}</p>
                 </div>
             </div>
+            
             <div className="pt-5">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-[40px] mb-[40px]">
                     <div className="panel h-full">
                         <div className="flex justify-between dark:text-white-light mb-5">
-                            <h5 className="text-[22px] dark:text-white text-customblackbg font-[700] text-[Urbanist]">Farms & Staking</h5>
+                            <h5 className="text-[22px] dark:text-white text-customblackbg font-[700] text-[Urbanist]">{homeData.FarmsAndStaking}</h5>
                         </div>
                         <div>
-                            <div className="flex flex-wrap items-center gap-[12px] text-[#e95f2b]">
+                            <div className="flex flex-wrap items-center gap-[18px] text-[#e95f2b]">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
                                     <g clip-path="url(#clip0_37_117)">
                                         <path
@@ -136,28 +138,28 @@ const Home = () => {
                                     </defs>
                                 </svg>
                                 <div className="rounded-[40px] cursor-pointer bg-custombluebg py-[12px] px-[34px] ">
-                                    <div className="text-[16px] text-white font-[500] text-[Urbanist]">Buy PizzaSwap</div>
+                                    <div className="text-[16px] text-white font-[500] text-[Urbanist]">{homeData.BuyPizzaSwap}</div>
                                 </div>
                                 <div className="flex gap-[10px] rounded-[40px] cursor-pointer   bg-custombluebg py-[12px] px-[34px]">
-                                    <div className="text-[16px] text-white font-[500] text-[Urbanist]">Connect </div>
+                                    <div className="text-[16px] text-white font-[500] text-[Urbanist]">{homeData.Connect} </div>
                                     <img src={connect} alt='connect' />
                                 </div>
                             </div>
                             <div className='pt-[40px]'>
                                 <div>
                                     <div className="flex justify-between">
-                                        <h2 className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Urbanist]">PizzaSwap to Harvest</h2>
-                                        <p className="text-[16px] text-customred font-[500] text-[Urbanist]">Locked</p>
+                                        <h2 className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Urbanist]">{homeData.PizzaSwapToHarvest}</h2>
+                                        <p className="text-[16px] text-customred font-[500] text-[Urbanist]">{homeData.Locked}</p>
                                     </div>
-                                    <h1 className="text-[22px] dark:text-white text-customblackbg font-[600] text-[Urbanist] pt-[10px]">~$0.000</h1>
+                                    <h1 className="text-[22px] dark:text-white text-customblackbg font-[600] text-[Urbanist] pt-[10px]">{homeData.Wallet1}</h1>
                                 </div>
 
                                 <div className="pt-[28px]">
                                     <div className="flex justify-between">
-                                        <h2 className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Urbanist]">PizzaSwap in Wallet</h2>
-                                        <p className="text-[16px] text-customred font-[500] text-[Urbanist]">Locked</p>
+                                        <h2 className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Urbanist]">{homeData.PizzaSwapInWallet}</h2>
+                                        <p className="text-[16px] text-customred font-[500] text-[Urbanist]">{homeData.Locked}</p>
                                     </div>
-                                    <h1 className="text-[22px] dark:text-white text-customblackbg font-[600] text-[Urbanist] pt-[10px]">~$576.000</h1>
+                                    <h1 className="text-[22px] dark:text-white text-customblackbg font-[600] text-[Urbanist] pt-[10px]">{homeData.WalletBalance}</h1>
                                 </div>
                             </div>
 
@@ -168,14 +170,14 @@ const Home = () => {
                                         fill="white"
                                     />
                                 </svg>
-                                <div className="text-[18px] text-center text-white font-[500] text-[Urbanist]">Unlock Wallet</div>
+                                <div className="text-[18px] text-center text-white font-[500] text-[Urbanist]">{homeData.UnlockWallet}</div>
                             </div>
                         </div>
                     </div>
 
                     <div className="panel h-full">
                         <div className="flex justify-between dark:text-white-light mb-5">
-                            <h5 className="text-[22px] dark:text-white text-customblackbg font-[700] text-[Urbanist]">PizzaSwap Stats</h5>
+                            <h5 className="text-[22px] dark:text-white text-customblackbg font-[700] text-[Urbanist]">{homeData.PizzaSwapStats.Title}</h5>
                         </div>
                         <div>
                             <ul className='mt-[40px]'>
@@ -202,7 +204,7 @@ const Home = () => {
                     <div>
                         <div className="panel" style={backgroundImageStyle}>
                             <div className="flex justify-between dark:text-white-light">
-                                <h5 className="text-[22px] text-white font-[700] text-[Urbanist]">Total Value Locked (TVL)</h5>
+                                <h5 className="text-[22px] text-white font-[700] text-[Urbanist]">{homeData.TotalValueLocked.TotalValueLocked}</h5>
 
                             </div>
                             <div className=" flex item-center gap-[10px]  pt-[30px]">
@@ -212,8 +214,8 @@ const Home = () => {
                                     <path d="M10 20C10 14.4767 14.4767 10 20 10H50C55.5233 10 60 14.4767 60 20H10Z" fill="white" />
                                 </svg>
                                 <div className="my-4">
-                                    <p className="text-[34px] text-white font-[700] text-[Urbanist]">$26,344.23</p>
-                                    <p className="text-[18px] text-white font-[600] text-[Urbanist] pt-[10px]">Across all Farms and Pools</p>
+                                    <p className="text-[34px] text-white font-[700] text-[Urbanist]">{homeData.TotalValueLocked.TVL}</p>
+                                    <p className="text-[18px] text-white font-[600] text-[Urbanist] pt-[10px]">{homeData.TotalValueLocked.AcrossAllFarmsAndPools}</p>
                                 </div>
                             </div>
                         </div>
@@ -221,7 +223,7 @@ const Home = () => {
 
                         <div className="panel mt-[30px]" style={backgroundLotryImageStyle}>
                             <div className="flex justify-between dark:text-white-light">
-                                <h5 className="text-[22px] text-customblackbg font-[700] text-[Urbanist]">Lottery Winning Numbers</h5>
+                                <h5 className="text-[22px] text-customblackbg font-[700] text-[Urbanist]">{homeData.LotteryWinningNumbers}</h5>
 
                             </div>
                             <div className=" flex flex-wrap item-center gap-[15px]  pt-[30px]">
@@ -243,7 +245,7 @@ const Home = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path d="M5.20829 2.08334C3.94454 2.08334 2.91663 3.11126 2.91663 4.37501V15.625C2.91663 16.8888 3.94454 17.9167 5.20829 17.9167H10.2083C11.472 17.9167 12.5 16.8888 12.5 15.625V10.625H6.45829C6.11288 10.625 5.83329 10.3454 5.83329 10C5.83329 9.65459 6.11288 9.37501 6.45829 9.37501H12.5V4.37501C12.5 3.11126 11.472 2.08334 10.2083 2.08334H5.20829ZM12.5 9.37501V10.625H15.7828L13.9331 12.4748C13.8731 12.5324 13.8252 12.6014 13.7922 12.6777C13.7592 12.754 13.7418 12.8362 13.7409 12.9193C13.7401 13.0025 13.7559 13.0849 13.7873 13.1619C13.8187 13.2389 13.8652 13.3089 13.924 13.3676C13.9828 13.4264 14.0527 13.4729 14.1297 13.5044C14.2067 13.5358 14.2892 13.5515 14.3723 13.5507C14.4555 13.5498 14.5376 13.5324 14.614 13.4994C14.6903 13.4664 14.7593 13.4186 14.8169 13.3586L17.7335 10.4419C17.8507 10.3247 17.9165 10.1657 17.9165 10C17.9165 9.83428 17.8507 9.67533 17.7335 9.55812L14.8169 6.64145C14.7586 6.58145 14.6889 6.53376 14.6119 6.50119C14.5348 6.46862 14.4521 6.45184 14.3684 6.45183C14.2441 6.45186 14.1225 6.489 14.0194 6.5585C13.9162 6.628 13.8361 6.72669 13.7894 6.84195C13.7426 6.95722 13.7313 7.08381 13.7569 7.20553C13.7825 7.32725 13.8438 7.43857 13.9331 7.52524L15.7828 9.37501H12.5Z" fill="#636E72" />
                                 </svg>
-                                <p className="text-[16px] text-custommediumgraybg font-[600] text-[Urbanist]">Export Numbers</p>
+                                <p className="text-[16px] text-custommediumgraybg font-[600] text-[Urbanist]">{homeData.ExportNumbers}</p>
                             </div>
                         </div>
 
@@ -256,9 +258,9 @@ const Home = () => {
             <div className="grid xl:grid-cols-1 gap-6">
                 <div className="panel xl:col-span-2">
                     <div className='flex items-center justify-between'>
-                        <h5 className="text-[22px] dark:text-white text-customblackbg font-[700] text-[Urbanist]">Announcements</h5>
+                        <h5 className="text-[22px] dark:text-white text-customblackbg font-[700] text-[Urbanist]">{homeData.Announcements.Announcements}</h5>
                         <div className='flex items-center gap-[5px] cursor-pointer'>
-                            <p className="text-[18px] text-customlightgraybg font-[600] text-[Urbanist] cursor-pointer">View All</p>
+                            <p className="text-[18px] text-customlightgraybg font-[600] text-[Urbanist] cursor-pointer">{homeData.Announcements.ViewAll}</p>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                 <path d="M3.83334 10.8333H13.1551L10.4109 13.5775C10.0855 13.9029 10.0855 14.4304 10.4109 14.7558C10.5738 14.9187 10.7867 15 11.0001 15C11.2134 15 11.4263 14.9187 11.5893 14.7558L15.756 10.5891C15.9122 10.4333 16.0001 10.2212 16.0001 9.99995C16.0001 9.7787 15.9122 9.56703 15.756 9.41078L11.5893 5.24407C11.2638 4.91864 10.7363 4.91864 10.4109 5.24407C10.0855 5.56949 10.0855 6.09699 10.4109 6.42241L13.1551 9.16661H3.83334C3.37334 9.16661 3 9.53994 3 9.99995C3 10.46 3.37334 10.8333 3.83334 10.8333Z" fill="#B2BEC3" />
                             </svg>
@@ -274,7 +276,7 @@ const Home = () => {
                                         src={card.image}
                                         alt={card.title}
                                     />
-                                    <div className="p-4">
+                                    <div className="mt-5">
                                         <h3 className="text-[16px] dark:text-white text-customblackbg font-[600] text-[Urbanist] mb-[12px]">{card.title}</h3>
                                         <p className="text-[15px] dark:customlightgraybg text-custommediumgraybg font-[400] text-[Urbanist]">{card.description}</p>
                                     </div>

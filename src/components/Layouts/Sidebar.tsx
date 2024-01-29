@@ -8,10 +8,10 @@ import { IRootState } from '../../store';
 import { useState, useEffect } from 'react';
 import student from '../../assets/Images/student.svg';
 import logo from '../../assets/Images/logo.svg';
+import { sideBarData } from '../Constants/Constant'
 
 const Sidebar = () => {
     const [currentMenu, setCurrentMenu] = useState<string>('');
-    const [errorSubMenu, setErrorSubMenu] = useState(false);
     const themeConfig = useSelector((state: IRootState) => state.themeConfig);
     const semidark = useSelector((state: IRootState) => state.themeConfig.semidark);
     const location = useLocation();
@@ -47,7 +47,6 @@ const Sidebar = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location]);
     const theme = localStorage.getItem('theme');
-
     return (
         <div className={semidark ? 'dark' : ''}>
             <nav
@@ -160,8 +159,6 @@ const Sidebar = () => {
                                     </defs>
                                 </svg>
                             }
-
-                            {/* <span className="text-2xl ltr:ml-1.5 rtl:mr-1.5 font-semibold align-middle lg:inline dark:text-white-light">{t('VRISTO')}</span> */}
                         </NavLink>
 
                         <button
@@ -180,7 +177,7 @@ const Sidebar = () => {
                             <div>
 
                                 <li className="menu nav-item mt-3">
-                                    <p className='text-[12px] text-custombluebg font-[700] text-[Poppins] uppercase'>Dashboard</p>
+                                    <p className='text-[12px] text-custombluebg font-[700] text-[Poppins] uppercase'>{sideBarData.Dashboard}</p>
                                     <NavLink to="/" className={'mt-[12px]'} >
                                         <button type="button" className={`${currentMenu === 'dashboard' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('dashboard')}>
                                             <div className="flex items-center">
@@ -190,7 +187,7 @@ const Sidebar = () => {
                                                     <path d="M15 21H9V15C9 13.895 9.895 13 11 13H13C14.105 13 15 13.895 15 15V21Z" fill="#2B70FA" />
                                                 </svg>
 
-                                                <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-customlightgraybg dark:group-hover:text-white-dark">{t('Home')}</span>
+                                                <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-customlightgraybg dark:group-hover:text-white-dark">{t(sideBarData.Home)}</span>
                                             </div>
 
                                         </button>
@@ -227,27 +224,17 @@ const Sidebar = () => {
                                                     </clipPath>
                                                 </defs>
                                             </svg>
-                                            <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-customlightgraybg dark:group-hover:text-white-dark">Buy PizzaSwap</span>
+                                            <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-customlightgraybg dark:group-hover:text-white-dark">{sideBarData.BuyPizza}</span>
                                         </div>
 
 
                                     </button>
                                 </NavLink>
-
-                                {/* <AnimateHeight duration={300} height={currentMenu === 'studentlist' ? 'auto' : 0}>
-                                    <ul className="sub-menu text-gray-500">
-                                        <li className="nav-item">
-                                            <div className="flex items-center ">
-                                                <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-customlightgraybg dark:group-hover:text-white-dark">{t('Buy PizzaSwap')}</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </AnimateHeight> */}
                             </li>
 
                             <li className="menu nav-item mt-3">
                                 <NavLink to="/trade">
-                                    <button type="button" className={`${currentMenu === 'trade' ? 'active' : ''} flex justify-between items-center nav-link group w-full`} onClick={() => toggleMenu('trade')}>
+                                    <button type="button" className={`${currentMenu === 'trade' ? 'active' : ''} flex justify-between items-center nav-link group w-full`} onClick={() => toggleMenu(sideBarData.Trade)}>
                                         <div className="flex items-center">
 
 
@@ -285,43 +272,52 @@ const Sidebar = () => {
                                         </div>
                                     </button>
                                 </NavLink>
-                          
+
                             </li>
+
+                            <div className='pt-[20px]'>
+                                <p className='text-[12px] text-custombluebg font-[700] text-[Poppins] uppercase'>{sideBarData.Pages}</p>
+                                <li className="menu nav-item mt-3">
+                                    <NavLink to="/farms" className="group  !justify-start osList">
+
+                                        <button type="button" className={`${currentMenu === 'createevents' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('farms')}>
+
+                                            <div className="flex items-center">
+
+                                                {theme == 'dark' ?
+                                                    <svg className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.35" d="M19 21C20.4083 21 21.55 19.8583 21.55 18.45C21.55 17.0417 20.4083 15.9 19 15.9C17.5916 15.9 16.45 17.0417 16.45 18.45C16.45 19.8583 17.5916 21 19 21Z" fill="#2B70FA" />
+                                                        <path opacity="0.35" d="M11.3585 11.4927L13.9 10.8L12.6828 5.9312C12.3989 4.79645 11.3789 4 10.2093 4H6.24995C5.3107 4 4.54995 4.76075 4.54995 5.7V13.0831C4.0136 13.8906 3.69995 14.8579 3.69995 15.9C3.69995 18.7169 5.98305 21 8.79995 21C11.6169 21 13.9 18.7169 13.9 15.9C13.9 14.0173 12.8766 12.3767 11.3585 11.4927Z" fill="currentColor" />
+                                                        <path d="M14.75 15.9V16.75H20.0753C20.921 16.75 21.6384 16.1278 21.7583 15.2906L22.4 10.8L20.7 9.10001H8.80005C8.80005 9.10001 14.75 9.95001 14.75 15.9Z" fill="#2B70FA" />
+                                                        <path d="M8.8001 14.2425C7.86085 14.2425 7.1001 14.9786 7.1001 15.8864C7.1001 16.7942 7.86085 17.5303 8.8001 17.5303C9.73935 17.5303 10.5001 16.7942 10.5001 15.8864C10.5001 14.9786 9.73935 14.2425 8.8001 14.2425Z" fill="#2B70FA" />
+                                                        <path d="M20.7 12.5C21.6389 12.5 22.4 11.7389 22.4 10.8C22.4 9.86112 21.6389 9.10001 20.7 9.10001C19.7611 9.10001 19 9.86112 19 10.8C19 11.7389 19.7611 12.5 20.7 12.5Z" fill="#2B70FA" />
+                                                        <path d="M14.75 16.75C14.2799 16.75 13.9 16.3701 13.9 15.9C13.9 13.0874 11.6126 10.8 8.8 10.8C5.98735 10.8 3.7 13.0874 3.7 15.9C3.7 16.3701 3.32005 16.75 2.85 16.75C2.37995 16.75 2 16.3701 2 15.9C2 12.1507 5.05065 9.10001 8.8 9.10001C12.5493 9.10001 15.6 12.1507 15.6 15.9C15.6 16.3701 15.22 16.75 14.75 16.75Z" fill="#2B70FA" />
+                                                        <path d="M18.15 10.8H16.45V5.70001C16.45 5.23081 16.8308 4.85001 17.3 4.85001C17.7692 4.85001 18.15 5.23081 18.15 5.70001V10.8Z" fill="#2B70FA" />
+                                                    </svg>
+                                                    :
+                                                    <svg className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.35" d="M19.0001 21C20.4084 21 21.5501 19.8583 21.5501 18.45C21.5501 17.0417 20.4084 15.9 19.0001 15.9C17.5917 15.9 16.4501 17.0417 16.4501 18.45C16.4501 19.8583 17.5917 21 19.0001 21Z" fill="#2D3436" />
+                                                        <path opacity="0.35" d="M11.3586 11.4927L13.9001 10.8L12.6829 5.9312C12.399 4.79645 11.379 4 10.2094 4H6.25007C5.31082 4 4.55007 4.76075 4.55007 5.7V13.0831C4.01372 13.8906 3.70007 14.8579 3.70007 15.9C3.70007 18.7169 5.98317 21 8.80007 21C11.617 21 13.9001 18.7169 13.9001 15.9C13.9001 14.0173 12.8767 12.3767 11.3586 11.4927Z" fill="#2D3436" />
+                                                        <path d="M14.7499 15.9V16.75H20.0752C20.9209 16.75 21.6383 16.1278 21.7582 15.2906L22.3999 10.8L20.6999 9.10002H8.79993C8.79993 9.10002 14.7499 9.95002 14.7499 15.9Z" fill="#2D3436" />
+                                                        <path d="M8.79985 14.2425C7.8606 14.2425 7.09985 14.9786 7.09985 15.8864C7.09985 16.7942 7.8606 17.5303 8.79985 17.5303C9.7391 17.5303 10.4999 16.7942 10.4999 15.8864C10.4999 14.9786 9.7391 14.2425 8.79985 14.2425Z" fill="#2D3436" />
+                                                        <path d="M20.7 12.5C21.6389 12.5 22.4 11.7389 22.4 10.8C22.4 9.86114 21.6389 9.10002 20.7 9.10002C19.7611 9.10002 19 9.86114 19 10.8C19 11.7389 19.7611 12.5 20.7 12.5Z" fill="#2D3436" />
+                                                        <path d="M14.75 16.75C14.2799 16.75 13.9 16.3701 13.9 15.9C13.9 13.0874 11.6126 10.8 8.8 10.8C5.98735 10.8 3.7 13.0874 3.7 15.9C3.7 16.3701 3.32005 16.75 2.85 16.75C2.37995 16.75 2 16.3701 2 15.9C2 12.1507 5.05065 9.10002 8.8 9.10002C12.5493 9.10002 15.6 12.1507 15.6 15.9C15.6 16.3701 15.22 16.75 14.75 16.75Z" fill="#2D3436" />
+                                                        <path d="M18.1501 10.8H16.4501V5.70002C16.4501 5.23082 16.8309 4.85002 17.3001 4.85002C17.7693 4.85002 18.1501 5.23082 18.1501 5.70002V10.8Z" fill="#2D3436" />
+                                                    </svg>
+                                                }
+                                                <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-customlightgraybg dark:group-hover:text-white-dark">Farms</span>
+                                            </div>
+
+
+                                        </button>
+                                    </NavLink>
+
+
+
+                                </li>
+                            </div>
 
                             {/* <li className="menu nav-item mt-3">
-                                <button type="button" className={`${currentMenu === 'createevents' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('createevents')}>
-                                    <div className="flex items-center">
-                                        <svg className="group-hover:!text-primary shrink-0" width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M0 13.75V36.875C0 41.35 3.65 45 8.125 45H36.875C41.35 45 45 41.35 45 36.875V13.75H0ZM31.9537 26.81L27.6338 30.0863L29.0963 34.7675C29.3063 35.4387 29.0588 36.17 28.4838 36.5763C28.2038 36.775 27.875 36.875 27.5475 36.875C27.205 36.875 26.8625 36.7663 26.575 36.5513L22.5 33.4987L18.425 36.55C17.8625 36.9738 17.0912 36.9825 16.5162 36.5763C15.9412 36.17 15.695 35.44 15.9037 34.7675L17.3662 30.0863L13.0463 26.81C12.49 26.3887 12.2663 25.66 12.4888 25C12.7113 24.34 13.33 23.895 14.0263 23.895H19.3587L20.965 19.2213C21.1912 18.565 21.8075 18.125 22.5 18.125C23.1925 18.125 23.8088 18.565 24.035 19.22L25.6413 23.8937H30.9737C31.67 23.8937 32.2887 24.3388 32.5112 24.9988C32.7337 25.66 32.5087 26.3887 31.9537 26.81ZM45 10V8.125C45 3.65 41.35 0 36.875 0H8.125C3.65 0 0 3.65 0 8.125V10H45Z"
-                                                fill="currentColor"
-                                            />
-                                        </svg>
-
-                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-customlightgraybg dark:group-hover:text-white-dark">Events Management</span>
-                                    </div>
-
-                                    <div className={currentMenu === 'createevents' ? 'rotate-90' : 'rtl:rotate-180'}>
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9 5L15 12L9 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </div>
-                                </button>
-
-                                <AnimateHeight duration={300} height={currentMenu === 'createevents' ? 'auto' : 0}>
-                                    <ul className="sub-menu text-gray-500">
-                                        <li className="menu nav-item">
-                                            <NavLink to="/events-list" className="group  !justify-start osList">
-                                                <div className="flex items-center">
-                                                    <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-customlightgraybg dark:group-hover:text-white-dark">{t('Events list')}</span>
-                                                </div>
-                                            </NavLink>
-                                        </li>
-                                    </ul>
-                                </AnimateHeight>
-                            </li>
-
-                            <li className="menu nav-item mt-3">
                                 <button type="button" className={`${currentMenu === 'aboutUs' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('aboutUs')}>
                                     <div className="flex items-center">
                                         <svg className="group-hover:!text-primary shrink-0" width="45" height="43" viewBox="0 0 45 43" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -417,45 +413,44 @@ const Sidebar = () => {
                                         </li>
                                     </ul>
                                 </AnimateHeight>
-                            </li>
+                            </li> */}
 
 
 
                             <li className="menu nav-item mt-3">
-                                <button type="button" className={`${currentMenu === 'reports' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('reports')}>
-                                    <div className="flex items-center">
-                                        <svg className="group-hover:!text-primary shrink-0" width="45" height="47" viewBox="0 0 45 47" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M39.6711 0.34906C36.733 0.34906 34.3421 2.73998 34.3421 5.67801C34.3421 6.24071 34.4526 6.77356 34.615 7.28317L25.4235 14.2566C24.583 13.7021 23.58 13.3754 22.5 13.3754C21.1453 13.3754 19.9211 13.8995 18.9797 14.7354L10.57 10.0934C10.6164 9.81103 10.6579 9.52588 10.6579 9.23064C10.6579 6.29261 8.26697 3.90169 5.32895 3.90169C2.39092 3.90169 0 6.29261 0 9.23064C0 12.1687 2.39092 14.5596 5.32895 14.5596C6.68362 14.5596 7.90789 14.0355 8.8492 13.1996L17.2589 17.8393C17.2123 18.1223 17.1711 18.4083 17.1711 18.7043C17.1711 21.6423 19.562 24.0333 22.5 24.0333C25.438 24.0333 27.8289 21.6423 27.8289 18.7043C27.8289 18.1416 27.7185 17.6088 27.556 17.0992L36.7475 10.1234C37.5883 10.6783 38.5907 11.007 39.6711 11.007C42.6091 11.007 45 8.61603 45 5.67801C45 2.73998 42.6091 0.34906 39.6711 0.34906ZM39.6711 16.928C36.7283 16.928 34.3421 19.3142 34.3421 22.257V41.2043C34.3421 44.1471 36.7283 46.5333 39.6711 46.5333C42.6138 46.5333 45 44.1471 45 41.2043V22.257C45 19.3142 42.6138 16.928 39.6711 16.928ZM5.32895 20.4806C2.38618 20.4806 0 22.8668 0 25.8096V41.2043C0 44.1471 2.38618 46.5333 5.32895 46.5333C8.27171 46.5333 10.6579 44.1471 10.6579 41.2043V25.8096C10.6579 22.8668 8.27171 20.4806 5.32895 20.4806ZM22.5 29.9543C19.5572 29.9543 17.1711 32.3405 17.1711 35.2833V41.2043C17.1711 44.1471 19.5572 46.5333 22.5 46.5333C25.4428 46.5333 27.8289 44.1471 27.8289 41.2043V35.2833C27.8289 32.3405 25.4428 29.9543 22.5 29.9543Z"
-                                                fill="currentColor"
-                                            />
-                                        </svg>
+                                <NavLink to="/staking" className="group  !justify-start osList">
+                                    <button type="button" className={`${currentMenu === 'reports' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('staking')}>
+                                        <div className="flex items-center">
 
-                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-customlightgraybg dark:group-hover:text-white-dark">Reports Management</span>
-                                    </div>
+                                            {theme == 'dark' ?
+                                                <svg className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <path d="M6.0006 7.00001C5.6776 7.00001 5.3596 6.84401 5.1676 6.55501C4.8606 6.09501 4.9846 5.47501 5.4446 5.16801L8.4446 3.16801C8.7196 2.98301 9.0666 2.94901 9.3706 3.07101L13.7586 4.82601L16.2926 2.29301C16.6836 1.90201 17.3156 1.90201 17.7066 2.29301C18.0976 2.68401 18.0976 3.31601 17.7066 3.70701L14.7066 6.70701C14.4236 6.99001 13.9986 7.07501 13.6286 6.92901L9.1166 5.12401L6.5546 6.83201C6.3836 6.94501 6.1906 7.00001 6.0006 7.00001Z" fill="#2B70FA" />
+                                                    <path opacity="0.35" d="M20 9H4C2.895 9 2 9.895 2 11V19C2 20.105 2.895 21 4 21H20C21.105 21 22 20.105 22 19V11C22 9.895 21.105 9 20 9Z" fill="#2B70FA" />
+                                                    <path d="M12 19C13.933 19 15.5 17.2091 15.5 15C15.5 12.7909 13.933 11 12 11C10.067 11 8.5 12.7909 8.5 15C8.5 17.2091 10.067 19 12 19Z" fill="#2B70FA" />
+                                                    <path d="M19 16C19.5523 16 20 15.5523 20 15C20 14.4477 19.5523 14 19 14C18.4477 14 18 14.4477 18 15C18 15.5523 18.4477 16 19 16Z" fill="#2B70FA" />
+                                                    <path d="M5 16C5.55228 16 6 15.5523 6 15C6 14.4477 5.55228 14 5 14C4.44772 14 4 14.4477 4 15C4 15.5523 4.44772 16 5 16Z" fill="#2B70FA" />
+                                                    <path d="M18.9997 1.504C19.0007 1.225 18.7747 0.999003 18.4957 1L15.4547 1.014C15.0497 1.016 14.8477 1.506 15.1347 1.793L18.2077 4.866C18.4947 5.153 18.9847 4.951 18.9867 4.546L18.9997 1.504Z" fill="#2B70FA" />
+                                                </svg>
+                                                :
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <path d="M6.00096 7.00001C5.67796 7.00001 5.35996 6.84401 5.16796 6.55501C4.86096 6.09501 4.98496 5.47501 5.44496 5.16801L8.44496 3.16801C8.71996 2.98301 9.06696 2.94901 9.37096 3.07101L13.759 4.82601L16.293 2.29301C16.684 1.90201 17.316 1.90201 17.707 2.29301C18.098 2.68401 18.098 3.31601 17.707 3.70701L14.707 6.70701C14.424 6.99001 13.999 7.07501 13.629 6.92901L9.11696 5.12401L6.55496 6.83201C6.38396 6.94501 6.19096 7.00001 6.00096 7.00001Z" fill="#2D3436" />
+                                                    <path opacity="0.35" d="M20 9H4C2.895 9 2 9.895 2 11V19C2 20.105 2.895 21 4 21H20C21.105 21 22 20.105 22 19V11C22 9.895 21.105 9 20 9Z" fill="#2D3436" />
+                                                    <path d="M12 19C13.933 19 15.5 17.2091 15.5 15C15.5 12.7909 13.933 11 12 11C10.067 11 8.5 12.7909 8.5 15C8.5 17.2091 10.067 19 12 19Z" fill="#2D3436" />
+                                                    <path d="M19 16C19.5523 16 20 15.5523 20 15C20 14.4477 19.5523 14 19 14C18.4477 14 18 14.4477 18 15C18 15.5523 18.4477 16 19 16Z" fill="#2D3436" />
+                                                    <path d="M5 16C5.55228 16 6 15.5523 6 15C6 14.4477 5.55228 14 5 14C4.44772 14 4 14.4477 4 15C4 15.5523 4.44772 16 5 16Z" fill="#2D3436" />
+                                                    <path d="M19.0001 1.504C19.0011 1.225 18.7751 0.999003 18.4961 1L15.4551 1.014C15.0501 1.016 14.8481 1.506 15.1351 1.793L18.2081 4.866C18.4951 5.153 18.9851 4.951 18.9871 4.546L19.0001 1.504Z" fill="#2D3436" />
+                                                </svg>
 
-                                    <div className={currentMenu === 'reports' ? 'rotate-90' : 'rtl:rotate-180'}>
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9 5L15 12L9 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </div>
-                                </button>
+                                            }
 
-                                <AnimateHeight duration={300} height={currentMenu === 'reports' ? 'auto' : 0}>
-                                    <ul className="sub-menu text-gray-500">
-                                        <li className="menu nav-item">
-                                            <NavLink to="/report-list" className="group  !justify-start osList">
-                                                <div className="flex items-center">
-                                                    <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-customlightgraybg dark:group-hover:text-white-dark">{t('Report list')}</span>
-                                                </div>
-                                            </NavLink>
-                                        </li>
 
-                                    </ul>
-                                </AnimateHeight>
+                                            <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-customlightgraybg dark:group-hover:text-white-dark">Staking</span>
+                                        </div>
+                                    </button>
+                                </NavLink>
                             </li>
 
-                            <li className="menu nav-item mt-3">
+                            {/* <li className="menu nav-item mt-3">
                                 <button type="button" className={`${currentMenu === 'settings' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('settings')}>
                                     <div className="flex items-center">
                                         <svg className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="45" height="47">

@@ -10,7 +10,7 @@ const NotificationList = lazy(() => import('../pages/Notifications'));
 
 const OrgProfile = lazy(() => import('../pages/Users/OrgDetail'));
 const Trade = lazy(() => import('../pages/Trade/Trade'));
-const RevinueList = lazy(() => import('../pages/Revenue/RevenueList'));
+const Staking = lazy(() => import('../pages/Staking/Staking'));
 
 const LoginBoxed = lazy(() => import('../pages/Authentication/LoginBoxed'));
 const About = lazy(() => import('../pages/About'));
@@ -19,8 +19,8 @@ const Contact = lazy(() => import('../pages/ContactUs'));
 const ContactUsList = lazy(() => import('../pages/ContactUsList'));
 const Settings = lazy(() => import('../pages/Apps/Settings/Settings'));
 
-const EventList = lazy(() => import('../pages/EventDetail/EventList'));
-const EventsDetail = lazy(() => import('../pages/EventDetail/EventDetail'));
+const Farms = lazy(() => import('../pages/Farms/Farms'));
+const Farms3 = lazy(() => import('../pages/Farms/Farms3'));
 const AddFaq = lazy(() => import('../pages/FAQPage/AddFAQ'));
 const FAQ = lazy(() => import('../pages/FAQPage/FAQ'));
 const Pricing = lazy(() => import('../pages/Price/PricePlan'));
@@ -63,13 +63,13 @@ const routes = [
         element: <Pricing />,
     },
     {
-        path: '/events-list',
-        element: <EventList />,
+        path: '/farms',
+        element: <Farms />,
     },
-    {
-        path: '/eventdetail',
-        element: <EventsDetail />,
-    },
+    // {
+    //     path: '/eventdetail',
+    //     element: <Farms />,
+    // },
     {
         path: '/about',
         element: <About />,
@@ -112,8 +112,8 @@ const routes = [
     },
 
     {
-        path: 'report-list',
-        element: <RevinueList />,
+        path: 'staking',
+        element: <Staking />,
     },
 
     {

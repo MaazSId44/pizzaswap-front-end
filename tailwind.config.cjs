@@ -103,7 +103,8 @@ module.exports = {
                 },
             },
             fontFamily: {
-                nunito: ['Nunito', 'sans-serif'],
+                urbanist: 'Urbanist',
+                
             },
             spacing: {
                 4.5: '18px',

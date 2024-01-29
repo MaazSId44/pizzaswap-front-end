@@ -103,7 +103,7 @@ const Trade = () => {
 
     const handleTabClick = (title: string) => {
         setActiveTab(title);
-        if (title == 'swap') {
+        if (title == 'Swap') {
             setMainTitle('Exchange')
         } else if (title == 'Liquidity') {
             setMainTitle('Liquidity')
@@ -132,7 +132,7 @@ const Trade = () => {
                     {navItems.map((item) => (
                         <div
                             key={item.title}
-                            className={`flex-grow p-4 cursor-pointer text-center !w-[228px]  ${activeTab === item.title
+                            className={`flex-grow py-[12px] px-[34px] cursor-pointer text-center !w-[228px]  ${activeTab === item.title
                                 ? "bg-custombluebg text-white"
                                 : "bg-customgraybg dark:bg-custommediumgraybg dark:text-white "
                                 } rounded-full`}

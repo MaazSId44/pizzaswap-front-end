@@ -7,7 +7,7 @@ import API_ENDPOINTS from '../../Routes/API_routes';
 import axios from 'axios';
 import { Loader } from '../../components/Reuseable/Loader';
 
-const Profile = () => {
+const Farms = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(setPageTitle('Event Detail'));
@@ -50,7 +50,7 @@ const Profile = () => {
             )}
             <ul className="flex space-x-2 rtl:space-x-reverse">
                 <li>
-                    <Link to="/events-list" className="text-primary hover:underline">
+                    <Link to="/farms" className="text-primary hover:underline">
                     Events list
                     </Link>
                 </li>
@@ -194,4 +194,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default Farms;

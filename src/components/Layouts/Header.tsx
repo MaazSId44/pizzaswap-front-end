@@ -4,14 +4,9 @@ import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { IRootState } from '../../store';
 import { toggleRTL, toggleTheme, toggleSidebar } from '../../store/themeConfigSlice';
 import { useTranslation } from 'react-i18next';
-import i18next from 'i18next';
-import Dropdown from '../Dropdown';
 import secureLocalStorage from 'react-secure-storage';
 import '../../assets/css/switch.css';
-import logo from '../../assets/Images/logo.svg';
 import { showMessage } from '../Reuseable/Tostify';
-import admin from '../../assets/Images/admin.png';
-import adminDark from '../../assets/Images/adminDark.png';
 import { Dialog, Transition } from '@headlessui/react';
 import connect1 from '../../../public/assets/images/connect1.png';
 import connect2 from '../../../public/assets/images/connect2.png';
@@ -20,6 +15,8 @@ import connect4 from '../../../public/assets/images/connect4.png';
 import connect5 from '../../../public/assets/images/connect5.png';
 import connect6 from '../../../public/assets/images/connect6.png';
 import connect7 from '../../../public/assets/images/connect7.png';
+import { headerData } from '../Constants/Constant'
+
 const Header = () => {
     const location = useLocation();
     const email: any = secureLocalStorage.getItem('email');
@@ -278,7 +275,7 @@ const Header = () => {
                                 width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4.35417 3.66667C2.96404 3.66667 1.83333 4.79784 1.83333 6.18751V8.93751V15.8125C1.83333 17.2022 2.96404 18.3333 4.35417 18.3333H17.6458C19.036 18.3333 20.1667 17.2022 20.1667 15.8125V8.93751V6.18751C20.1667 4.79784 19.036 3.66667 17.6458 3.66667H4.35417ZM4.35417 5.04167H17.6458C18.2774 5.04167 18.7917 5.55546 18.7917 6.18751V6.69776C18.4469 6.51966 18.058 6.41667 17.6458 6.41667H4.35417C3.94203 6.41667 3.55313 6.51966 3.20833 6.69776V6.18751C3.20833 5.55546 3.72258 5.04167 4.35417 5.04167ZM4.35417 7.79167H17.6458C18.2867 7.79167 18.7917 8.29665 18.7917 8.93751V9.44239C18.4479 9.26593 18.0583 9.16667 17.6458 9.16667H13.8333C13.1453 9.16667 12.5307 9.61906 12.3043 10.2928C12.1159 10.8529 11.5917 11.2292 11 11.2292C10.4083 11.2292 9.88453 10.8529 9.69661 10.2928C9.4702 9.61906 8.85516 9.16667 8.16675 9.16667H4.35417C3.94167 9.16667 3.55208 9.26593 3.20833 9.44239V8.93751C3.20833 8.29665 3.71331 7.79167 4.35417 7.79167Z" />
                             </svg>
-                            <p className='text-[16px] dark:text-white text-[#2D3436] font-[500] text-[Urbanist]'>Balance:<span className='text-[16px] dark:text-custombluebg text-[#2B70FA] font-[500] 500-[Urbanist] ms-[5px]'>$576.000</span></p>
+                            <p className='text-[16px] dark:text-white text-[#2D3436] font-[500] text-[Urbanist]'>{headerData.Balance}:<span className='text-[16px] dark:text-custombluebg text-[#2B70FA] font-[500] 500-[Urbanist] ms-[5px]'>{headerData.amount}</span></p>
                         </div>
 
                         <div className='flex  cursor-pointer items-center gap-[5px] rounded-[18px] bg-customgraybg-light dark:bg-customblackbg py-[6px] px-[16px] '>
@@ -325,12 +322,12 @@ const Header = () => {
                                 <path d="M10.8954 2.29167L11.1085 2.74451L11.5829 2.81601L11.2391 3.16892L11.3216 3.66667L10.8954 3.43201L10.4691 3.66667L10.5516 3.16892L10.2079 2.81601L10.6823 2.74451L10.8954 2.29167Z" fill="white" />
                                 <path d="M12.6141 2.29167L12.8273 2.74451L13.3016 2.81646L12.9579 3.16938L13.0404 3.66667L12.6141 3.43201L12.1879 3.66667L12.2704 3.16892L11.9266 2.81601L12.401 2.74451L12.6141 2.29167Z" fill="white" />
                             </svg>
-                            <div className='text-[14px] text-[#2D3436] dark:text-[#F0F3F5] font-[500] text-[Urbanist]'>Engish</div>
+                            <div className='text-[14px] text-[#2D3436] dark:text-[#F0F3F5] font-[500] text-[Urbanist]'>{headerData.Language}</div>
                         </div>
 
 
                         <div onClick={() => setConnectWallet(true)} className='rounded-[18px] cursor-pointer bg-custombluebg py-[8px] px-[22px] '>
-                            <div className='text-[16px] text-white font-[500] text-[Urbanist]'>Connect</div>
+                            <div className='text-[16px] text-white font-[500] text-[Urbanist]'>{headerData.Connect}</div>
                         </div>
 
 
