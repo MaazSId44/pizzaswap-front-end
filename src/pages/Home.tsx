@@ -54,7 +54,7 @@ const Home = () => {
     };
 
     const backgroundLotryImageStyle = {
-        backgroundImage: 'url("../../public/assets/images/lotry.png")',
+        backgroundImage: 'url("../assets/images/lotry.png")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
     };
