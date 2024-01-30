@@ -26,29 +26,29 @@ const Home = () => {
 
     const cardData = [
         {
-            image: '../../public/assets/images/card1.png',
+            image: '../assets/images/card1.png',
             title: homeData.Announcements.NFTCreatorStudio,
             description: homeData.Announcements.NFTCreatorStudioDescription,
         },
         {
-            image: '../../public/assets/images/card2.png',
+            image: '../assets/images/card2.png',
             title: homeData.Announcements.NFTLoyaltyProgram,
             description: homeData.Announcements.NFTLoyaltyProgramDescription,
         },
         {
-            image: '../../public/assets/images/card3.png',
+            image: '../assets/images/card3.png',
             title: homeData.Announcements.PersonalizedNFTGallery,
             description: homeData.Announcements.PersonalizedNFTGalleryDescription,
         },
         {
-            image: '../../public/assets/images/card4.png',
+            image: '../assets/images/card4.png',
             title: homeData.Announcements.PersonalizedNFTGallery,
             description: homeData.Announcements.PersonalizedNFTGalleryDescription,
         },
     ];
 
     const backgroundImageStyle = {
-        backgroundImage: 'url("../../public/assets/images/profitbg.png")',
+        backgroundImage: 'url("../assets/images/profitbg.png")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
     };
