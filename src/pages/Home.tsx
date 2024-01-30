@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { setPageTitle } from '../store/themeConfigSlice';
 
 import avatar from '../../public/assets/images/avatar.png';
-import connect from '../assets/images/connectImage.svg';
+import connect from '../../public/assets/images/connectImage.svg';
 import { homeData } from '../components/Constants/Constant'
 
 const Home = () => {
