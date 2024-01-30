@@ -26,22 +26,22 @@ const Home = () => {
 
     const cardData = [
         {
-            image: '../assets/images/card1.png',
+            image: '../../public/assets/images/card1.png',
             title: homeData.Announcements.NFTCreatorStudio,
             description: homeData.Announcements.NFTCreatorStudioDescription,
         },
         {
-            image: '../assets/images/card2.png',
+            image: '../../public/assets/images/card2.png',
             title: homeData.Announcements.NFTLoyaltyProgram,
             description: homeData.Announcements.NFTLoyaltyProgramDescription,
         },
         {
-            image: '../assets/images/card3.png',
+            image: '../../public/assets/images/card3.png',
             title: homeData.Announcements.PersonalizedNFTGallery,
             description: homeData.Announcements.PersonalizedNFTGalleryDescription,
         },
         {
-            image: '../assets/images/card4.png',
+            image: '../../public/assets/images/card4.png',
             title: homeData.Announcements.PersonalizedNFTGallery,
             description: homeData.Announcements.PersonalizedNFTGalleryDescription,
         },
