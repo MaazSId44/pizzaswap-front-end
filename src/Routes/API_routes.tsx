@@ -34,7 +34,7 @@ type API_ENDPOINTS = {
     //Contact us
     ContactUsList: string;
 
-    //Settings
+    //referral
     SETTINGS: string;
     SETTINGSUPDATE: string;
 
@@ -104,7 +104,7 @@ const API_ENDPOINTS: API_ENDPOINTS = {
     GetSubscriptionDetails: BASE_URL + 'api/admin/subscription/detail',
     CencelSubscription: BASE_URL + 'api/admin/subscription/cancel',
 
-    //Settings
+    //referral
     SETTINGS: BASE_URL + 'api/admin/setting',
     SETTINGSUPDATE: BASE_URL + 'api/admin/setting/update',
 

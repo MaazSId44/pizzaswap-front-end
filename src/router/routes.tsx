@@ -17,7 +17,7 @@ const About = lazy(() => import('../pages/About'));
 
 const Contact = lazy(() => import('../pages/ContactUs'));
 const ContactUsList = lazy(() => import('../pages/ContactUsList'));
-const Settings = lazy(() => import('../pages/Apps/Settings/Settings'));
+const Settings = lazy(() => import('../pages/Apps/Referral/Referral'));
 
 const Farms = lazy(() => import('../pages/Farms/Farms'));
 const Farms3 = lazy(() => import('../pages/Farms/Farms3'));
@@ -29,7 +29,7 @@ const AddPlan = lazy(() => import('../pages/Price/AddPricePlan'));
 const PageNotFound = lazy(() => import('../components/Reuseable/PageNotFound'));
 
 // homePages
-const HomePage = lazy(() => import('../pages/Home/HomePage'));
+const Lottery = lazy(() => import('../pages/Lottery/Lottery'));
 
 
 
@@ -89,7 +89,7 @@ const routes = [
     },
 
     {
-        path: '/settings',
+        path: '/referral',
         element: <Settings />,
     },
     {
@@ -117,8 +117,8 @@ const routes = [
     },
 
     {
-        path: 'homepage',
-        element: <HomePage />,
+        path: 'lottery',
+        element: <Lottery />,
     },
 
     //Authentication

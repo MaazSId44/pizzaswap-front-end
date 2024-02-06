@@ -104,6 +104,7 @@ const sideBarData = {
   BuyPizza: "Buy PizzaSwap",
   Trade: "Trade",
   Pages: "Pages",
+  More:"More"
 
 }
 
