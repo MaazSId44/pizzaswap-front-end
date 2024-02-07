@@ -244,7 +244,7 @@ const Lottery = () => {
 
                                         <div className="panel flex flex-col items-center w-[50%] max-md:w-[100%]">
                                             <div className="w-[60%] mb-4">
-                                                {/* <img src={wallet} className="w-[100%]" alt=".." /> */}
+                                                <img src={wallet} className="w-[100%]" alt="wallet" />
                                             </div>
                                             <div className="text-[22px] my-[15px]">{buyPizzaData.unlock}</div>
                                             <div className='mt-[5px]'>

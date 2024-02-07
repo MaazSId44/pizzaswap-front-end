@@ -196,7 +196,7 @@ const Sidebar = () => {
                                     setIsOpen(!isOPen)
                                 }}
                                 className="absolute right-[-15px] cursor-pointer top-[50px] z-[99999] rounded-full flex items-center"
-                                src={theme == "dark" ? openDrawerCloseToDark : openDrawerCloseTo} alt='openDrawer'
+                                src={theme == "dark" ? openDrawerCloseToDark : openDrawerCloseTo} alt='openDrawer2'
 
                             />
                         }
