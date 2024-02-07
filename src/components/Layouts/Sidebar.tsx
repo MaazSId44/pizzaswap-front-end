@@ -11,9 +11,8 @@ import profile_image from '../../assets/Images/profile_image.png';
 import { sideBarData } from '../Constants/Constant'
 import ThemeSwitcher from '../Reuseable/ThemeSwitcher';
 import openDrawer from '../../assets/Images/openDrawer.png'
-import openDrawerlight from '../../assets/Images/openDrawerlight.png'
+import openDrawerlight from '../../../public/assets/images/openDrawerlight.png'
 import openDrawerCloseTo from '../../assets/Images/openDrawerCloseTo.png'
-import openDrawerCloseToLight from '../../assets/Images/openDrawerCloseToLight.png'
 import openDrawerCloseToDark from '../../assets/Images/openDrawerCloseToDark.png'
 
 const Sidebar = () => {
