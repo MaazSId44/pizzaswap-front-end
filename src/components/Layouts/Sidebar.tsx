@@ -13,7 +13,7 @@ import ThemeSwitcher from '../Reuseable/ThemeSwitcher';
 import openDrawer from '../../assets/Images/openDrawer.png'
 import openDrawerCloseTo from '../../assets/Images/openDrawerCloseTo.png'
 import openDrawerCloseToDark from '../../assets/Images/openDrawerCloseToDark.png'
-import exitIcon from '../../assets/images/exitIcon.png'
+import exitIcon from '../../assets/images/openDrawerCloseToDark.png'
 
 const Sidebar = () => {
     const [currentMenu, setCurrentMenu] = useState<string>('');
