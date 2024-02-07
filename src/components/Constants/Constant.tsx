@@ -88,7 +88,48 @@ const buyPizzaData = {
   ConnectToAddLiquidity: "Connect",
   AddLiquidity: "Add liquidity to receive LP tokens",
   YourLiquidity: "Your Liquidity",
-  ConnectToViewLiquidityMessage: "Connect to a wallet to view your liquidity. Or, if you staked your LP tokens in a farm, unstake them to see them here."
+  ConnectToViewLiquidityMessage: "Connect to a wallet to view your liquidity. Or, if you staked your LP tokens in a farm, unstake them to see them here.",
+
+  lotterycardtittle: 'Total Pot:',
+  totalpotpoint:"0 PizzaSwap",
+  nomatched:"No. Matched",
+  pizepot:"Prize Pot",
+  match1:"4",
+  match2:"3",
+  match3:"2",
+  pot1:"0",
+  pot2:"0",
+  pot3:"0",
+  burn:"To Burn",
+  burnpoint:"0",
+  unlock:"Unlock Wallet to Access Lottery",
+  ticket1:"Tickets matching 4 numbers:",
+  ticket2:"Tickets matching 3 numbers:",
+  ticket3:"Tickets matching 2 numbers:",
+  ticket1no:"9344",
+  ticket2no:"9066",
+  ticket3no:"9072",
+  round1: "Round No.1", 
+  round1time:"Oct 23, 10:00 UTC",
+  totalprize:"Total prizes",
+  prizepoint:"162 PizzaSwap",
+  winningno:"Winning Numbers",
+  winningnos:"3, 6, 6, 8",
+  head1:"No. Matched",
+  head2:"Prize Pot",
+  head3:"Prize Pot",
+  r1c1:"4",
+  r1c2:"0",
+  r1c3:"0",
+  r2c1:"3",
+  r2c2:"0",
+  r2c3:"0",
+  r3c1:"2",
+  r3c2:"1",
+  r3c3:"0",
+  toburn:"To Burn",
+  burnpoints:"0",
+  historycardtittle:"History"
 };
 
 const headerData = {
@@ -107,5 +148,7 @@ const sideBarData = {
   More:"More"
 
 }
+
+
 
 export { homeData, buyPizzaData, headerData, sideBarData };
