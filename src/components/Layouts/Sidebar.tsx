@@ -13,7 +13,7 @@ import ThemeSwitcher from '../Reuseable/ThemeSwitcher';
 import openDrawer from '../../assets/Images/openDrawer.png'
 import openDrawerCloseTo from '../../assets/Images/openDrawerCloseTo.png'
 import openDrawerCloseToDark from '../../assets/Images/openDrawerCloseToDark.png'
-import closeSidebar from '../../assets/images/closeSidebar.png'
+import exitIcon from '../../assets/images/exitIcon.png'
 
 const Sidebar = () => {
     const [currentMenu, setCurrentMenu] = useState<string>('');
@@ -189,7 +189,7 @@ const Sidebar = () => {
                                     setIsOpen(!isOPen)
                                 }}
                                 className="absolute right-[-15px] cursor-pointer top-[50px] z-[99999] rounded-full flex items-center"
-                                src={theme == "dark" ? openDrawer : closeSidebar} alt='openDrawer' />
+                                src={theme == "dark" ? openDrawer : exitIcon} alt='openDrawer' />
                             :
                             <img
                                 onClick={() => {
