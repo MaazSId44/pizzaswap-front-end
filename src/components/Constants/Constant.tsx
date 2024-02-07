@@ -90,6 +90,9 @@ const buyPizzaData = {
   YourLiquidity: "Your Liquidity",
   ConnectToViewLiquidityMessage: "Connect to a wallet to view your liquidity. Or, if you staked your LP tokens in a farm, unstake them to see them here.",
 
+loteryupsidetitle:"The PizzaSwap Lottery",
+loteryupsidedowntext:"Buy tickets with EBITEMPURA! Win if 2, 3, or 4 of your ticket numbers match!",
+
   lotterycardtittle: 'Total Pot:',
   totalpotpoint:"0 PizzaSwap",
   nomatched:"No. Matched",
@@ -129,7 +132,15 @@ const buyPizzaData = {
   r3c3:"0",
   toburn:"To Burn",
   burnpoints:"0",
-  historycardtittle:"History"
+  historycardtittle:"History",
+
+  farmstitle:"Stake LP tokens to earn PizzaSwap",
+  farmssubtittle:"Lorem ipsum dolor sit amet",
+
+  stackingtitle:"Stake tokens to earn PizzaSwap",
+  stackingsubtitle:"Lorem ipsum dolor sit amet",
+
+  refraltext:"Earn 1% of your PizzaSwap friends' earnings! use this link to invite friends"
 };
 
 const headerData = {

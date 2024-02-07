@@ -12,6 +12,7 @@ import connect4 from '../../../../public/assets/images/connect4.png';
 import connect5 from '../../../../public/assets/images/connect5.png';
 import connect6 from '../../../../public/assets/images/connect6.png';
 import connect7 from '../../../../public/assets/images/connect7.png';
+import { buyPizzaData } from '../../../components/Constants/Constant';
 
 const Referral = () => {
     const dispatch = useDispatch();
@@ -44,7 +45,7 @@ const Referral = () => {
     return (
         <div>
             <div className='py-[30px] flex items-center justify-center ' style={backgroundLotryImageStyle}>
-                <p className="text-[38px]  w-[850px] leading-normal text-white font-[500]  mt-[5px] text-center">Earn 1% of your PizzaSwap friends' earnings! use this link to invite friends</p>
+                <p className="text-[38px]  w-[850px] leading-normal text-white font-[500]  mt-[5px] text-center">{buyPizzaData.refraltext}</p>
             </div>
             <div className=' flex justify-center items-center pt-[40px]'>
                 <div className='p-[20px]  w-[448px] bg-white dark:bg-[#1A1E1F] rounded-[50px] border-[1px] border-solid border-[#fff] dark:border-[#636E72] '>

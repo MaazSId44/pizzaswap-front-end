@@ -10,9 +10,15 @@ import student from '../../assets/Images/student.svg';
 import profile_image from '../../assets/Images/profile_image.png';
 import { sideBarData } from '../Constants/Constant'
 import ThemeSwitcher from '../Reuseable/ThemeSwitcher';
+import openDrawer from '../../assets/Images/openDrawer.png'
+import openDrawerlight from '../../assets/Images/openDrawerlight.png'
+import openDrawerCloseTo from '../../assets/Images/openDrawerCloseTo.png'
+import openDrawerCloseToLight from '../../assets/Images/openDrawerCloseToLight.png'
+import openDrawerCloseToDark from '../../assets/Images/openDrawerCloseToDark.png'
 
 const Sidebar = () => {
     const [currentMenu, setCurrentMenu] = useState<string>('');
+    const [isOPen, setIsOpen] = useState<Boolean>(false)
     const themeConfig = useSelector((state: IRootState) => state.themeConfig);
     const semidark = useSelector((state: IRootState) => state.themeConfig.semidark);
     const location = useLocation();
@@ -161,7 +167,7 @@ const Sidebar = () => {
                                 </svg>
                             }
                         </NavLink>
-
+                        {/* 
                         <button
                             type="button"
                             className="collapse-icon w-8 h-8 rounded-full flex items-center hover:bg-gray-500/10 dark:hover:bg-dark-light/10 dark:text-white-light transition duration-300 rtl:rotate-180"
@@ -171,7 +177,33 @@ const Sidebar = () => {
                                 <path d="M13 19L7 12L13 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                 <path opacity="0.5" d="M16.9998 19L10.9998 12L16.9998 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
-                        </button>
+                        </button> */}
+
+
+                    </div>
+                    <div className='relative'>
+                        {!isOPen ?
+                            <img
+                                onClick={() => {
+                                    dispatch(toggleSidebar())
+                                    setIsOpen(!isOPen)
+                                }}
+                                className="absolute right-[-15px] cursor-pointer top-[50px] z-[99999] rounded-full flex items-center"
+                                src={theme == "dark" ? openDrawer : openDrawerlight} alt='openDrawer' />
+                            :
+                            <img
+                                onClick={() => {
+                                    dispatch(toggleSidebar())
+                                    setIsOpen(!isOPen)
+                                }}
+                                className="absolute right-[-15px] cursor-pointer top-[50px] z-[99999] rounded-full flex items-center"
+                                src={theme == "dark" ? openDrawerCloseToDark : openDrawerCloseTo} alt='openDrawer'
+
+                            />
+                        }
+
+
+
                     </div>
                     <PerfectScrollbar className="h-[calc(100vh-80px)] relative pt-[50px]">
                         <ul className="relative font-semibold space-y-0.5 p-4 py-0">

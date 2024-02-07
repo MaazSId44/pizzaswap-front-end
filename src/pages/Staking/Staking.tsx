@@ -20,6 +20,7 @@ import connect7 from '../../../public/assets/images/connect7.png';
 import { Dialog, Transition } from '@headlessui/react';
 import CustomDialog from '../../components/Reuseable/ConnectToWalletModal';
 import WalletButton from '../../components/Reuseable/WalletButton';
+import { buyPizzaData } from '../../components/Constants/Constant';
 function Staking() {
     const [selectedTab, setSelectedTab] = useState(0);
     const [selectedFilter, setSelectedFilter] = useState('All');
@@ -244,8 +245,8 @@ function Staking() {
     return (
         <div className="">
             <div>
-                <h1 className="text-[28px] dark:text-white text-customblackbg font-[700] text-[Poppins] ">Stake tokens to earn PizzaSwap</h1>
-                <p className="text-[16px] dark:text-customlightgraybg text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">Lorem ipsum dolor sit amet</p>
+                <h1 className="text-[28px] dark:text-white text-customblackbg font-[700] text-[Poppins] ">{buyPizzaData.stackingtitle}</h1>
+                <p className="text-[16px] dark:text-customlightgraybg text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">{buyPizzaData.stackingsubtitle}</p>
             </div>
 
             <div className="flex items-center justify-center gap-[28px] max-sm:flex-col max-md:flex-wrap pt-[70px]">
@@ -278,13 +279,13 @@ function Staking() {
                 <>
                     <div
                         className={`${filteredItems.length === 1
-                                ? ' mx-[32%] place-content-center max-md:mx-[20%] max-lg:mx-[20%]'
-                                : 'grid grid-cols-3 max-md:grid-cols-2 max-lg:grid-cols-2 max-xl:grid-cols-2   max-sm:grid-cols-1'
-                            }   gap-[40px] pt-[30px] max-sm:pt-[100px] max-md:pt-[100px]  max-lg:pt-[100px]`}
+                            ? ' mx-[32%] place-content-center max-md:mx-[20%] max-lg:mx-[20%]'
+                            : 'grid grid-cols-3 max-md:grid-cols-2 max-lg:grid-cols-2 max-xl:grid-cols-2   max-sm:grid-cols-1'
+                            }   gap-[40px] sm:gap-[20px] pt-[30px] max-sm:pt-[100px] max-md:pt-[100px]  max-lg:pt-[100px]`}
                     >
                         {filteredItems.slice(0, visibleItems).map((item, index) => (
                             <>
-                                <div className="bg-[#fff] dark:bg-[#1A1E1F]  rounded-[20px] border-[1px] border-solid border-[#B2BEC34D] p-[30px]">
+                                <div className="bg-[#fff] dark:bg-[#1A1E1F]  rounded-[20px] border-[1px] border-solid border-[#B2BEC34D] p-[30px] sm:p-[20px]">
                                     <div className="flex gap-[10px] items-center mb-[18px]">
                                         <div>
                                             <img src={item.main} alt="" />
@@ -524,7 +525,7 @@ function Staking() {
                 </>
             ) : (
                 <>
-                    <div className=" pt-[90px] ps-[40%] mb-[25px]">
+                    <div className="flex justify-center intems-center mt-20">
                         <img width={320} height={320} src={bgslice} alt="bgslice" />
                     </div>
                 </>

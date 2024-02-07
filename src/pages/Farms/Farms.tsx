@@ -20,6 +20,7 @@ import connect7 from '../../../public/assets/images/connect7.png';
 import { Dialog, Transition } from '@headlessui/react';
 import CustomDialog from '../../components/Reuseable/ConnectToWalletModal';
 import WalletButton from '../../components/Reuseable/WalletButton';
+import { buyPizzaData } from '../../components/Constants/Constant';
 function Pizzaswap() {
     const [selectedTab, setSelectedTab] = useState(0);
     const [selectedFilter, setSelectedFilter] = useState('All');
@@ -244,8 +245,8 @@ function Pizzaswap() {
     return (
         <div className="">
             <div>
-                <h1 className="text-[28px] dark:text-white text-customblackbg font-[700] text-[Poppins] leading-8 ">Stake LP tokens to earn PizzaSwap</h1>
-                <p className="text-[16px] dark:text-customlightgraybg text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">Lorem ipsum dolor sit amet</p>
+                <h1 className="text-[28px] dark:text-white text-customblackbg font-[700] text-[Poppins] leading-8 ">{buyPizzaData.farmstitle}</h1>
+                <p className="text-[16px] dark:text-customlightgraybg text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">{buyPizzaData.farmssubtittle}</p>
             </div>
 
             <div className="flex items-center justify-center gap-[28px] max-sm:flex-col max-md:flex-wrap pt-[70px]">
@@ -524,7 +525,7 @@ function Pizzaswap() {
                 </>
             ) : (
                 <>
-                    <div className=" pt-[90px] ps-[40%] mb-[25px]">
+                    <div className="flex justify-center intems-center mt-20">
                         <img width={320} height={320} src={bgslice} alt="bgslice" />
                     </div>
                 </>

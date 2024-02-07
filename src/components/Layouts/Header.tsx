@@ -255,7 +255,7 @@ const Header = () => {
                             }
 
                         </Link>
-                        <button
+                        {/* <button
                             type="button"
                             className="collapse-icon flex-none dark:text-[#d0d2d6] hover:text-primary dark:hover:text-primary flex lg:hidden ltr:ml-2 rtl:mr-2 p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:bg-white-light/90 dark:hover:bg-dark/60"
                             onClick={() => {
@@ -267,11 +267,11 @@ const Header = () => {
                                 <path opacity="0.5" d="M20 12L4 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                                 <path d="M20 17L4 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                             </svg>
-                        </button>
+                        </button> */}
                     </div>
 
-                    <div className="sm:flex-1 max-sm:flex-wrap md:flex-wrap  gap-y-3 max-sm:gap-3 md:gap-2 ltr:sm:ml-0 ltr:ml-auto sm:rtl:mr-0 rtl:mr-auto flex items-center space-x-1.5 lg:space-x-2 rtl:space-x-reverse dark:text-[#d0d2d6]">
-                        <div className="flex items-center gap-[5px] sm:ltr:mr-auto sm:rtl:ml-auto">
+                    <div className="sm:flex-1 max-sm:flex-wrap md:flex-wrap  gap-[10px] md:gap-2 ltr:sm:ml-0 ltr:ml-auto sm:rtl:mr-0 rtl:mr-auto flex items-center space-x-1.5 lg:space-x-2 rtl:space-x-reverse dark:text-[#d0d2d6]">
+                        <div className="flex items-center ps-2 gap-[5px] sm:ltr:mr-auto sm:rtl:ml-auto">
                             <svg className="fill-[#2D3436] dark:fill-[#F0F3F5]"
                                 width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4.35417 3.66667C2.96404 3.66667 1.83333 4.79784 1.83333 6.18751V8.93751V15.8125C1.83333 17.2022 2.96404 18.3333 4.35417 18.3333H17.6458C19.036 18.3333 20.1667 17.2022 20.1667 15.8125V8.93751V6.18751C20.1667 4.79784 19.036 3.66667 17.6458 3.66667H4.35417ZM4.35417 5.04167H17.6458C18.2774 5.04167 18.7917 5.55546 18.7917 6.18751V6.69776C18.4469 6.51966 18.058 6.41667 17.6458 6.41667H4.35417C3.94203 6.41667 3.55313 6.51966 3.20833 6.69776V6.18751C3.20833 5.55546 3.72258 5.04167 4.35417 5.04167ZM4.35417 7.79167H17.6458C18.2867 7.79167 18.7917 8.29665 18.7917 8.93751V9.44239C18.4479 9.26593 18.0583 9.16667 17.6458 9.16667H13.8333C13.1453 9.16667 12.5307 9.61906 12.3043 10.2928C12.1159 10.8529 11.5917 11.2292 11 11.2292C10.4083 11.2292 9.88453 10.8529 9.69661 10.2928C9.4702 9.61906 8.85516 9.16667 8.16675 9.16667H4.35417C3.94167 9.16667 3.55208 9.26593 3.20833 9.44239V8.93751C3.20833 8.29665 3.71331 7.79167 4.35417 7.79167Z" />

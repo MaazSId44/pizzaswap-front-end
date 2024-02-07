@@ -3,7 +3,7 @@ import { IRootState } from '../../store';
 import { setPageTitle } from '../../store/themeConfigSlice';
 import { useEffect, useRef, useState } from 'react';
 import person from '../../assets/Images/lotteryBg.png';
-import wallet from './wallet2.svg.png';
+import wallet from '../../assets/images/wallet2.png';
 import { buyPizzaData, homeData } from '../../components/Constants/Constant';
 import bgslice from "../../../public/assets/images/pizzaslice.png"
 import CountdownTimer from '../../components/Reuseable/CountdownTimer ';
@@ -110,17 +110,15 @@ const Lottery = () => {
             <div className="pt-[60px]" style={backgroundLotryImageStyle}>
                 <div className='flex justify-center'>
                     <div>
-                        <p className="text-[38px] text-white font-[500] mt-[5px] text-center">The PizzaSwap Lottery</p>
-                        <p className="text-[16px] text-customlightgraybg font-[500] text-center leading-normal mt-[20px]">Buy tickets with EBITEMPURA! Win if 2, 3, or 4 of your ticket numbers match!</p>
+                        <p className="text-[38px] text-white font-[500] mt-[5px] text-center">{buyPizzaData.loteryupsidetitle}</p>
+                        <p className="text-[16px] text-customlightgraybg font-[500] text-center leading-normal mt-[20px]">{buyPizzaData.loteryupsidedowntext}</p>
                         <div className="flex items-center flex-wrap justify-center gap-[120px] max-sm:gap-0  pt-[80px]">
                             <div>
                                 <CountdownTimer hours={3} minutes={38} seconds={19} label="Until Ticket Sale" />
-
                             </div>
 
                             <div>
                                 <CountdownTimer hours={0} minutes={38} seconds={0} label="Until Lottery Draw" />
-
                             </div>
                         </div>
                     </div>
@@ -244,12 +242,12 @@ const Lottery = () => {
                                             </div>
                                         </div>
 
-                                        <div className="panel flex flex-col gap-y-[50px] items-center w-[50%] max-md:w-[100%]">
-                                            <div className="w-[60%]">
+                                        <div className="panel flex flex-col items-center w-[50%] max-md:w-[100%]">
+                                            <div className="w-[60%] mb-4">
                                                 <img src={wallet} className="w-[100%]" alt=".." />
                                             </div>
-                                            <div className="text-[22px]">{buyPizzaData.unlock}</div>
-                                            <div className='mt-[30px]'>
+                                            <div className="text-[22px] my-[15px]">{buyPizzaData.unlock}</div>
+                                            <div className='mt-[5px]'>
                                                 <WalletButton onClick={() => setConnectWallet(true)} buttonText="Unlock Wallet" />
                                             </div>
 
@@ -285,11 +283,8 @@ const Lottery = () => {
                                                 <div className="text-[#2D3436] dark:text-[#fff] text-[16px] font-[500]">{buyPizzaData.ticket3no}</div>
                                             </div>
                                             <div className="flex items-center gap-[10px] pt-[16px]">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="#2B70FA">
-                                                    <path
-                                                        d="M5.20829 2.08334C3.94454 2.08334 2.91663 3.11126 2.91663 4.37501V15.625C2.91663 16.8888 3.94454 17.9167 5.20829 17.9167H10.2083C11.472 17.9167 12.5 16.8888 12.5 15.625V10.625H6.45829C6.11288 10.625 5.83329 10.3454 5.83329 10C5.83329 9.65459 6.11288 9.37501 6.45829 9.37501H12.5V4.37501C12.5 3.11126 11.472 2.08334 10.2083 2.08334H5.20829ZM12.5 9.37501V10.625H15.7828L13.9331 12.4748C13.8731 12.5324 13.8252 12.6014 13.7922 12.6777C13.7592 12.754 13.7418 12.8362 13.7409 12.9193C13.7401 13.0025 13.7559 13.0849 13.7873 13.1619C13.8187 13.2389 13.8652 13.3089 13.924 13.3676C13.9828 13.4264 14.0527 13.4729 14.1297 13.5044C14.2067 13.5358 14.2892 13.5515 14.3723 13.5507C14.4555 13.5498 14.5376 13.5324 14.614 13.4994C14.6903 13.4664 14.7593 13.4186 14.8169 13.3586L17.7335 10.4419C17.8507 10.3247 17.9165 10.1657 17.9165 10C17.9165 9.83428 17.8507 9.67533 17.7335 9.55812L14.8169 6.64145C14.7586 6.58145 14.6889 6.53376 14.6119 6.50119C14.5348 6.46862 14.4521 6.45184 14.3684 6.45183C14.2441 6.45186 14.1225 6.489 14.0194 6.5585C13.9162 6.628 13.8361 6.72669 13.7894 6.84195C13.7426 6.95722 13.7313 7.08381 13.7569 7.20553C13.7825 7.32725 13.8438 7.43857 13.9331 7.52524L15.7828 9.37501H12.5Z"
-                                                        fill="#636E72"
-                                                    />
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                    <path d="M3.20768 0.083374C1.94393 0.083374 0.916016 1.11129 0.916016 2.37504V13.625C0.916016 14.8888 1.94393 15.9167 3.20768 15.9167H8.20768C9.47143 15.9167 10.4993 14.8888 10.4993 13.625V8.62504H4.45768C4.11227 8.62504 3.83268 8.34546 3.83268 8.00004C3.83268 7.65462 4.11227 7.37504 4.45768 7.37504H10.4993V2.37504C10.4993 1.11129 9.47143 0.083374 8.20768 0.083374H3.20768ZM10.4993 7.37504V8.62504H13.7822L11.9325 10.4748C11.8725 10.5324 11.8246 10.6014 11.7916 10.6777C11.7586 10.754 11.7412 10.8362 11.7403 10.9193C11.7395 11.0025 11.7552 11.085 11.7867 11.162C11.8181 11.2389 11.8646 11.3089 11.9234 11.3677C11.9822 11.4265 12.0521 11.473 12.1291 11.5044C12.2061 11.5358 12.2886 11.5516 12.3717 11.5507C12.4549 11.5499 12.537 11.5325 12.6133 11.4995C12.6897 11.4665 12.7587 11.4186 12.8162 11.3586L15.7329 8.44193C15.8501 8.32472 15.9159 8.16577 15.9159 8.00004C15.9159 7.83431 15.8501 7.67536 15.7329 7.55815L12.8162 4.64148C12.758 4.58149 12.6883 4.53379 12.6113 4.50122C12.5342 4.46865 12.4515 4.45187 12.3678 4.45186C12.2435 4.45189 12.1219 4.48903 12.0187 4.55853C11.9156 4.62803 11.8355 4.72672 11.7888 4.84198C11.742 4.95725 11.7307 5.08384 11.7563 5.20556C11.7819 5.32728 11.8432 5.4386 11.9325 5.52527L13.7822 7.37504H10.4993Z" fill="#2B70FA" />
                                                 </svg>
                                                 <p className="text-[16px] text-custombluebg font-[600] text-[Urbanist]">{homeData.ExportNumbers}</p>
                                             </div>
@@ -427,8 +422,8 @@ const Lottery = () => {
 
                                         <div className="panel w-[50%] max-sm:w-[100%] md:w-[100%] lg:w-[50%]">
                                             <div className="text-[600] text-[22px] text-[#636E72] dark:text-[#B2BEC3]">{buyPizzaData.historycardtittle}</div>
-                                            <div className="">
-                                                <img src={bgslice} className='mx-auto p-[20px] my-[100px]' alt="" />
+                                            <div className="flex justify-center items-center mt-[100px]">
+                                                <img src={bgslice} className='' alt=".." />
                                             </div>
                                         </div>
                                     </div>
