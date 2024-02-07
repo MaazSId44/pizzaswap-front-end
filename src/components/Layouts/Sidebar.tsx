@@ -11,9 +11,9 @@ import profile_image from '../../assets/Images/profile_image.png';
 import { sideBarData } from '../Constants/Constant'
 import ThemeSwitcher from '../Reuseable/ThemeSwitcher';
 import openDrawer from '../../assets/Images/openDrawer.png'
-import openDrawerlight from '../../../public/assets/images/openDrawerlight.png'
 import openDrawerCloseTo from '../../assets/Images/openDrawerCloseTo.png'
 import openDrawerCloseToDark from '../../assets/Images/openDrawerCloseToDark.png'
+import openDrawerlight from '../../assets/images/openDrawerlight.png'
 
 const Sidebar = () => {
     const [currentMenu, setCurrentMenu] = useState<string>('');
