@@ -277,7 +277,7 @@ const Home = () => {
                             <div key={index} className="w-full md:w-1/2 lg:w-[100%] xl:w-1/4 px-3">
                                 <div className="rounded-[18px] dark:bg-[#2F3334] bg-[rgba(178, 190, 195, 0.25)] border border-solid border-customgray py-[25px] px-[30px] overflow-hidden ">
                                     <img
-                                        className="w-[272px] rounded-[15px] h-[160px] object-cover object-center"
+                                        className="w-full rounded-[15px] h-[160px] object-cover object-center"
                                         src={card.image}
                                         alt={card.title}
                                     />
