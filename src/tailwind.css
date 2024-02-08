@@ -142,7 +142,7 @@ hover:text-primary hover:before:!bg-primary ltr:before:mr-2 rtl:before:ml-2 dark
     }
 
     .main-container .main-content {
-        @apply transition-all duration-300 lg:ltr:ml-[280px] lg:rtl:mr-[280px];
+        @apply transition-all duration-300 lg:ltr:ml-[315px] lg:rtl:mr-[315px];
     }
 
     /* Horizontal layouts */
@@ -156,10 +156,10 @@ hover:text-primary hover:before:!bg-primary ltr:before:mr-2 rtl:before:ml-2 dark
         @apply ltr:ml-0 rtl:mr-0;
     }
     .horizontal .sidebar {
-        @apply ltr:-left-[280px] rtl:-right-[280px];
+        @apply ltr:-left-[315px] rtl:-right-[315px];
     }
     .horizontal.toggle-sidebar .sidebar {
-        @apply ltr:left-0 rtl:right-0 lg:ltr:-left-[280px] lg:rtl:-right-[280px];
+        @apply ltr:left-0 rtl:right-0 lg:ltr:-left-[315px] lg:rtl:-right-[315px];
     }
 
     .horizontal .nav-item a div:first-child svg,
@@ -208,27 +208,27 @@ hover:text-primary hover:before:!bg-primary ltr:before:mr-2 rtl:before:ml-2 dark
         @apply ltr:ml-0 rtl:mr-0;
     }
     .vertical .sidebar {
-        @apply ltr:-left-[280px] rtl:-right-[280px] lg:ltr:left-0 lg:rtl:right-0;
+        @apply ltr:-left-[315px] rtl:-right-[315px] lg:ltr:left-0 lg:rtl:right-0;
     }
     .vertical.toggle-sidebar .sidebar {
-        @apply ltr:left-0 rtl:right-0 lg:ltr:-left-[280px] lg:rtl:-right-[280px];
+        @apply ltr:left-0 rtl:right-0 lg:ltr:-left-[315px] lg:rtl:-right-[315px];
     }
 
     /* Collapsible vertical layouts */
     .collapsible-vertical .sidebar {
-        @apply hover:w-[280px] ltr:-left-[280px] rtl:-right-[280px] lg:w-[70px] lg:ltr:left-0 lg:rtl:right-0;
+        @apply hover:w-[315px] ltr:-left-[315px] rtl:-right-[315px] lg:w-[70px] lg:ltr:left-0 lg:rtl:right-0;
     }
     .collapsible-vertical.toggle-sidebar .sidebar {
         @apply ltr:left-0 rtl:right-0;
     }
     .collapsible-vertical.toggle-sidebar .sidebar {
-        @apply lg:w-[280px];
+        @apply lg:w-[315px];
     }
     .collapsible-vertical.toggle-sidebar .sidebar .nav-item > a {
         @apply w-auto;
     }
     .collapsible-vertical.toggle-sidebar .main-content {
-        @apply lg:w-[calc(100%-280px)] lg:ltr:ml-[280px] lg:rtl:mr-[280px];
+        @apply lg:w-[calc(100%-315px)] lg:ltr:ml-[315px] lg:rtl:mr-[315px];
     }
 
     .collapsible-vertical .sidebar .sub-menu {

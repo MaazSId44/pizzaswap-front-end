@@ -12,6 +12,7 @@ import ThemeSwitcher from '../Reuseable/ThemeSwitcher';
 import openDrawer from '../../assets/Images/openDrawer.png'
 import openDrawerCloseTo from '../../assets/Images/openDrawerCloseTo.png'
 import openDrawerCloseToDark from '../../assets/Images/openDrawerCloseToDark.png'
+import closeSidebar from '../../../public/assets/Images/closeSidebar.png'
 
 const Sidebar = () => {
     const [currentMenu, setCurrentMenu] = useState<string>('');
@@ -53,7 +54,7 @@ const Sidebar = () => {
     return (
         <div className={semidark ? 'dark' : ''}>
             <nav
-                className={`sidebar fixed min-h-screen h-full top-0 bottom-0 w-[280px] shadow-[5px_0_25px_0_rgba(94,92,154,0.1)] z-50 transition-all duration-300 ${semidark ? 'text-white-dark' : ''}`}
+                className={`sidebar fixed min-h-screen h-full top-0 bottom-0 w-[315px] shadow-[5px_0_25px_0_rgba(94,92,154,0.1)] z-50 transition-all duration-300 ${semidark ? 'text-white-dark' : ''}`}
             >
                 <div className="bg-white dark:bg-customMainblackbg h-full">
                     <div className="flex justify-between items-center px-4 py-3">
@@ -172,15 +173,15 @@ const Sidebar = () => {
                                     dispatch(toggleSidebar())
                                     setIsOpen(!isOPen)
                                 }}
-                                className="absolute right-[-15px] cursor-pointer top-[50px] z-[99999] rounded-full flex items-center"
-                                src={theme == "dark" ? openDrawer : openDrawerCloseToDark} alt='openDrawer' />
+                                className="absolute right-[-15px] cursor-pointer top-[50px] z-[99999]  flex items-center"
+                                src={theme == "dark" ? openDrawer : closeSidebar} alt='openDrawer' />
                             :
                             <img
                                 onClick={() => {
                                     dispatch(toggleSidebar())
                                     setIsOpen(!isOPen)
                                 }}
-                                className="absolute right-[-15px] cursor-pointer top-[50px] z-[99999] rounded-full flex items-center"
+                                className="absolute right-[-15px] cursor-pointer top-[50px] z-[99999]  flex items-center"
                                 src={theme == "dark" ? openDrawerCloseToDark : openDrawerCloseTo} alt='openDrawer2'
 
                             />
@@ -189,8 +190,8 @@ const Sidebar = () => {
 
 
                     </div>
-                    <PerfectScrollbar className="h-[calc(100vh-80px)] relative pt-[50px]">
-                        <ul className="relative font-semibold space-y-0.5 p-4 py-0">
+                    <PerfectScrollbar className="h-[calc(100vh-90px)] relative ">
+                        <ul className="relative font-semibold space-y-0.5 px-[31px] py-[50px]">
                             <div>
 
                                 <li className="menu nav-item mt-3">
