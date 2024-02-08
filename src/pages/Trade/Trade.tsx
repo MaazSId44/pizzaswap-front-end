@@ -8,7 +8,6 @@ import { DataTable, DataTableSortStatus } from 'mantine-datatable';
 import sortBy from 'lodash/sortBy';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import API_ENDPOINTS from '../../Routes/API_routes';
 import secureLocalStorage from 'react-secure-storage';
 import { Loader } from '../../components/Reuseable/Loader';
 import exchangeIcon from '../../../public/assets/images/exchangeIcon.png';
