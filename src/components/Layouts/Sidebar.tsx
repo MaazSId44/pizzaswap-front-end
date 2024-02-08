@@ -173,7 +173,7 @@ const Sidebar = () => {
                                     dispatch(toggleSidebar())
                                     setIsOpen(!isOPen)
                                 }}
-                                className="absolute right-[-15px] cursor-pointer top-[50px] z-[99999]  flex items-center"
+                                className="absolute right-[-12px] cursor-pointer top-[50px] z-[99999]  flex items-center"
                                 src={theme == "dark" ? openDrawer : closeSidebar} alt='openDrawer' />
                             :
                             <img
@@ -181,7 +181,7 @@ const Sidebar = () => {
                                     dispatch(toggleSidebar())
                                     setIsOpen(!isOPen)
                                 }}
-                                className="absolute right-[-15px] cursor-pointer top-[50px] z-[99999]  flex items-center"
+                                className="absolute right-[-12px] cursor-pointer top-[50px] z-[99999]  flex items-center"
                                 src={theme == "dark" ? openDrawerCloseToDark : openDrawerCloseTo} alt='openDrawer2'
 
                             />
@@ -200,7 +200,7 @@ const Sidebar = () => {
                                         <button type="button" className={`${currentMenu === 'dashboard' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('dashboard')}>
                                             <div className="flex items-center">
                                                 {theme == "dark" ?
-                                                    <svg className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <svg style={{ fontSize: 29 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <path opacity="0.35" d="M18 21H6C4.343 21 3 19.657 3 18V8.765C3 7.675 3.591 6.672 4.543 6.143L10.543 2.81C11.449 2.307 12.551 2.307 13.457 2.81L19.457 6.143C20.409 6.672 21 7.676 21 8.765V18C21 19.657 19.657 21 18 21Z" fill="currentColor" />
                                                         <path d="M15 21H9V15C9 13.895 9.895 13 11 13H13C14.105 13 15 13.895 15 15V21Z" fill="currentColor" />
                                                     </svg>

@@ -86,7 +86,7 @@
 
     /* Panel */
     .panel {
-        @apply relative rounded-[20px] bg-white pt-[35px] pb-[52px] max-sm:px-[18px] px-[30px]  shadow dark:bg-[#1A1E1F];
+        @apply relative rounded-[20px] bg-white pt-[35px] pb-[40px] max-sm:px-[18px] px-[40px]  shadow dark:bg-[#1A1E1F];
     }
 
     /* Navbar */

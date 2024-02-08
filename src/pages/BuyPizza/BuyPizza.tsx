@@ -111,8 +111,8 @@ const BuyPizza = () => {
                 </div>
             </div>
             <div className='lg:max-2xl:w-[80%] lg:max-2xl:mx-auto sm:w-auto sm:mx-0'>
-                <div className="flex items-center justify-center w-full">
-                    <div className="flex flex-1 min-[425px]:flex-col  items-center justify-center  max-sm:flex-col md:flex-row  gap-y-3   lg:max-2xl:w-[100%] w-[100%] 2xl:max-w-[45%] rounded-[50px]  py-[12px] px-[20px]  bg-white dark:bg-[#1A1E1F] mt-[10px]">
+                <div className="flex items-center justify-center w-full px-10">
+                    <div className="flex flex-1 min-[425px]:flex-col  items-center justify-center  max-sm:flex-col md:flex-row  gap-y-3   lg:max-2xl:w-[100%] w-[100%] 2xl:max-w-[45%] rounded-[50px]  py-[17px] px-[8px]  bg-white dark:bg-[#1A1E1F] mt-[10px]">
                         {navItems.map((item) => (
                             <div
                                 key={item.title}
@@ -620,7 +620,7 @@ const BuyPizza = () => {
                             >
                                 <Dialog.Panel className="panel !h-[730px] border-0 p-0 rounded-[40px] !overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
                                     <div className='px-[25px]'>
-                                        <div className="text-[22px] pt-[35px] dark:text-white text-customblackbg font-[700] text-[Urbanist] ltr:pl-5 rtl:pr-5 py-3 ltr:pr-[50px] rtl:pl-[50px]">
+                                        <div className="text-[22px] pt-[35px] dark:text-white text-customblackbg font-[700] text-[Urbanist]  rtl:pr-5 py-3 ltr:pr-[50px] ">
                                             <div className='flex items-center gap-2'>
                                                 <span>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
@@ -631,7 +631,7 @@ const BuyPizza = () => {
 
                                             </div>
                                         </div>
-                                        <div className="border-b border-solid border-customlightgraybg opacity-[0.25] mt-[15px] mx-5"></div>
+                                        <div className="border-b border-solid border-customlightgraybg opacity-[0.25] mt-[15px] "></div>
 
                                     </div>
                                     <div className="px-[25px] pt-[30px]">
@@ -645,7 +645,7 @@ const BuyPizza = () => {
                                             </p>
 
                                             <p className='text-[20px] mt-8 leading-[170%] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Urbanist]'>
-                                                If you purchase an arbitrary token, <span className='text-[#F94025] font-[700]'> you may be unable to sell it back.</span>
+                                                If you purchase an arbitrary token, <span className='text-[#F94025] font-[500]'>you may be unable to sell it back.</span>
                                             </p>
 
                                         </div>

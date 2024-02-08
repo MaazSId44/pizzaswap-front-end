@@ -125,8 +125,8 @@ const Trade = () => {
                 </div>
             </div>
             <div className='lg:max-2xl:w-[80%] lg:max-2xl:mx-auto sm:w-auto sm:mx-0'>
-                <div className="flex items-center justify-center w-full">
-                    <div className="flex flex-1 min-[425px]:flex-col  items-center justify-center  max-sm:flex-col md:flex-row  gap-y-3   lg:max-2xl:w-[100%] w-[100%] 2xl:max-w-[45%] rounded-[50px]  py-[12px] px-[20px]  bg-white dark:bg-[#1A1E1F] mt-[10px]">
+                <div className="flex items-center justify-center w-full px-10">
+                    <div className="flex flex-1 min-[425px]:flex-col  items-center justify-center  max-sm:flex-col md:flex-row  gap-y-3   lg:max-2xl:w-[100%] w-[100%] 2xl:max-w-[45%] rounded-[50px]  py-[17px] px-[8px]  bg-white dark:bg-[#1A1E1F] mt-[10px]">
                         {navItems.map((item) => (
                             <div
                                 key={item.title}
@@ -148,7 +148,7 @@ const Trade = () => {
                                     <div className="flex flex-wrap items-center justify-between">
                                         <div>
                                             {' '}
-                                            <h5 className="text-[22px] dark:text-white text-customblackbg font-[700] text-[Urbanist]">Exchange</h5>
+                                            <h5 className="text-[22px] dark:text-white text-customblackbg font-[700]">Exchange</h5>
                                             <p className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Poppins] mt-[5px]">Trade tokens in an instant</p>
                                         </div>
                                         <div className="flex gap-[12px]">
@@ -175,7 +175,7 @@ const Trade = () => {
 
                                     <div className="py-[18px] px-[35px] bg-customgraybg dark:bg-customblackbg rounded-[50px] ">
                                         <div className="flex justify-between items-center">
-                                            <p className="text-[16px] dark:text-white text-customblackbg font-[600] text-[Urbanist]">0.00</p>
+                                            <p className="text-[16px] dark:text-white text-customblackbg font-[600]">0.00</p>
                                             <div onClick={() => setTokenModal(true)} className=" cursor-pointer bg-white dark:bg-[#1A1E1F] py-[8px] px-[10px] rounded-[40px]">
                                                 <div className="flex gap-[29px] items-center">
                                                     <div className="flex gap-[7px] items-center">
@@ -191,7 +191,7 @@ const Trade = () => {
                                                                 />
                                                             </svg>
                                                         </div>
-                                                        <p className="text-[16px] dark:text-white text-customblackbg font-[600] text-[Urbanist]">BNB</p>
+                                                        <p className="text-[16px] dark:text-white text-customblackbg font-[600]">BNB</p>
                                                     </div>
 
                                                     <svg className="fill-customblackbg dark-fill-white" xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 18" fill="none">
@@ -210,7 +210,7 @@ const Trade = () => {
 
                                     <div className="py-[18px] px-[35px] bg-customgraybg dark:bg-customblackbg rounded-[50px]">
                                         <div className="flex justify-between items-center">
-                                            <p className="text-[16px] dark:text-white text-customblackbg font-[600] text-[Urbanist]">0.00</p>
+                                            <p className="text-[16px] dark:text-white text-customblackbg font-[600]">0.00</p>
                                             <div onClick={() => setTokenModal(true)} className=" cursor-pointer bg-white dark:bg-[#1A1E1F] py-[8px] px-[10px] rounded-[40px]">
                                                 <div className="flex gap-[29px] items-center">
                                                     <div className="flex gap-[7px] items-center">
@@ -273,7 +273,7 @@ const Trade = () => {
                                                                 </defs>
                                                             </svg>
                                                         </div>
-                                                        <p className="text-[16px] dark:text-white text-customblackbg font-[600] text-[Urbanist]">PizzaSwap</p>
+                                                        <p className="text-[16px] dark:text-white text-customblackbg font-[600]">PizzaSwap</p>
                                                     </div>
 
                                                     <svg className="fill-customblackbg dark-fill-white" xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 18" fill="none">
@@ -288,8 +288,8 @@ const Trade = () => {
                                     </div>
 
                                     <div className="flex flex-warap justify-between my-[25px]">
-                                        <p className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[600] text-[Urbanist]">Slippage Tolerance</p>
-                                        <p className="text-[16px] dark:text-white text-customblackbg font-[600] text-[Urbanist]">0.1%</p>
+                                        <p className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[600]">Slippage Tolerance</p>
+                                        <p className="text-[16px] dark:text-white text-customblackbg font-[600]">0.1%</p>
                                     </div>
                                     <WalletButton onClick={() => setConnectWallet(true)} buttonText="Unlock Wallet" />
 
@@ -300,7 +300,7 @@ const Trade = () => {
                                     <div className="flex flex-wrap items-center justify-between">
                                         <div>
                                             {' '}
-                                            <h5 className="text-[22px] dark:text-white text-customblackbg font-[700] text-[Urbanist]">Liquidity</h5>
+                                            <h5 className="text-[22px] dark:text-white text-customblackbg font-[700]">Liquidity</h5>
                                             <p className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Poppins] mt-[5px]">Add liquidity to receive LP tokens</p>
                                         </div>
                                         <div className="flex gap-[12px]">
@@ -327,7 +327,7 @@ const Trade = () => {
 
                                     <div>
                                         <div className="flex  items-center justify-center gap-[10px] rounded-[40px] cursor-pointer bg-custombluebg py-[22px] px-[34px] ">
-                                            <div className="text-[18px] text-center text-white font-[500] text-[Urbanist]">Add Liquidity</div>
+                                            <div className="text-[18px] text-center text-white font-[500]">Add Liquidity</div>
                                         </div>
 
                                         <div className="flex justify-between py-[30px]">
@@ -390,7 +390,7 @@ const Trade = () => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="panel !h-[793px] border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
+                                <Dialog.Panel className="panel !h-[793px] border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-[580px] text-black dark:text-white-dark">
                                     <div className="px-[25px]">
                                         <button
                                             type="button"
@@ -404,7 +404,7 @@ const Trade = () => {
                                                 />
                                             </svg>
                                         </button>
-                                        <div className="text-[22px] pt-[35px] dark:text-white text-customblackbg font-[600] text-[Urbanist] ltr:pl-5 rtl:pr-5 py-3 ltr:pr-[50px] rtl:pl-[50px]">
+                                        <div className="text-[22px] pt-[35px] dark:text-white text-customblackbg font-[600] rtl:pr-5 py-3 ltr:pr-[50px] ">
                                             <div className="flex items-center gap-2">
                                                 Select a Token
                                                 <span>
@@ -417,18 +417,18 @@ const Trade = () => {
                                                 </span>
                                             </div>
                                         </div>
-                                        <div className="border-b border-solid border-customlightgraybg opacity-[0.25] mt-[15px] mx-5"></div>
+                                        <div className="border-b border-solid border-customlightgraybg opacity-[0.25] mt-[15px]"></div>
                                     </div>
-                                    <div className="px-[25px]">
-                                        <div className="flex justify-between bg-transparent w-full mt-[30px] py-[15px] px-[35px] border border-solid border-customgraybg dark:border-[#404648] opacity dark:text-customlightgraybg rounded-[50px]">
+                                    <div className="px-[40px] pb-[35px]">
+                                        <div className="flex justify-between bg-transparent w-full mt-[30px] py-[10px] px-[35px] border border-solid border-customgraybg dark:border-[#404648] opacity dark:text-customlightgraybg rounded-[50px]">
                                             <input placeholder="Search Name or Paste Address" className="bg-transparent w-full pe-[3px] text-customlightgraybg  outline-none" />
-                                            <div className=" rounded-[40px] cursor-pointer   bg-custombluebg py-[12px] px-[34px]">
-                                                <div className="text-[16px] text-white font-[600] text-[Urbanist] text-center">Search</div>
+                                            <div className=" rounded-[40px] cursor-pointer   bg-custombluebg py-[10px] px-[25px]">
+                                                <div className="text-[16px] text-white font-[600] text-center">Search</div>
                                             </div>
                                         </div>
 
                                         <div className="flex justify-between items-center py-[30px]">
-                                            <div className="text-[18px] text-customblackbg dark:text-white font-[600] text-[Urbanist] text-center">Token Name</div>
+                                            <div className="text-[18px] text-customblackbg dark:text-white font-[600] text-center">Token Name</div>
                                             <svg className="fill-customblackbg dark:fill-white ms-[15px]" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                                                 <path
                                                     d="M19.5186 13.5603L16.5 16.5789V8.70835C16.5 8.20235 16.0893 7.79169 15.5833 7.79169C15.0773 7.79169 14.6666 8.20235 14.6666 8.70835V16.5789L11.6481 13.5603C11.2906 13.2023 10.7094 13.2023 10.3519 13.5603C9.99393 13.9182 9.99393 14.4985 10.3519 14.8564L14.9352 19.4398C15.114 19.619 15.3486 19.7084 15.5833 19.7084C15.818 19.7084 16.0526 19.619 16.2314 19.4398L20.8147 14.8564C21.1727 14.4985 21.1727 13.9182 20.8147 13.5603C20.4572 13.2023 19.8761 13.2023 19.5186 13.5603ZM15.5833 2.29169C15.3402 2.29169 15.107 2.38826 14.9351 2.56017C14.7632 2.73208 14.6666 2.96524 14.6666 3.20835C14.6666 3.45147 14.7632 3.68463 14.9351 3.85653C15.107 4.02844 15.3402 4.12502 15.5833 4.12502C15.8264 4.12502 16.0596 4.02844 16.2315 3.85653C16.4034 3.68463 16.5 3.45147 16.5 3.20835C16.5 2.96524 16.4034 2.73208 16.2315 2.56017C16.0596 2.38826 15.8264 2.29169 15.5833 2.29169ZM15.5833 5.04169C15.3402 5.04169 15.107 5.13826 14.9351 5.31017C14.7632 5.48208 14.6666 5.71524 14.6666 5.95835C14.6666 6.20147 14.7632 6.43463 14.9351 6.60653C15.107 6.77844 15.3402 6.87502 15.5833 6.87502C15.8264 6.87502 16.0596 6.77844 16.2315 6.60653C16.4034 6.43463 16.5 6.20147 16.5 5.95835C16.5 5.71524 16.4034 5.48208 16.2315 5.31017C16.0596 5.13826 15.8264 5.04169 15.5833 5.04169ZM5.49997 5.42119V13.2917C5.49997 13.7977 5.91063 14.2084 6.41663 14.2084C6.92263 14.2084 7.3333 13.7977 7.3333 13.2917V5.42119L10.3519 8.43977C10.5306 8.61898 10.7653 8.70835 11 8.70835C11.2346 8.70835 11.4693 8.61898 11.6481 8.43977C12.006 8.08181 12.006 7.50156 11.6481 7.1436L7.06472 2.56027C6.70722 2.20231 6.12605 2.20231 5.76855 2.56027L1.18522 7.1436C0.827258 7.50156 0.827258 8.08181 1.18522 8.43977C1.54272 8.79773 2.12388 8.79773 2.48138 8.43977L5.49997 5.42119ZM6.41663 17.875C6.17352 17.875 5.94036 17.9716 5.76845 18.1435C5.59654 18.3154 5.49997 18.5486 5.49997 18.7917C5.49997 19.0348 5.59654 19.268 5.76845 19.4399C5.94036 19.6118 6.17352 19.7084 6.41663 19.7084C6.65975 19.7084 6.89291 19.6118 7.06482 19.4399C7.23672 19.268 7.3333 19.0348 7.3333 18.7917C7.3333 18.5486 7.23672 18.3154 7.06482 18.1435C6.89291 17.9716 6.65975 17.875 6.41663 17.875ZM6.41663 15.125C6.17352 15.125 5.94036 15.2216 5.76845 15.3935C5.59654 15.5654 5.49997 15.7986 5.49997 16.0417C5.49997 16.2848 5.59654 16.518 5.76845 16.6899C5.94036 16.8618 6.17352 16.9584 6.41663 16.9584C6.65975 16.9584 6.89291 16.8618 7.06482 16.6899C7.23672 16.518 7.3333 16.2848 7.3333 16.0417C7.3333 15.7986 7.23672 15.5654 7.06482 15.3935C6.89291 15.2216 6.65975 15.125 6.41663 15.125Z"
@@ -445,7 +445,7 @@ const Trade = () => {
                                                         className="flex mt-[12px] gap-[10px] items-center py-[15px] px-[20px] bg-customgraybg dark:bg-customblackbg rounded-[50px] cursor-pointer"
                                                     >
                                                         <img src={item.icon} alt={`${item.name} Icon`} />
-                                                        <p className="text-[16px] text-customblackbg dark:text-white font-[600] text-[Urbanist] ">{item.name}</p>
+                                                        <p className="text-[16px] text-customblackbg dark:text-white font-[600] ">{item.name}</p>
                                                     </div>
                                                 ))}
                                             </div>
@@ -475,7 +475,7 @@ const Trade = () => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="panel  border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
+                                <Dialog.Panel className="panel  border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-[580px] text-black dark:text-white-dark">
                                     <div className="px-[10px]">
                                         <button
                                             type="button"
@@ -489,15 +489,15 @@ const Trade = () => {
                                                 />
                                             </svg>
                                         </button>
-                                        <div className="text-[22px] pt-[35px] dark:text-white text-customblackbg font-[600] text-[Urbanist] ltr:pl-5 rtl:pr-5 py-3 ltr:pr-[50px] rtl:pl-[50px]">
+                                        <div className="text-[22px] pt-[35px] dark:text-white text-customblackbg font-[600] ltr:pl-5 rtl:pr-5 py-3 ltr:pr-[50px] rtl:pl-[50px]">
                                             Settings
                                         </div>
                                         <div className="border-b border-solid border-customlightgraybg opacity-[0.25] my-[15px] mx-5"></div>
                                     </div>
 
-                                    <div className="px-[25px] pb-[35px]">
+                                    <div className="px-[40px] pb-[35px]">
                                         <div className="flex items-center gap-2">
-                                            <p className="text-[18px] py-[15px] dark:text-white text-customblackbg font-[600] text-[Urbanist]">Slippage Tolerance</p>
+                                            <p className="text-[18px] py-[15px] dark:text-white text-customblackbg font-[600]">Slippage Tolerance</p>
                                             <span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                                                     <path
@@ -521,12 +521,12 @@ const Trade = () => {
 
                                             <input
                                                 placeholder="Enter Percentage"
-                                                className=" dark:bg-customblackbg bg-customgraybg w-full text-[14px] py-[16px] px-[25px] opacity dark:text-customlightgraybg rounded-[50px]  outline-none"
+                                                className=" dark:bg-customblackbg bg-customgraybg w-full text-[16px] py-[16px] px-[25px] opacity dark:text-customlightgraybg text-custommediumgraybg rounded-[50px]  outline-none"
                                             />
                                         </div>
 
-                                        <div className="flex items-center gap-2">
-                                            <p className="text-[18px] py-[15px] dark:text-white text-customblackbg font-[600] text-[Urbanist]">Transaction Deadline</p>
+                                        <div className="flex items-center gap-2 pt-[30px] ">
+                                            <p className="text-[18px] pb-[10px] dark:text-white text-customblackbg font-[600]">Transaction Deadline</p>
                                             <span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                                                     <path
@@ -540,7 +540,7 @@ const Trade = () => {
                                         <div>
                                             <input
                                                 placeholder="Enter Minutes"
-                                                className=" dark:bg-customblackbg w-[205px] bg-customgraybg text-[14px] py-[16px] px-[25px] opacity dark:text-customlightgraybg rounded-[50px]  outline-none"
+                                                className="dark:bg-customblackbg bg-customgraybg w-[205px] text-[16px] py-[16px] px-[25px] opacity dark:text-customlightgraybg text-custommediumgraybg rounded-[50px]  outline-none"
                                             />
                                         </div>
                                     </div>
@@ -568,7 +568,7 @@ const Trade = () => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="panel  border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
+                                <Dialog.Panel className="panel  border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-[580px] max-sm:pb-8 lg:h-[302px] text-black dark:text-white-dark">
                                     <div className="px-[10px]">
                                         <button
                                             type="button"
@@ -582,20 +582,20 @@ const Trade = () => {
                                                 />
                                             </svg>
                                         </button>
-                                        <div className="text-[22px] pt-[35px] dark:text-white text-customblackbg font-[600] text-[Urbanist] ltr:pl-5 rtl:pr-5 py-3 ltr:pr-[50px] rtl:pl-[50px]">
+                                        <div className="text-[22px] pt-[35px] dark:text-white text-customblackbg font-[600] ltr:pl-5 rtl:pr-5 py-3 ltr:pr-[50px] rtl:pl-[50px]">
                                             Recent Transactions
                                         </div>
                                         <div className="border-b border-solid border-customlightgraybg opacity-[0.25] my-[15px] mx-5"></div>
                                     </div>
 
-                                    <div className="px-[25px] pb-[35px]">
-                                        <p className="text-[20px] py-[15px] text-center dark:text-customlightgraybg text-customblackbg font-[500] text-[Urbanist]">
+                                    <div className="px-[40px]">
+                                        <p className="text-[20px] pt-[10px] text-center dark:text-customlightgraybg text-customblackbg font-[500]">
                                             Please connect your wallet to view your recent transactions
                                         </p>
                                     </div>
-                                    <div className="flex justify-center pb-[35px] ">
+                                    <div className="flex justify-center pt-[30px] ">
                                         <div className=" rounded-full cursor-pointer bg-custombluebg py-[12px] px-[34px] ">
-                                            <div className="text-[16px]  text-white text-center font-[500] text-[Urbanist]">Connect</div>
+                                            <div className="text-[16px]  text-white text-center font-[500]">Connect</div>
                                         </div>
                                     </div>
                                 </Dialog.Panel>

@@ -19,8 +19,10 @@ const homeData = {
       amount2: '$101,066,256',
       TotalBurned: 'TotalBurned',
       amount3: '$164,043',
-      Supply: 'Supply',
+      Supply: 'Circulating Supply',
       amount4: '$100,902,213',
+      newPizza: 'New PizzaSwap/Block',
+      amount5: '0.03',
   },
   TotalValueLocked: {
       TotalValueLocked: 'Total Value Locked (TVL)',
