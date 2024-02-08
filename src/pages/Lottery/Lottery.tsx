@@ -14,7 +14,7 @@ import connect4 from '../../../public/assets/images/connect4.png';
 import connect5 from '../../../public/assets/images/connect5.png';
 import connect6 from '../../../public/assets/images/connect6.png';
 import connect7 from '../../../public/assets/images/connect7.png';
-import wallet2 from '../../assets/images/wallet2.png';
+import img2 from '../../../public/assets/images/img2.png';
 import WalletButton from '../../components/Reuseable/WalletButton';
 
 
@@ -244,7 +244,7 @@ const Lottery = () => {
 
                                         <div className="panel flex flex-col items-center w-[50%] max-md:w-[100%]">
                                             <div className="w-[60%] mb-4">
-                                                <img src={wallet2} className="w-[100%]" alt="wallet" />
+                                                <img src={img2} className="w-[100%]" alt="img2" />
                                             </div>
                                             <div className="text-[22px] my-[15px]">{LoteryData.unlock}</div>
                                             <div className='mt-[5px]'>
