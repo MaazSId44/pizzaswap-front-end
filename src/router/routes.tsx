@@ -43,6 +43,11 @@ const routes = [
         path: 'lottery',
         element: <Lottery />,
     },
+    {
+        // path: '/auth/boxed-signin',
+        // element: <LoginBoxed />,
+        layout: 'blank',
+    },
 
     {
         path: '*',
