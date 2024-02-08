@@ -6,7 +6,6 @@ import { toggleSidebar } from '../../store/themeConfigSlice';
 import AnimateHeight from 'react-animate-height';
 import { IRootState } from '../../store';
 import { useState, useEffect } from 'react';
-import student from '../../assets/Images/student.svg';
 import profile_image from '../../assets/Images/profile_image.png';
 import { sideBarData } from '../Constants/Constant'
 import ThemeSwitcher from '../Reuseable/ThemeSwitcher';
@@ -49,7 +48,6 @@ const Sidebar = () => {
         if (window.innerWidth < 1024 && themeConfig.sidebar) {
             dispatch(toggleSidebar());
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location]);
     const theme = localStorage.getItem('theme');
     return (
@@ -165,19 +163,6 @@ const Sidebar = () => {
                                 </svg>
                             }
                         </NavLink>
-                        {/* 
-                        <button
-                            type="button"
-                            className="collapse-icon w-8 h-8 rounded-full flex items-center hover:bg-gray-500/10 dark:hover:bg-dark-light/10 dark:text-white-light transition duration-300 rtl:rotate-180"
-                            onClick={() => dispatch(toggleSidebar())}
-                        >
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 m-auto">
-                                <path d="M13 19L7 12L13 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                <path opacity="0.5" d="M16.9998 19L10.9998 12L16.9998 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </button> */}
-
-
 
                     </div>
                     <div className='relative'>
@@ -238,7 +223,7 @@ const Sidebar = () => {
 
 
                             <li className="menu nav-item mt-3">
-                                <NavLink to="/apps/buy-pizzaswap" className="group  !justify-start">
+                                <NavLink to="/buy-pizzaswap" className="group  !justify-start">
 
                                     <button type="button" className={`${currentMenu === 'studentlist' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('studentlist')}>
                                         <div className="flex items-center">
@@ -604,12 +589,7 @@ const Sidebar = () => {
                                         <p className='text-[16px] leading-normal dark:text-white text-customblackbg  font-[600] '>John Smith</p>
                                         <p className='text-[12px] leading-normal dark:text-customlightgraybg text-custommediumgraybg  font-[600] '>View Profile</p>
                                     </div>
-
-
-
                                 </div>
-
-
                                 <div>
                                     <ThemeSwitcher />
                                 </div>

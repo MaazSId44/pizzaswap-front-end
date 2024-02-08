@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import main from '../../../public/assets/images/main-icon.svg';
 import icon1 from '../../../public/assets/images/icon 1.svg';
 import icon2 from '../../../public/assets/images/icon 2.svg';
@@ -20,14 +20,19 @@ import connect7 from '../../../public/assets/images/connect7.png';
 import { Dialog, Transition } from '@headlessui/react';
 import CustomDialog from '../../components/Reuseable/ConnectToWalletModal';
 import WalletButton from '../../components/Reuseable/WalletButton';
-import { buyPizzaData } from '../../components/Constants/Constant';
+import { farmdata } from '../../components/Constants/Constant';
+import { useDispatch } from 'react-redux';
+import { setPageTitle } from '../../store/themeConfigSlice';
 function Pizzaswap() {
     const [selectedTab, setSelectedTab] = useState(0);
     const [selectedFilter, setSelectedFilter] = useState('All');
     const [visibleItems, setVisibleItems] = useState(9);
     const [connectWallet, setConnectWallet] = useState<any>(false);
     const [aprModal, setAprModal] = useState<any>(false);
-
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(setPageTitle('Farms'));
+    }, []);
     const navItems = [
         {
             title: 'All',
@@ -190,7 +195,6 @@ function Pizzaswap() {
             stacked: 'Staked',
         },
     ];
-
     const theme = localStorage.getItem('theme');
     const itemsConnect = [
         { id: 1, name: 'Metamask', icon: connect1 },
@@ -201,7 +205,6 @@ function Pizzaswap() {
         { id: 6, name: 'Binance Chain Wallet', icon: connect6 },
         { id: 7, name: 'Safepal Wallet', icon: connect7 },
     ];
-
     const table = [
         {
             id: '1',
@@ -245,8 +248,8 @@ function Pizzaswap() {
     return (
         <div className="">
             <div>
-                <h1 className="text-[28px] dark:text-white text-customblackbg font-[700] text-[Poppins] leading-8 ">{buyPizzaData.farmstitle}</h1>
-                <p className="text-[16px] dark:text-customlightgraybg text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">{buyPizzaData.farmssubtittle}</p>
+                <h1 className="text-[28px] dark:text-white text-customblackbg font-[700] text-[Poppins] leading-8 ">{farmdata.farmstitle}</h1>
+                <p className="text-[16px] dark:text-customlightgraybg text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">{farmdata.farmssubtittle}</p>
             </div>
 
             <div className="flex items-center justify-center gap-[28px] max-sm:flex-col max-md:flex-wrap pt-[70px]">
@@ -285,7 +288,7 @@ function Pizzaswap() {
                     >
                         {filteredItems.slice(0, visibleItems).map((item, index) => (
                             <>
-                                <div className="bg-[#fff] dark:bg-[#1A1E1F]  rounded-[20px] border-[1px] border-solid border-[#B2BEC34D] p-[30px] sm:p-[20px]">
+                                <div className="bg-[#fff] dark:bg-[#1A1E1F]  rounded-[20px] border-[1px] border-solid border-[#B2BEC34D] md:py-[35px] py-[35px] px-[30px] md:p-[30px] sm:p-[20px]">
                                     <div className="flex gap-[10px] items-center mb-[18px]">
                                         <div>
                                             <img src={item.main} alt="" />

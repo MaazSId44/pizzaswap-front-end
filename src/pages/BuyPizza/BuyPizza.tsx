@@ -1,15 +1,9 @@
 import { useState, Fragment, useEffect, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import Swal from 'sweetalert2';
 import { useDispatch } from 'react-redux';
 import { setPageTitle } from '../../store/themeConfigSlice';
 import '../../assets/css/switch.css';
-import { DataTable, DataTableSortStatus } from 'mantine-datatable';
-import sortBy from 'lodash/sortBy';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import API_ENDPOINTS from '../../Routes/API_routes';
-import secureLocalStorage from 'react-secure-storage';
 import { Loader } from '../../components/Reuseable/Loader';
 import exchangeIcon from '../../../public/assets/images/exchangeIcon.png';
 import connect1 from '../../../public/assets/images/connect1.png';
@@ -19,8 +13,7 @@ import connect4 from '../../../public/assets/images/connect4.png';
 import connect5 from '../../../public/assets/images/connect5.png';
 import connect6 from '../../../public/assets/images/connect6.png';
 import connect7 from '../../../public/assets/images/connect7.png';
-import pizzaBlue from '../../../public/assets/images/pizzaBlue.png';
-
+import pizzaBlue from '../../../public/assets/images/pizzaBlue.png'
 import takenIcon from '../../../public/assets/images/takenIcon.png';
 import takenIcon1 from '../../../public/assets/images/takenIcon1.png';
 import takenIcon2 from '../../../public/assets/images/takenIcon2.png';
@@ -34,24 +27,15 @@ import WalletButton from '../../components/Reuseable/WalletButton';
 const BuyPizza = () => {
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(setPageTitle('buy-Pizza'));
+        dispatch(setPageTitle('Buy-Pizza'));
     });
     const [tokenModal, setTokenModal] = useState<any>(false);
     const [settingModal, setSettingModal] = useState<any>(false);
     const [recentTransactions, setRecentTransactions] = useState<any>(false);
     const [connectWallet, setConnectWallet] = useState<any>(false);
     const [tokenImported, setTokenImported] = useState<any>(false);
-
-    const [value, setValue] = useState<any>('');
-    const [defaultParams] = useState({
-        id: null,
-        name: '',
-        email: '',
-        phone: '',
-        role: '',
-        location: '',
-    });
-
+    const [isUnderstand, setIsUnderstand] = useState(false);
+    const [mainTitle, setMainTitle] = useState('Exchange');
 
     const navigate = useNavigate()
     const handleConnect = () => {
@@ -64,22 +48,7 @@ const BuyPizza = () => {
         setTokenImported(true)
     }, []);
 
-    const [page, setPage] = useState(1);
-    const PAGE_SIZES = [10, 20, 30, 50, 100];
-    const [pageSize, setPageSize] = useState(PAGE_SIZES[0]);
-
-    const [initialRecords, setInitialRecords] = useState<any[]>([]);
-    const [recordsData, setRecordsData] = useState<any[]>(initialRecords);
-    const [loader, setLoader] = useState(false);
-
-
-    const token = secureLocalStorage.getItem('token');
-    const [isUnderstand, setIsUnderstand] = useState(false);
-
     useEffect(() => {
-        // if (!token) {
-        //     navigate('/auth/boxed-signin');
-        // }
         setTokenImported(true);
     }, []);
     const handleCheckboxChange = () => {
@@ -116,7 +85,6 @@ const BuyPizza = () => {
     ];
 
     const [activeTab, setActiveTab] = useState('Swap');
-    const [mainTitle, setMainTitle] = useState('Exchange');
 
     const handleTabClick = (title: string) => {
         setActiveTab(title);
@@ -135,7 +103,6 @@ const BuyPizza = () => {
     ];
     return (
         <div>
-            {loader && <Loader />}
             <div className="flex items-center justify-between flex-wrap gap-4">
 
                 <div>
@@ -651,7 +618,7 @@ const BuyPizza = () => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="panel !h-[730px] border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
+                                <Dialog.Panel className="panel !h-[730px] border-0 p-0 rounded-[40px] !overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
                                     <div className='px-[25px]'>
                                         <div className="text-[22px] pt-[35px] dark:text-white text-customblackbg font-[700] text-[Urbanist] ltr:pl-5 rtl:pr-5 py-3 ltr:pr-[50px] rtl:pl-[50px]">
                                             <div className='flex items-center gap-2'>

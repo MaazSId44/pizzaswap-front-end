@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import main from '../../../public/assets/images/main-icon.svg';
 import icon1 from '../../../public/assets/images/icon 1.svg';
 import icon2 from '../../../public/assets/images/icon 2.svg';
@@ -20,13 +20,20 @@ import connect7 from '../../../public/assets/images/connect7.png';
 import { Dialog, Transition } from '@headlessui/react';
 import CustomDialog from '../../components/Reuseable/ConnectToWalletModal';
 import WalletButton from '../../components/Reuseable/WalletButton';
-import { buyPizzaData } from '../../components/Constants/Constant';
+import { stackingdata } from '../../components/Constants/Constant';
+import { setPageTitle } from '../../store/themeConfigSlice';
+import { useDispatch } from 'react-redux';
 function Staking() {
     const [selectedTab, setSelectedTab] = useState(0);
     const [selectedFilter, setSelectedFilter] = useState('All');
     const [visibleItems, setVisibleItems] = useState(9);
     const [connectWallet, setConnectWallet] = useState<any>(false);
     const [aprModal, setAprModal] = useState<any>(false);
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(setPageTitle('Staking'));
+    }, []);
+
 
     const navItems = [
         {
@@ -230,23 +237,17 @@ function Staking() {
     ];
 
     const firstBtnRef = useRef<HTMLButtonElement>(null);
-    const dropdownRef = useRef<HTMLDivElement | null>(null);
 
     const filteredItems =
         selectedTab === 0
             ? items.filter((item) => selectedFilter === 'All' || item.tag === selectedFilter)
             : items.filter((item) => item.contentTitle === navItems[selectedTab]?.title && (selectedFilter === 'All' || item.tag === selectedFilter));
-    const remainingItems = filteredItems.slice(visibleItems, visibleItems + 4);
-
-    const handleLoadMore = () => {
-        setVisibleItems((prevVisibleItems) => prevVisibleItems + 4);
-    };
 
     return (
         <div className="">
             <div>
-                <h1 className="text-[28px] dark:text-white text-customblackbg font-[700] text-[Poppins] ">{buyPizzaData.stackingtitle}</h1>
-                <p className="text-[16px] dark:text-customlightgraybg text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">{buyPizzaData.stackingsubtitle}</p>
+                <h1 className="text-[28px] dark:text-white text-customblackbg font-[700] text-[Poppins] ">{stackingdata.stackingtitle}</h1>
+                <p className="text-[16px] dark:text-customlightgraybg text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">{stackingdata.stackingsubtitle}</p>
             </div>
 
             <div className="flex items-center justify-center gap-[28px] max-sm:flex-col max-md:flex-wrap pt-[70px]">
@@ -285,7 +286,7 @@ function Staking() {
                     >
                         {filteredItems.slice(0, visibleItems).map((item, index) => (
                             <>
-                                <div className="bg-[#fff] dark:bg-[#1A1E1F]  rounded-[20px] border-[1px] border-solid border-[#B2BEC34D] p-[30px] sm:p-[20px]">
+                                <div className="bg-[#fff] dark:bg-[#1A1E1F]  rounded-[20px] border-[1px] border-solid border-[#B2BEC34D] md:py-[35px] py-[35px] px-[30px] md:p-[30px] sm:p-[20px]">
                                     <div className="flex gap-[10px] items-center mb-[18px]">
                                         <div>
                                             <img src={item.main} alt="" />

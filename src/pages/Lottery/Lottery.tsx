@@ -4,7 +4,7 @@ import { setPageTitle } from '../../store/themeConfigSlice';
 import { useEffect, useRef, useState } from 'react';
 import person from '../../assets/Images/lotteryBg.png';
 import wallet from '../../assets/images/wallet2.png';
-import { buyPizzaData, homeData } from '../../components/Constants/Constant';
+import { LoteryData, homeData } from '../../components/Constants/Constant';
 import bgslice from "../../../public/assets/images/pizzaslice.png"
 import CountdownTimer from '../../components/Reuseable/CountdownTimer ';
 import CustomDialog from '../../components/Reuseable/ConnectToWalletModal';
@@ -21,7 +21,7 @@ import WalletButton from '../../components/Reuseable/WalletButton';
 const Lottery = () => {
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(setPageTitle('Profile'));
+        dispatch(setPageTitle('Lottery'));
         // GetUserDetail()
     }, []);
 
@@ -110,8 +110,8 @@ const Lottery = () => {
             <div className="pt-[60px]" style={backgroundLotryImageStyle}>
                 <div className='flex justify-center'>
                     <div>
-                        <p className="text-[38px] text-white font-[500] mt-[5px] text-center">{buyPizzaData.loteryupsidetitle}</p>
-                        <p className="text-[16px] text-customlightgraybg font-[500] text-center leading-normal mt-[20px]">{buyPizzaData.loteryupsidedowntext}</p>
+                        <p className="text-[38px] text-white font-[500] mt-[5px] text-center">{LoteryData.loteryupsidetitle}</p>
+                        <p className="text-[16px] text-customlightgraybg font-[500] text-center leading-normal mt-[20px]">{LoteryData.loteryupsidedowntext}</p>
                         <div className="flex items-center flex-wrap justify-center gap-[120px] max-sm:gap-0  pt-[80px]">
                             <div>
                                 <CountdownTimer hours={3} minutes={38} seconds={19} label="Until Ticket Sale" />
@@ -211,42 +211,42 @@ const Lottery = () => {
                                             </div>
 
                                             <div className="flex justify-between mt-[18px]">
-                                                <div className="text-[22px] font-[600] text-[#636E72] ">{buyPizzaData.lotterycardtittle}</div>
-                                                <div className="text-[22px] font-[600] text-[#2D3436] dark:text-[#fff]">{buyPizzaData.totalpotpoint}</div>
+                                                <div className="text-[22px] font-[600] text-[#636E72] ">{LoteryData.lotterycardtittle}</div>
+                                                <div className="text-[22px] font-[600] text-[#2D3436] dark:text-[#fff]">{LoteryData.totalpotpoint}</div>
                                             </div>
 
                                             <div className="flex justify-between mt-[18px]">
-                                                <div className="text-[21.6px] text-[#2B70FA]">{buyPizzaData.nomatched}</div>
-                                                <div className="text-[21.6px] text-[#2B70FA]">{buyPizzaData.pizepot}</div>
+                                                <div className="text-[21.6px] text-[#2B70FA]">{LoteryData.nomatched}</div>
+                                                <div className="text-[21.6px] text-[#2B70FA]">{LoteryData.pizepot}</div>
                                             </div>
                                             <div className="flex flex-col">
                                                 <div className="flex justify-between mt-[18px]">
-                                                    <div className="text-[21.6px]">{buyPizzaData.match1}</div>
-                                                    <div className="text-[21.6px]">{buyPizzaData.pot1}</div>
+                                                    <div className="text-[21.6px]">{LoteryData.match1}</div>
+                                                    <div className="text-[21.6px]">{LoteryData.pot1}</div>
                                                 </div>
                                                 <div className="flex justify-between mt-[18px]">
-                                                    <div className="text-[21.6px]">{buyPizzaData.match2}</div>
-                                                    <div className="text-[21.6px]">{buyPizzaData.pot2}</div>
+                                                    <div className="text-[21.6px]">{LoteryData.match2}</div>
+                                                    <div className="text-[21.6px]">{LoteryData.pot2}</div>
                                                 </div>
                                                 <div className="flex justify-between mt-[18px]">
-                                                    <div className="text-[21.6px]">{buyPizzaData.match3}</div>
-                                                    <div className="text-[21.6px]">{buyPizzaData.pot3}</div>
+                                                    <div className="text-[21.6px]">{LoteryData.match3}</div>
+                                                    <div className="text-[21.6px]">{LoteryData.pot3}</div>
                                                 </div>
                                             </div>
 
                                             <div className="border-b border-solid border-customlightgraybg opacity-[0.25] my-[43px]"></div>
 
                                             <div className="flex justify-between">
-                                                <div className="text-[24px]">{buyPizzaData.burn}</div>
-                                                <div className="text-[24px]">{buyPizzaData.burnpoint}</div>
+                                                <div className="text-[24px]">{LoteryData.burn}</div>
+                                                <div className="text-[24px]">{LoteryData.burnpoint}</div>
                                             </div>
                                         </div>
 
                                         <div className="panel flex flex-col items-center w-[50%] max-md:w-[100%]">
                                             <div className="w-[60%] mb-4">
-                                                <img src={wallet} className="w-[100%]" alt="wallet" />
+                                                {/* <img src={wallet} className="w-[100%]" alt=".." /> */}
                                             </div>
-                                            <div className="text-[22px] my-[15px]">{buyPizzaData.unlock}</div>
+                                            <div className="text-[22px] my-[15px]">{LoteryData.unlock}</div>
                                             <div className='mt-[5px]'>
                                                 <WalletButton onClick={() => setConnectWallet(true)} buttonText="Unlock Wallet" />
                                             </div>
@@ -271,16 +271,16 @@ const Lottery = () => {
                                         </div>
                                         <div className="w-[49%] mx-auto max-sm:w-[100%] md:w-[100%] lg:w-[49%]">
                                             <div className="flex justify-between">
-                                                <div className="text-[#636E72] text-[16px] font-[500]">{buyPizzaData.ticket1}</div>
-                                                <div className="text-[#2D3436] dark:text-[#fff] text-[16px] font-[500]">{buyPizzaData.ticket1no}</div>
+                                                <div className="text-[#636E72] text-[16px] font-[500]">{LoteryData.ticket1}</div>
+                                                <div className="text-[#2D3436] dark:text-[#fff] text-[16px] font-[500]">{LoteryData.ticket1no}</div>
                                             </div>
                                             <div className="flex justify-between my-[10px]">
-                                                <div className="text-[#636E72] text-[16px] font-[500]">T{buyPizzaData.ticket2}</div>
-                                                <div className="text-[#2D3436] dark:text-[#fff] text-[16px] font-[500]">{buyPizzaData.ticket2no}</div>
+                                                <div className="text-[#636E72] text-[16px] font-[500]">{LoteryData.ticket2}</div>
+                                                <div className="text-[#2D3436] dark:text-[#fff] text-[16px] font-[500]">{LoteryData.ticket2no}</div>
                                             </div>
                                             <div className="flex justify-between">
-                                                <div className="text-[#636E72] text-[16px] font-[500]">{buyPizzaData.ticket3}</div>
-                                                <div className="text-[#2D3436] dark:text-[#fff] text-[16px] font-[500]">{buyPizzaData.ticket3no}</div>
+                                                <div className="text-[#636E72] text-[16px] font-[500]">{LoteryData.ticket3}</div>
+                                                <div className="text-[#2D3436] dark:text-[#fff] text-[16px] font-[500]">{LoteryData.ticket3no}</div>
                                             </div>
                                             <div className="flex items-center gap-[10px] pt-[16px]">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -304,8 +304,8 @@ const Lottery = () => {
                                     <div className="flex gap-[40px] max-sm:flex-col md:flex-col lg:flex-row">
                                         <div className="panel gap-y-4 w-[50%] max-sm:w-[100%] md:w-[100%] lg:w-[50%]">
                                             <div className="flex  items-center justify-between">
-                                                <div className="text-[16px] text-[600]">{buyPizzaData.round1}</div>
-                                                <div className="text-[16px] text-[400]">{buyPizzaData.round1time}</div>
+                                                <div className="text-[16px] text-[600]">{LoteryData.round1}</div>
+                                                <div className="text-[16px] text-[400]">{LoteryData.round1time}</div>
                                             </div>
                                             <div className="flex mt-[20px]">
                                                 <div className="p-[8px] bg-custombluebg rounded-[40px] w-fit">
@@ -368,8 +368,8 @@ const Lottery = () => {
                                                     </svg>
                                                 </div>
                                                 <div className="ms-[10px]">
-                                                    <div className="text-[14px]">{buyPizzaData.totalprize}</div>
-                                                    <div className="text-[22px] text-[#2D3436] dark:text-[#fff] mt-[5px]">{buyPizzaData.prizepoint}</div>
+                                                    <div className="text-[14px]">{LoteryData.totalprize}</div>
+                                                    <div className="text-[22px] text-[#2D3436] dark:text-[#fff] mt-[5px]">{LoteryData.prizepoint}</div>
                                                 </div>
                                             </div>
                                             <div className="flex mt-[28px] ">
@@ -382,36 +382,36 @@ const Lottery = () => {
                                                     </svg>
                                                 </div>
                                                 <div className="ms-[10px]">
-                                                    <div className="text-[14px]">{buyPizzaData.winningno}</div>
-                                                    <div className="text-[22px] text-[#2D3436] dark:text-[#fff] mt-[5px] ">{buyPizzaData.winningnos}</div>
+                                                    <div className="text-[14px]">{LoteryData.winningno}</div>
+                                                    <div className="text-[22px] text-[#2D3436] dark:text-[#fff] mt-[5px] ">{LoteryData.winningnos}</div>
                                                 </div>
                                             </div>
                                             <div className="border-b border-t border-solid border-customlightgraybg  my-[43px]">
                                                 <div className=" flex justify-between mt-[30px] mb-[18px]">
-                                                    <div className="text-[18px] font-[500] text-[#2B70FA] dark:text-[#2B70FA] ">{buyPizzaData.head1}</div>
-                                                    <div className="text-[18px] font-[500] text-[#2B70FA] dark:text-[#2B70FA] ">{buyPizzaData.head2}</div>
-                                                    <div className="text-[18px] font-[500] text-[#2B70FA] dark:text-[#2B70FA] ">{buyPizzaData.head3}</div>
+                                                    <div className="text-[18px] font-[500] text-[#2B70FA] dark:text-[#2B70FA] ">{LoteryData.head1}</div>
+                                                    <div className="text-[18px] font-[500] text-[#2B70FA] dark:text-[#2B70FA] ">{LoteryData.head2}</div>
+                                                    <div className="text-[18px] font-[500] text-[#2B70FA] dark:text-[#2B70FA] ">{LoteryData.head3}</div>
                                                 </div>
                                                 <div className="flex justify-between">
-                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{buyPizzaData.r1c1}</div>
-                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{buyPizzaData.r1c2}</div>
-                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{buyPizzaData.r1c3}</div>
+                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{LoteryData.r1c1}</div>
+                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{LoteryData.r1c2}</div>
+                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{LoteryData.r1c3}</div>
                                                 </div>
                                                 <div className="flex justify-between my-[18px]">
-                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{buyPizzaData.r2c1}</div>
-                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{buyPizzaData.r2c2}</div>
-                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{buyPizzaData.r2c3}</div>
+                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{LoteryData.r2c1}</div>
+                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{LoteryData.r2c2}</div>
+                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{LoteryData.r2c3}</div>
                                                 </div>
                                                 <div className="flex justify-between mb-[30px]">
-                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{buyPizzaData.r3c1}</div>
-                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{buyPizzaData.r3c2}</div>
-                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{buyPizzaData.r3c3}</div>
+                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{LoteryData.r3c1}</div>
+                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{LoteryData.r3c2}</div>
+                                                    <div className="text-[18px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{LoteryData.r3c3}</div>
                                                 </div>
                                             </div>
 
                                             <div className="flex justify-between">
-                                                <div className="text-[20px] font-[500] text-[#2B70FA] dark:text-[#B2BEC3]">{buyPizzaData.toburn}</div>
-                                                <div className="text-[20px] font-[500]">{buyPizzaData.burnpoints}</div>
+                                                <div className="text-[20px] font-[500] text-[#2B70FA] dark:text-[#B2BEC3]">{LoteryData.toburn}</div>
+                                                <div className="text-[20px] font-[500]">{LoteryData.burnpoints}</div>
                                             </div>
 
                                             <div className='mt-[30px]'>
@@ -421,7 +421,7 @@ const Lottery = () => {
                                         </div>
 
                                         <div className="panel w-[50%] max-sm:w-[100%] md:w-[100%] lg:w-[50%]">
-                                            <div className="text-[600] text-[22px] text-[#636E72] dark:text-[#B2BEC3]">{buyPizzaData.historycardtittle}</div>
+                                            <div className="text-[600] text-[22px] text-[#636E72] dark:text-[#B2BEC3]">{LoteryData.historycardtittle}</div>
                                             <div className="flex justify-center items-center mt-[100px]">
                                                 <img src={bgslice} className='' alt=".." />
                                             </div>

@@ -1,12 +1,10 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { IRootState } from '../store';
+import { useDispatch} from 'react-redux';
 import { useEffect } from 'react';
-import { setPageTitle } from '../store/themeConfigSlice';
+import { setPageTitle } from '../../store/themeConfigSlice';
 
-import avatar from '../../public/assets/images/avatar.png';
-import connect from '../../public/assets/images/connectImage.svg';
-import { homeData } from '../components/Constants/Constant'
+import avatar from '../../../public/assets/images/avatar.png';
+import connect from '../../../public/assets/images/connectImage.svg';
+import { homeData } from '../../components/Constants/Constant'
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -14,8 +12,6 @@ const Home = () => {
         dispatch(setPageTitle('Home'));
     });
 
-    const date = new Date();
-    const month = date.getMonth();
     const data = [
         { label: homeData.PizzaSwapStats.MarketCap, value: homeData.PizzaSwapStats.amount },
         { label: homeData.PizzaSwapStats.TotalMinted, value: homeData.PizzaSwapStats.amount2 },
@@ -58,10 +54,6 @@ const Home = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
     };
-    // const isDark = useSelector((state: IRootState) => state.themeConfig.theme === 'dark' || state.themeConfig.isDarkMode);
-    // const isRtl = useSelector((state: IRootState) => state.themeConfig.rtlClass) === 'rtl' ? true : false;
-    // const [loading] = useState(false);
-
     return (
         <div>
             <div className="flex items-center gap-[10px] pb-[21px]">
@@ -79,7 +71,7 @@ const Home = () => {
                             <h5 className="text-[22px] dark:text-white text-customblackbg font-[700] text-[Urbanist]">{homeData.FarmsAndStaking}</h5>
                         </div>
                         <div>
-                            <div className="flex flex-wrap items-center gap-[18px] text-[#e95f2b]">
+                            <div className="flex flex-wrap items-center gap-[25px] text-[#e95f2b]">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
                                     <g clip-path="url(#clip0_37_117)">
                                         <path
