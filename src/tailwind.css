@@ -68,6 +68,7 @@
 
       }
       
+      
       .scrollbar::-webkit-scrollbar-thumb {
         border-radius: 8px;
         background: var(--Brandis-Blue, #2B70FA);
