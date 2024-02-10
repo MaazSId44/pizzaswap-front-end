@@ -30,6 +30,8 @@ function Staking() {
     const [connectWallet, setConnectWallet] = useState<any>(false);
     const [aprModal, setAprModal] = useState<any>(false);
     const dispatch = useDispatch()
+    const [showStaked, setShowStaked] = useState(false);
+
     useEffect(() => {
         dispatch(setPageTitle('Staking'));
     }, []);
@@ -65,7 +67,7 @@ function Staking() {
             tag: 'PizzaSwap',
             harvestbtn: 'Harvest',
             earned: '0.000',
-            stacked: 'Staked',
+            stacked: 'UnStaked',
         },
         {
             main: main,
@@ -97,7 +99,7 @@ function Staking() {
             tag: 'PizzaSwap',
             harvestbtn: 'Harvest',
             earned: '0.000',
-            stacked: 'Staked',
+            stacked: 'UnStaked',
         },
         {
             main: main,
@@ -145,7 +147,7 @@ function Staking() {
             tag: 'Partner',
             harvestbtn: 'Harvest',
             earned: '0.000',
-            stacked: 'Staked',
+            stacked: 'UnStaked',
         },
 
         {
@@ -178,7 +180,7 @@ function Staking() {
             tag: 'inactive',
             harvestbtn: 'Harvest',
             earned: '0.000',
-            stacked: 'Staked',
+            stacked: 'UnStaked',
         },
         {
             main: main,
@@ -194,7 +196,7 @@ function Staking() {
             tag: 'inactive',
             harvestbtn: 'Harvest',
             earned: '0.000',
-            stacked: 'Staked',
+            stacked: 'UnStaked',
         },
     ];
 
@@ -240,9 +242,17 @@ function Staking() {
 
     const filteredItems =
         selectedTab === 0
-            ? items.filter((item) => selectedFilter === 'All' || item.tag === selectedFilter)
-            : items.filter((item) => item.contentTitle === navItems[selectedTab]?.title && (selectedFilter === 'All' || item.tag === selectedFilter));
-
+            ? items.filter(
+                (item) =>
+                    (selectedFilter === 'All' || item.tag === selectedFilter) &&
+                    (!showStaked || item.stacked === 'Staked')
+            )
+            : items.filter(
+                (item) =>
+                    item.contentTitle === navItems[selectedTab]?.title &&
+                    (selectedFilter === 'All' || item.tag === selectedFilter) &&
+                    (!showStaked || item.stacked === 'Staked')
+            );
     return (
         <div className="">
             <div>
@@ -255,8 +265,12 @@ function Staking() {
                     <span className="ms-3 text-[18px] font-[500] m-[0px] dark:text-[#B2BEC3] text-[#2D3436] ">Staked Only</span>
 
                     <label className="relative inline-flex items-center cursor-pointer mb-0">
-                        <input type="checkbox" value="" className="sr-only peer" />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute  max-md:after:top-[2px] min-md:after:top-[10px] max-lg:after:top-[2px] max-xl:after:top-[2px] max-2xl:after:top-[2px]  after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                        <input
+                            type="checkbox"
+                            value=""
+                            className="sr-only peer"
+                            onChange={() => setShowStaked(!showStaked)}
+                        />                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute  max-md:after:top-[2px] min-md:after:top-[10px] max-lg:after:top-[2px] max-xl:after:top-[2px] max-2xl:after:top-[2px]  after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                     </label>
                 </div>
 
@@ -280,11 +294,10 @@ function Staking() {
             {filteredItems.length >= 1 ? (
                 <>
                     <div
-                        className={`${
-                            filteredItems.length === 1
-                                ? ' mx-[32%] place-content-center max-md:mx-[20%] max-lg:mx-[20%]'
-                                : 'grid grid-cols-3 max-md:grid-cols-2 max-lg:grid-cols-2 max-xl:grid-cols-2   max-sm:grid-cols-1'
-                        }   gap-[40px]  pt-[40px] max-sm:pt-[100px] max-md:pt-[100px]  max-lg:pt-[100px]`}
+                        className={`${filteredItems.length === 1
+                            ? ' mx-[32%] place-content-center max-md:mx-[20%] max-lg:mx-[20%]'
+                            : 'grid grid-cols-3 max-md:grid-cols-2 max-lg:grid-cols-2 max-xl:grid-cols-2   max-sm:grid-cols-1'
+                            }   gap-[40px]  pt-[40px] max-sm:pt-[100px] max-md:pt-[100px]  max-lg:pt-[100px]`}
                     >
                         {filteredItems.slice(0, visibleItems).map((item, index) => (
                             <>

@@ -276,7 +276,7 @@ function Pizzaswap() {
                     <label className="relative inline-flex items-center cursor-pointer mb-0">
                         <input
                             type="checkbox"
-                            value=""
+                            value="toggle"
                             className="sr-only peer"
                             onChange={() => setShowStaked(!showStaked)}
                         />
