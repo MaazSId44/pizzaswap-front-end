@@ -28,8 +28,10 @@ function Pizzaswap() {
     const [selectedFilter, setSelectedFilter] = useState('All');
     const [visibleItems, setVisibleItems] = useState(9);
     const [connectWallet, setConnectWallet] = useState<any>(false);
+    const [showStaked, setShowStaked] = useState(false);
+
     const [aprModal, setAprModal] = useState<any>(false);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     useEffect(() => {
         dispatch(setPageTitle('Farms'));
     }, []);
@@ -63,7 +65,7 @@ function Pizzaswap() {
             tag: 'PizzaSwap',
             harvestbtn: 'Harvest',
             earned: '0.000',
-            stacked: 'Staked',
+            stacked: 'UnStaked',
         },
         {
             main: main,
@@ -95,7 +97,7 @@ function Pizzaswap() {
             tag: 'PizzaSwap',
             harvestbtn: 'Harvest',
             earned: '0.000',
-            stacked: 'Staked',
+            stacked: 'UnStaked',
         },
         {
             main: main,
@@ -143,7 +145,7 @@ function Pizzaswap() {
             tag: 'Partner',
             harvestbtn: 'Harvest',
             earned: '0.000',
-            stacked: 'Staked',
+            stacked: 'UnStaked',
         },
 
         {
@@ -176,7 +178,7 @@ function Pizzaswap() {
             tag: 'inactive',
             harvestbtn: 'Harvest',
             earned: '0.000',
-            stacked: 'Staked',
+            stacked: 'UnStaked',
         },
         {
             main: main,
@@ -192,7 +194,7 @@ function Pizzaswap() {
             tag: 'inactive',
             harvestbtn: 'Harvest',
             earned: '0.000',
-            stacked: 'Staked',
+            stacked: 'UnStaked',
         },
     ];
     const theme = localStorage.getItem('theme');
@@ -237,14 +239,28 @@ function Pizzaswap() {
 
     const filteredItems =
         selectedTab === 0
-            ? items.filter((item) => selectedFilter === 'All' || item.tag === selectedFilter)
-            : items.filter((item) => item.contentTitle === navItems[selectedTab]?.title && (selectedFilter === 'All' || item.tag === selectedFilter));
+            ? items.filter(
+                (item) =>
+                    (selectedFilter === 'All' || item.tag === selectedFilter) &&
+                    (!showStaked || item.stacked === 'Staked')
+            )
+            : items.filter(
+                (item) =>
+                    item.contentTitle === navItems[selectedTab]?.title &&
+                    (selectedFilter === 'All' || item.tag === selectedFilter) &&
+                    (!showStaked || item.stacked === 'Staked')
+            );
+
     const remainingItems = filteredItems.slice(visibleItems, visibleItems + 4);
+
 
     const handleLoadMore = () => {
         setVisibleItems((prevVisibleItems) => prevVisibleItems + 4);
     };
 
+    const itemsToShow = showStaked
+        ? items.filter((item) => item.stacked === 'Staked')
+        : items
     return (
         <div className="">
             <div>
@@ -256,19 +272,26 @@ function Pizzaswap() {
                 <div className="flex items-center gap-3">
                     <span className="ms-3 text-[18px] font-[500] m-[0px] dark:text-[#B2BEC3] text-[#2D3436] ">Staked Only</span>
 
+
                     <label className="relative inline-flex items-center cursor-pointer mb-0">
-                        <input type="checkbox" value="" className="sr-only peer" />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute  max-md:after:top-[2px] min-md:after:top-[10px] max-lg:after:top-[2px] max-xl:after:top-[2px] max-2xl:after:top-[2px]  after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                        <input
+                            type="checkbox"
+                            value=""
+                            className="sr-only peer"
+                            onChange={() => setShowStaked(!showStaked)}
+                        />
+                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute  after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+                        ></div>
                     </label>
                 </div>
-                <div className="bg-[#FFF] dark:bg-[#1A1E1F] rounded-[50px]  border-[1px] p-[20px] border-solid dark:border-[#636E72] w-fit flex flex-row gap-[10px] max-sm:flex-col max-md:flex-col flex-wrap justify-center max-sm:gap-y-[10px] max-md:gap-y-[10px] max-sm:w-[100%] max-md:w-[60%]  ">
+                <div className="bg-[#FFF] dark:bg-[#1A1E1F] rounded-[50px]  border-[1px] p-[20px] border-solid border-[#F0F3F5] dark:border-[#636E72] w-fit flex flex-row gap-[20px] max-sm:flex-col max-md:flex-col flex-wrap justify-center max-sm:gap-y-[10px] max-md:gap-y-[10px] max-sm:w-[100%] max-md:w-[60%]  ">
                     {navItems.map((item, index) => (
                         <button
                             ref={index === 0 ? firstBtnRef : null}
                             key={index}
                             onClick={() => setSelectedTab(index)}
-                            className={`outline-none rounded-[30px] border-2 dark:border-white border-[rgba(6, 30, 44, 0.07)]  dark:border-opacity-[0.08]  py-[12px] px-[34px] w-[228px]
-             text-center text-[16px] hover:text-white hover:bg-[#2B70FA] bg-none text-[#989CAA] max-md:mx-0  max-sm:w-[100%] max-md:w-[100%] max-lg:w-[100%] max-xl:w-[100%] dark:text-white 
+                            className={`outline-none rounded-[30px] border-0 py-[12px] px-[34px] w-[228px]
+             text-center text-[18px] hover:text-white hover:bg-[#2B70FA] bg-none text-[#989CAA] max-md:mx-0  max-sm:w-[100%] max-md:w-[100%] max-lg:w-[100%] max-xl:w-[100%] dark:text-white 
              ${selectedTab === index ? 'bg-[#2B70FA] text-white border-[0px] ' : "dark:text-[#fff] dark:bg-[#636E72] bg-[#F0F3F5] text-'[#636E72]"}`}
                         >
                             {item.title}
@@ -284,7 +307,7 @@ function Pizzaswap() {
                         className={`${filteredItems.length === 1
                             ? ' mx-[32%] place-content-center max-md:mx-[20%] max-lg:mx-[20%]'
                             : 'grid grid-cols-3 max-md:grid-cols-2 max-lg:grid-cols-2 max-xl:grid-cols-2   max-sm:grid-cols-1'
-                            }   gap-[40px] sm:gap-[20px] pt-[30px] max-sm:pt-[100px] max-md:pt-[100px]  max-lg:pt-[100px]`}
+                            }   gap-[40px]  pt-[40px] max-sm:pt-[100px] max-md:pt-[100px]  max-lg:pt-[100px]`}
                     >
                         {filteredItems.slice(0, visibleItems).map((item, index) => (
                             <>
@@ -308,7 +331,7 @@ function Pizzaswap() {
                                     <div className="flex flex-col gap-[30px]">
                                         <div className="flex justify-between items-center ">
                                             <div>
-                                                <p className="text-[18px] font-[600] m-[0px] dark:text-[#FFF] text-[#2D3436] ">{item.title}</p>
+                                                <p className="text-[22px] font-[600] m-[0px] dark:text-[#FFF] text-[#2D3436] ">{item.title}</p>
                                             </div>
                                             <div className="bg-[#2B70FA] rounded-[20px] px-[14px] py-[6px]">
                                                 <p className=" text-[16px] font-[600] m-[0px] p-[0px] text-[#FFF]">{item.mutli}</p>
@@ -370,7 +393,7 @@ function Pizzaswap() {
                                                     <p className="text-[16px] max-sm:text-[16px] max-md:text-[16px] font-[500px] text-[#B2BEC3]   group-hover:text-[#20D091]">PizzaSwap Earned</p>
                                                 </div>
                                                 <div>
-                                                    <p className="text-[22px] max-sm:text-[16px] max-md:text-[16px] font-[600] text-[#2D3436] dark:text-[#fff]  group-hover:text-[#20D091] leading-9">
+                                                    <p className="text-[22px] max-sm:text-[16px] max-md:text-[22px] font-[600] text-[#2D3436] dark:text-[#fff]  group-hover:text-[#20D091] leading-9">
                                                         {item.earned}
                                                     </p>
                                                 </div>
@@ -389,7 +412,7 @@ function Pizzaswap() {
                                         </div>
                                         <div className="flex flex-col gap-[18px]">
                                             <div>
-                                                <p className="text-[16px] max-sm:text-[16px] max-md:text-[16px] font-[500] text-[#2D3436] dark:text-[#FFF]">
+                                                <p className="text-[16px] font-[500] text-[#2D3436] dark:text-[#FFF]">
                                                     {item.title} {item.stacked}
                                                 </p>
                                             </div>
@@ -413,13 +436,7 @@ function Pizzaswap() {
                         ))}
 
                         {/* Connect to a Wallet Modal */}
-                        <CustomDialog
-                            isOpen={connectWallet}
-                            onClose={() => setConnectWallet(false)}
-                            itemsConnect={itemsConnect}
-                            theme={theme}
-                            setConnectWallet={setConnectWallet}
-                        />
+                        <CustomDialog isOpen={connectWallet} onClose={() => setConnectWallet(false)} itemsConnect={itemsConnect} theme={theme} setConnectWallet={setConnectWallet} />
 
                         {/* APR Modal */}
                         <Transition appear show={aprModal} as={Fragment}>

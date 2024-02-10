@@ -41,12 +41,12 @@ const CustomDialog = ({ isOpen, onClose, theme, setConnectWallet, itemsConnect }
                                             />
                                         </svg>
                                     </button>
-                                    <div className="text-[22px] pt-[35px] dark:text-white text-customblackbg font-[700] text-[Urbanist] ltr:pl-5 rtl:pr-5 py-3 ltr:pr-[50px] rtl:pl-[50px]">
+                                    <div className="text-[22px] pt-[35px] dark:text-white text-customblackbg font-[700] text-[Urbanist]  py-3 ltr:pr-[50px]">
                                         <div className="flex items-center gap-2">
                                             Connect to a Wallet
                                         </div>
                                     </div>
-                                    <div className="border-b border-solid border-customlightgraybg opacity-[0.25] mt-[15px] mx-5"></div>
+                                    <div className="border-b border-solid border-customlightgraybg opacity-[0.25] mt-[15px]"></div>
                                 </div>
                                 <div className="px-[25px]">
                                     <div className="">

@@ -38,18 +38,18 @@ const CountdownTimer = ({ hours, minutes, seconds, label }: any) => {
         <div>
             <div className='flex items-center justify-center gap-5'>
                 <div style={{ borderColor: 'rgba(192, 192, 192, 0.25)' }} className='p-[12px] w-[90px] h-[90px]  border border-1  rounded-[20px] text-center '>
-                    <div className='text-[54px] dark:text-customlightgraybg text-customgraybg !opacity-100 font-[500] mt-4'>{time.hours.toString().padStart(2, '0')}</div>
-                    <p className='text-[16px] dark:text-customlightgraybg text-white text-center mt-3 font-[500] '>H</p>
+                    <div className='text-[54px] dark:text-customlightgraybg text-customgraybg !opacity-100 font-[600] mt-4'>{time.hours.toString().padStart(2, '0')}</div>
+                    <p className='text-[16px] dark:text-customlightgraybg text-white text-center mt-3 font-[600] '>H</p>
                 </div>
 
                 <div style={{ borderColor: 'rgba(192, 192, 192, 0.25)' }} className='p-[12px] w-[90px] h-[90px]  border border-1  rounded-[20px] text-center '>
-                    <div className='text-[54px] dark:text-customlightgraybg text-white  font-[500] mt-4'>{time.minutes.toString().padStart(2, '0')}</div>
-                    <p className='text-[16px] dark:text-customlightgraybg text-white text-center mt-3 font-[500] '>M</p>
+                    <div className='text-[54px] dark:text-customlightgraybg text-white  font-[600] mt-4'>{time.minutes.toString().padStart(2, '0')}</div>
+                    <p className='text-[16px] dark:text-customlightgraybg text-white text-center mt-3 font-[600] '>M</p>
                 </div>
 
                 <div style={{ borderColor: 'rgba(192, 192, 192, 0.25)' }} className='p-[12px] w-[90px] h-[90px]  border border-1  rounded-[20px] text-center '>
-                    <div className='text-[54px] dark:text-customlightgraybg text-white  font-[500] mt-4'>{time.seconds.toString().padStart(2, '0')}</div>
-                    <p className='text-[16px] dark:text-customlightgraybg text-white text-center mt-3 font-[500] '>S</p>
+                    <div className='text-[54px] dark:text-customlightgraybg text-white  font-[600] mt-4'>{time.seconds.toString().padStart(2, '0')}</div>
+                    <p className='text-[16px] dark:text-customlightgraybg text-white text-center mt-3 font-[600] '>S</p>
                 </div>
             </div>
 

@@ -124,14 +124,15 @@ const Trade = () => {
                     <p className="text-[16px] dark:text-customlightgraybg text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">Lorem ipsum dolor sit amet</p>
                 </div>
             </div>
-            <div className='lg:max-2xl:w-[80%] lg:max-2xl:mx-auto sm:w-auto sm:mx-0'>
+            <div className="lg:max-2xl:w-[80%] lg:max-2xl:mx-auto sm:w-auto sm:mx-0">
                 <div className="flex items-center justify-center w-full px-10">
                     <div className="flex flex-1 min-[425px]:flex-col  items-center justify-center  max-sm:flex-col md:flex-row  gap-y-3   lg:max-2xl:w-[100%] w-[100%] 2xl:max-w-[45%] rounded-[50px]  py-[17px] px-[8px]  bg-white dark:bg-[#1A1E1F] mt-[10px]">
                         {navItems.map((item) => (
                             <div
                                 key={item.title}
-                                className={`py-[12px] px-[34px] cursor-pointer text-center sm:w-[100%] md:w-[100%] max-lg:w-[100%] xl:w-[100%] mx-[10px] 2xl:w-[100%] w-[228px]  ${activeTab === item.title ? 'bg-custombluebg text-white' : 'bg-customgraybg dark:bg-custommediumgraybg dark:text-white '
-                                    } rounded-full`}
+                                className={`py-[12px] px-[34px] cursor-pointer text-center sm:w-[100%] md:w-[100%] max-lg:w-[100%] xl:w-[100%] mx-[10px] 2xl:w-[100%] w-[228px]  ${
+                                    activeTab === item.title ? 'bg-custombluebg text-white' : 'bg-customgraybg dark:bg-custommediumgraybg dark:text-white '
+                                } rounded-full`}
                                 onClick={() => handleTabClick(item.title)}
                             >
                                 {item.title}
@@ -147,7 +148,6 @@ const Trade = () => {
                                 <div>
                                     <div className="flex flex-wrap items-center justify-between">
                                         <div>
-                                            {' '}
                                             <h5 className="text-[22px] dark:text-white text-customblackbg font-[700]">Exchange</h5>
                                             <p className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Poppins] mt-[5px]">Trade tokens in an instant</p>
                                         </div>
@@ -292,7 +292,6 @@ const Trade = () => {
                                         <p className="text-[16px] dark:text-white text-customblackbg font-[600]">0.1%</p>
                                     </div>
                                     <WalletButton onClick={() => setConnectWallet(true)} buttonText="Unlock Wallet" />
-
                                 </div>
                             )}
                             {activeTab === 'Liquidity' && (
@@ -489,9 +488,7 @@ const Trade = () => {
                                                 />
                                             </svg>
                                         </button>
-                                        <div className="text-[22px] pt-[35px] dark:text-white text-customblackbg font-[600] ltr:pl-5 rtl:pr-5 py-3 ltr:pr-[50px] rtl:pl-[50px]">
-                                            Settings
-                                        </div>
+                                        <div className="text-[22px] pt-[35px] dark:text-white text-customblackbg font-[600] ltr:pl-5 rtl:pr-5 py-3 ltr:pr-[50px] rtl:pl-[50px]">Settings</div>
                                         <div className="border-b border-solid border-customlightgraybg opacity-[0.25] my-[15px] mx-5"></div>
                                     </div>
 
@@ -606,13 +603,7 @@ const Trade = () => {
             </Transition>
 
             {/* Connect to a Wallet Modal */}
-            <CustomDialog
-                isOpen={connectWallet}
-                onClose={() => setConnectWallet(false)}
-                itemsConnect={itemsConnect}
-                theme={theme}
-                setConnectWallet={setConnectWallet}
-            />
+            <CustomDialog isOpen={connectWallet} onClose={() => setConnectWallet(false)} itemsConnect={itemsConnect} theme={theme} setConnectWallet={setConnectWallet} />
         </div>
     );
 };
