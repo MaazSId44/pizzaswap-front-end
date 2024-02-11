@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import { toggleSidebar } from '../../store/themeConfigSlice';
 import AnimateHeight from 'react-animate-height';
-import { IRootState } from '../../store';
+import store, { IRootState } from '../../store';
 import { useState, useEffect } from 'react';
 import profile_image from '../../assets/Images/profile_image.png';
 import { sideBarData } from '../Constants/Constant'
@@ -43,13 +43,18 @@ const Sidebar = () => {
                 }
             }
         }
+
+
     }, []);
 
     useEffect(() => {
         if (window.innerWidth < 1024 && themeConfig.sidebar) {
             dispatch(toggleSidebar());
+            setIsOpen(false)
         }
     }, [location]);
+
+
     const theme = localStorage.getItem('theme');
     return (
         <div className={semidark ? 'dark' : ''}>
@@ -167,7 +172,7 @@ const Sidebar = () => {
 
                     </div>
                     <div className='relative'>
-                        {!isOPen ?
+                        {store.getState().themeConfig.sidebar ?
                             <img
                                 onClick={() => {
                                     dispatch(toggleSidebar())
@@ -187,8 +192,6 @@ const Sidebar = () => {
                             />
                         }
 
-
-
                     </div>
                     <PerfectScrollbar className="h-[calc(100vh-90px)] relative ">
                         <ul className="relative font-semibold space-y-0.5 px-[31px] py-[50px]">
@@ -200,12 +203,12 @@ const Sidebar = () => {
                                         <button type="button" className={`${currentMenu === 'dashboard' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('dashboard')}>
                                             <div className="flex items-center">
                                                 {theme == "dark" ?
-                                                    <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <path opacity="0.35" d="M18 21H6C4.343 21 3 19.657 3 18V8.765C3 7.675 3.591 6.672 4.543 6.143L10.543 2.81C11.449 2.307 12.551 2.307 13.457 2.81L19.457 6.143C20.409 6.672 21 7.676 21 8.765V18C21 19.657 19.657 21 18 21Z" fill="currentColor" />
                                                         <path d="M15 21H9V15C9 13.895 9.895 13 11 13H13C14.105 13 15 13.895 15 15V21Z" fill="currentColor" />
                                                     </svg>
                                                     :
-                                                    <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <path opacity="0.35" d="M18 21H6C4.343 21 3 19.657 3 18V8.765C3 7.675 3.591 6.672 4.543 6.143L10.543 2.81C11.449 2.307 12.551 2.307 13.457 2.81L19.457 6.143C20.409 6.672 21 7.676 21 8.765V18C21 19.657 19.657 21 18 21Z" fill="currentColor" />
                                                         <path d="M15 21H9V15C9 13.895 9.895 13 11 13H13C14.105 13 15 13.895 15 15V21Z" fill="currentColor" />
                                                     </svg>
@@ -231,7 +234,7 @@ const Sidebar = () => {
 
 
                                             {theme == 'dark' ?
-                                                <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                                <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                                                     <g clip-path="url(#clip0_674_5189)">
                                                         <path opacity="0.35" d="M9.00067 15.9408C5.17349 15.9408 2.05917 12.8279 2.05917 9.00068C2.05917 5.1735 5.17349 2.05918 9.00067 2.05918C11.3095 2.05918 13.3582 3.19282 14.6191 4.93162L16.4414 3.94447C14.8199 1.56492 12.089 0 9.00067 0C4.03848 0 0 4.03849 0 9.00068C0 13.9629 4.03848 18 9.00067 18C12.0894 18 14.8199 16.4351 16.4401 14.0569L14.6191 13.0697C13.3582 14.8085 11.309 15.9408 9.00067 15.9408Z" fill="#B2BEC3" />
                                                         <path d="M10.2692 6.44497C11.0511 6.44497 11.6849 5.81115 11.6849 5.02929C11.6849 4.24743 11.0511 3.6136 10.2692 3.6136C9.48734 3.6136 8.85352 4.24743 8.85352 5.02929C8.85352 5.81115 9.48734 6.44497 10.2692 6.44497Z" fill="currentColor" />
@@ -253,7 +256,7 @@ const Sidebar = () => {
                                                     </defs>
                                                 </svg>
                                                 :
-                                                <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                                <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                                                     <g clip-path="url(#clip0_452_2067)">
                                                         <path opacity="0.35" d="M9.00067 15.9408C5.17349 15.9408 2.05917 12.8279 2.05917 9.00068C2.05917 5.1735 5.17349 2.05918 9.00067 2.05918C11.3095 2.05918 13.3582 3.19282 14.6191 4.93162L16.4414 3.94447C14.8199 1.56492 12.089 0 9.00067 0C4.03848 0 0 4.03849 0 9.00068C0 13.9629 4.03848 18 9.00067 18C12.0894 18 14.8199 16.4351 16.4401 14.0569L14.6191 13.0697C13.3582 14.8085 11.309 15.9408 9.00067 15.9408Z" fill="currentColor" />
                                                         <path d="M10.2699 6.44497C11.0517 6.44497 11.6856 5.81115 11.6856 5.02929C11.6856 4.24743 11.0517 3.6136 10.2699 3.6136C9.48801 3.6136 8.85419 4.24743 8.85419 5.02929C8.85419 5.81115 9.48801 6.44497 10.2699 6.44497Z" fill="currentColor" />
@@ -292,7 +295,7 @@ const Sidebar = () => {
 
 
                                             {theme == 'dark' ?
-                                                <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="26" height="24" viewBox="0 0 24 24" fill="none">
+                                                <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="26" height="24" viewBox="0 0 24 24" fill="none">
                                                     <path opacity="0.35" d="M6 21H4C2.895 21 2 20.105 2 19V16C2 14.895 2.895 14 4 14H6C7.105 14 8 14.895 8 16V19C8 20.105 7.105 21 6 21Z" fill="currentColor" />
                                                     <path opacity="0.35" d="M20 21H18C16.895 21 16 20.105 16 19V13C16 11.895 16.895 11 18 11H20C21.105 11 22 11.895 22 13V19C22 20.105 21.105 21 20 21Z" fill="currentColor" />
                                                     <path opacity="0.35" d="M13 21H11C9.895 21 9 20.105 9 19V10C9 8.895 9.895 8 11 8H13C14.105 8 15 8.895 15 10V19C15 20.105 14.105 21 13 21Z" fill="currentColor" />
@@ -303,7 +306,7 @@ const Sidebar = () => {
                                                 </svg>
 
                                                 :
-                                                <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+                                                <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
                                                     <path opacity="0.35" d="M6 21H4C2.895 21 2 20.105 2 19V16C2 14.895 2.895 14 4 14H6C7.105 14 8 14.895 8 16V19C8 20.105 7.105 21 6 21Z" fill="currentColor" />
                                                     <path opacity="0.35" d="M20 21H18C16.895 21 16 20.105 16 19V13C16 11.895 16.895 11 18 11H20C21.105 11 22 11.895 22 13V19C22 20.105 21.105 21 20 21Z" fill="currentColor" />
                                                     <path opacity="0.35" d="M13 21H11C9.895 21 9 20.105 9 19V10C9 8.895 9.895 8 11 8H13C14.105 8 15 8.895 15 10V19C15 20.105 14.105 21 13 21Z" fill="currentColor" />
@@ -338,7 +341,7 @@ const Sidebar = () => {
                                             <div className="flex items-center">
 
                                                 {theme == 'dark' ?
-                                                    <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <path opacity="0.35" d="M18.9992 21C20.4075 21 21.5492 19.8583 21.5492 18.45C21.5492 17.0417 20.4075 15.9 18.9992 15.9C17.5909 15.9 16.4492 17.0417 16.4492 18.45C16.4492 19.8583 17.5909 21 18.9992 21Z" fill="currentColor" />
                                                         <path opacity="0.35" d="M11.3577 11.4927L13.8992 10.8L12.682 5.9312C12.3981 4.79645 11.3781 4 10.2085 4H6.24922C5.30997 4 4.54922 4.76075 4.54922 5.7V13.0831C4.01287 13.8906 3.69922 14.8579 3.69922 15.9C3.69922 18.7169 5.98232 21 8.79922 21C11.6161 21 13.8992 18.7169 13.8992 15.9C13.8992 14.0173 12.8758 12.3767 11.3577 11.4927Z" fill="currentColor" />
                                                         <path d="M14.7508 15.9V16.75H20.076C20.9218 16.75 21.6392 16.1278 21.759 15.2906L22.4008 10.8L20.7008 9.10002H8.80078C8.80078 9.10002 14.7508 9.95002 14.7508 15.9Z" fill="currentColor" />
@@ -348,7 +351,7 @@ const Sidebar = () => {
                                                         <path d="M18.1492 10.8H16.4492V5.70002C16.4492 5.23082 16.83 4.85002 17.2992 4.85002C17.7684 4.85002 18.1492 5.23082 18.1492 5.70002V10.8Z" fill="currentColor" />
                                                     </svg>
                                                     :
-                                                    <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                         <path opacity="0.35" d="M18.9992 21C20.4075 21 21.5492 19.8583 21.5492 18.45C21.5492 17.0417 20.4075 15.9 18.9992 15.9C17.5909 15.9 16.4492 17.0417 16.4492 18.45C16.4492 19.8583 17.5909 21 18.9992 21Z" fill="currentColor" />
                                                         <path opacity="0.35" d="M11.3577 11.4927L13.8992 10.8L12.682 5.9312C12.3981 4.79645 11.3781 4 10.2085 4H6.24922C5.30997 4 4.54922 4.76075 4.54922 5.7V13.0831C4.01287 13.8906 3.69922 14.8579 3.69922 15.9C3.69922 18.7169 5.98232 21 8.79922 21C11.6161 21 13.8992 18.7169 13.8992 15.9C13.8992 14.0173 12.8758 12.3767 11.3577 11.4927Z" fill="currentColor" />
                                                         <path d="M14.7508 15.9V16.75H20.076C20.9218 16.75 21.6392 16.1278 21.759 15.2906L22.4008 10.8L20.7008 9.10002H8.80078C8.80078 9.10002 14.7508 9.95002 14.7508 15.9Z" fill="currentColor" />
@@ -377,7 +380,7 @@ const Sidebar = () => {
                                         <div className="flex items-center">
 
                                             {theme == 'dark' ?
-                                                <svg style={{width:25,height:25}} className="group-hover:!text-primary group-active:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary group-active:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                     <path d="M6.00157 7.00001C5.67857 7.00001 5.36057 6.84401 5.16857 6.55501C4.86157 6.09501 4.98557 5.47501 5.44557 5.16801L8.44557 3.16801C8.72057 2.98301 9.06757 2.94901 9.37157 3.07101L13.7596 4.82601L16.2936 2.29301C16.6846 1.90201 17.3166 1.90201 17.7076 2.29301C18.0986 2.68401 18.0986 3.31601 17.7076 3.70701L14.7076 6.70701C14.4246 6.99001 13.9996 7.07501 13.6296 6.92901L9.11757 5.12401L6.55557 6.83201C6.38457 6.94501 6.19157 7.00001 6.00157 7.00001Z" fill="currentColor" />
                                                     <path opacity="0.35" d="M20 9H4C2.895 9 2 9.895 2 11V19C2 20.105 2.895 21 4 21H20C21.105 21 22 20.105 22 19V11C22 9.895 21.105 9 20 9Z" fill="currentColor" />
                                                     <path d="M12 19C13.933 19 15.5 17.2091 15.5 15C15.5 12.7909 13.933 11 12 11C10.067 11 8.5 12.7909 8.5 15C8.5 17.2091 10.067 19 12 19Z" fill="currentColor" />
@@ -386,7 +389,7 @@ const Sidebar = () => {
                                                     <path d="M18.9997 1.504C19.0007 1.225 18.7747 0.999003 18.4957 1L15.4547 1.014C15.0497 1.016 14.8477 1.506 15.1347 1.793L18.2077 4.866C18.4947 5.153 18.9847 4.951 18.9867 4.546L18.9997 1.504Z" fill="currentColor" />
                                                 </svg>
                                                 :
-                                                <svg style={{width:25,height:25}} className="group-hover:!text-primary group-active:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary group-active:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                     <path d="M6.00157 7.00001C5.67857 7.00001 5.36057 6.84401 5.16857 6.55501C4.86157 6.09501 4.98557 5.47501 5.44557 5.16801L8.44557 3.16801C8.72057 2.98301 9.06757 2.94901 9.37157 3.07101L13.7596 4.82601L16.2936 2.29301C16.6846 1.90201 17.3166 1.90201 17.7076 2.29301C18.0986 2.68401 18.0986 3.31601 17.7076 3.70701L14.7076 6.70701C14.4246 6.99001 13.9996 7.07501 13.6296 6.92901L9.11757 5.12401L6.55557 6.83201C6.38457 6.94501 6.19157 7.00001 6.00157 7.00001Z" fill="currentColor" />
                                                     <path opacity="0.35" d="M20 9H4C2.895 9 2 9.895 2 11V19C2 20.105 2.895 21 4 21H20C21.105 21 22 20.105 22 19V11C22 9.895 21.105 9 20 9Z" fill="currentColor" />
                                                     <path d="M12 19C13.933 19 15.5 17.2091 15.5 15C15.5 12.7909 13.933 11 12 11C10.067 11 8.5 12.7909 8.5 15C8.5 17.2091 10.067 19 12 19Z" fill="currentColor" />
@@ -409,7 +412,7 @@ const Sidebar = () => {
                                     <button type="button" className={`${currentMenu === 'Lottery' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('Lottery')}>
                                         <div className="flex items-center">
 
-                                            <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path opacity="0.35" d="M5 4C3.343 4 2 5.343 2 7V9.184C3.163 9.597 4 10.696 4 12C4 13.304 3.163 14.403 2 14.816V17C2 18.657 3.343 20 5 20H17V4H5Z" fill="currentColor" />
                                                 <path d="M22 17V14.816C20.837 14.403 20 13.304 20 12C20 10.696 20.837 9.597 22 9.184V7C22 5.343 20.657 4 19 4H17V20H19C20.657 20 22 18.657 22 17Z" fill="currentColor" />
                                             </svg>
@@ -428,14 +431,14 @@ const Sidebar = () => {
                                         <div className="flex items-center">
                                             {theme == 'dark' ?
 
-                                                <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                     <path d="M17.6268 15.038L15.4578 12L17.6278 8.96199C16.1718 8.82499 14.9448 7.92299 14.3648 6.64899L11.9708 9.99999H8.44482C8.78882 10.59 8.99982 11.268 8.99982 12C8.99982 12.732 8.78882 13.41 8.44482 14H11.9708L14.3638 17.351C14.9438 16.076 16.1708 15.174 17.6268 15.038Z" fill="currentColor" />
                                                     <path opacity="0.35" d="M5 8C2.791 8 1 9.791 1 12C1 14.209 2.791 16 5 16C7.209 16 9 14.209 9 12C9 9.791 7.209 8 5 8Z" fill="currentColor" />
                                                     <path opacity="0.35" d="M22 19C22 16.791 20.209 15 18 15C15.791 15 14 16.791 14 19C14 21.209 15.791 23 18 23C20.209 23 22 21.209 22 19Z" fill="currentColor" />
                                                     <path opacity="0.35" d="M22 5C22 2.791 20.209 1 18 1C15.791 1 14 2.791 14 5C14 7.209 15.791 9 18 9C20.209 9 22 7.209 22 5Z" fill="currentColor" />
                                                 </svg>
                                                 :
-                                                <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                     <path d="M17.6273 15.038L15.4583 12L17.6283 8.96199C16.1723 8.82499 14.9453 7.92299 14.3653 6.64899L11.9713 9.99999H8.44531C8.78931 10.59 9.00031 11.268 9.00031 12C9.00031 12.732 8.78931 13.41 8.44531 14H11.9713L14.3643 17.351C14.9443 16.076 16.1713 15.174 17.6273 15.038Z" fill="currentColor" />
                                                     <path opacity="0.35" d="M5 8C2.791 8 1 9.791 1 12C1 14.209 2.791 16 5 16C7.209 16 9 14.209 9 12C9 9.791 7.209 8 5 8Z" fill="currentColor" />
                                                     <path opacity="0.35" d="M22 19C22 16.791 20.209 15 18 15C15.791 15 14 16.791 14 19C14 21.209 15.791 23 18 23C20.209 23 22 21.209 22 19Z" fill="currentColor" />
@@ -449,7 +452,7 @@ const Sidebar = () => {
 
                                     </button>
                                 </NavLink>
-  
+
                             </li>
 
                             <li className="menu nav-item mt-3">
@@ -457,12 +460,12 @@ const Sidebar = () => {
                                 <button type="button" className={'nav-link group w-full'} onClick={() => toggleMenu('techFundAudit')}>
                                     <div className="flex items-center">
                                         {theme == 'dark' ?
-                                            <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path opacity="0.35" d="M3 6V18C3 19.657 4.343 21 6 21H16C17.657 21 19 19.657 19 18V6C19 4.343 17.657 3 16 3H6C4.343 3 3 4.343 3 6Z" fill="#B2BEC3" />
                                                 <path d="M22.748 18.668L20.748 15.668C20.746 15.666 20.744 15.664 20.743 15.662C21.528 14.647 22 13.379 22 12C22 8.691 19.309 6 16 6H7C6.447 6 6 6.448 6 7C6 7.552 6.447 8 7 8H11.54C11.021 8.578 10.614 9.254 10.35 10H7C6.447 10 6 10.448 6 11C6 11.552 6.447 12 7 12H10C10 12.702 10.128 13.373 10.35 14H7C6.447 14 6 14.448 6 15C6 15.552 6.447 16 7 16H11.54C12.639 17.224 14.228 18 16 18C16.842 18 17.643 17.824 18.37 17.51L20.251 20.332C20.541 20.766 21.017 21 21.501 21C21.787 21 22.076 20.918 22.332 20.748C23.021 20.289 23.208 19.357 22.748 18.668ZM13 12C13 10.346 14.346 9 16 9C17.654 9 19 10.346 19 12C19 13.654 17.654 15 16 15C14.346 15 13 13.654 13 12Z" fill="currentColor" />
                                             </svg>
                                             :
-                                            <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path opacity="0.35" d="M3 6V18C3 19.657 4.343 21 6 21H16C17.657 21 19 19.657 19 18V6C19 4.343 17.657 3 16 3H6C4.343 3 3 4.343 3 6Z" fill="#2D3436" />
                                                 <path d="M22.748 18.668L20.748 15.668C20.746 15.666 20.744 15.664 20.743 15.662C21.528 14.647 22 13.379 22 12C22 8.691 19.309 6 16 6H7C6.447 6 6 6.448 6 7C6 7.552 6.447 8 7 8H11.54C11.021 8.578 10.614 9.254 10.35 10H7C6.447 10 6 10.448 6 11C6 11.552 6.447 12 7 12H10C10 12.702 10.128 13.373 10.35 14H7C6.447 14 6 14.448 6 15C6 15.552 6.447 16 7 16H11.54C12.639 17.224 14.228 18 16 18C16.842 18 17.643 17.824 18.37 17.51L20.251 20.332C20.541 20.766 21.017 21 21.501 21C21.787 21 22.076 20.918 22.332 20.748C23.021 20.289 23.208 19.357 22.748 18.668ZM13 12C13 10.346 14.346 9 16 9C17.654 9 19 10.346 19 12C19 13.654 17.654 15 16 15C14.346 15 13 13.654 13 12Z" fill="currentColor" />
                                             </svg>
@@ -488,7 +491,7 @@ const Sidebar = () => {
 
                                             {theme == 'dark' ?
 
-                                                <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                     <path opacity="0.35" d="M4 19V5C4 3.343 5.343 2 7 2H14L20 8V19C20 20.657 18.657 22 17 22H7C5.343 22 4 20.657 4 19Z" fill="#B2BEC3" />
                                                     <path d="M14 6V2L20 8H16C14.895 8 14 7.105 14 6Z" fill="currentColor" />
                                                     <path d="M17.2819 18C15.5959 18 15.0699 16.089 15.0699 15C15.0699 13.74 15.6229 12 17.2819 12C17.7679 12 18.1269 12.135 18.3829 12.294C18.6729 12.474 18.7359 12.871 18.5329 13.145C18.3569 13.382 18.0419 13.44 17.7749 13.315C17.6679 13.265 17.5379 13.231 17.3799 13.231C17.0459 13.231 16.3499 13.496 16.3499 15.001C16.3499 16.506 17.0279 16.771 17.3879 16.771C17.5339 16.771 17.6629 16.731 17.7709 16.673C18.0299 16.536 18.3459 16.588 18.5289 16.817L18.5299 16.818C18.7429 17.084 18.6949 17.48 18.4139 17.674C18.1569 17.848 17.7919 18 17.2819 18Z" fill="currentColor" />
@@ -496,7 +499,7 @@ const Sidebar = () => {
                                                     <path d="M14.41 14.984C14.41 15.434 14.283 18 12.223 18C10.163 18 10.036 15.434 10.036 14.984C10.036 14.533 10.144 12 12.223 12C14.302 12 14.41 14.533 14.41 14.984ZM13.091 14.984C13.091 14.737 13.063 13.247 12.222 13.247C11.381 13.247 11.353 14.738 11.353 14.984C11.353 15.231 11.4 16.737 12.222 16.737C13.044 16.737 13.091 15.231 13.091 14.984Z" fill="currentColor" />
                                                 </svg>
                                                 :
-                                                <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                     <path opacity="0.35" d="M4 19V5C4 3.343 5.343 2 7 2H14L20 8V19C20 20.657 18.657 22 17 22H7C5.343 22 4 20.657 4 19Z" fill="#2D3436" />
                                                     <path d="M14 6V2L20 8H16C14.895 8 14 7.105 14 6Z" fill="currentColor" />
                                                     <path d="M17.2823 18C15.5963 18 15.0703 16.089 15.0703 15C15.0703 13.74 15.6233 12 17.2823 12C17.7683 12 18.1273 12.135 18.3833 12.294C18.6733 12.474 18.7363 12.871 18.5333 13.145C18.3573 13.382 18.0423 13.44 17.7753 13.315C17.6683 13.265 17.5383 13.231 17.3803 13.231C17.0463 13.231 16.3503 13.496 16.3503 15.001C16.3503 16.506 17.0283 16.771 17.3883 16.771C17.5343 16.771 17.6633 16.731 17.7713 16.673C18.0303 16.536 18.3463 16.588 18.5293 16.817L18.5303 16.818C18.7433 17.084 18.6953 17.48 18.4143 17.674C18.1573 17.848 17.7923 18 17.2823 18Z" fill="currentColor" />
@@ -522,12 +525,12 @@ const Sidebar = () => {
 
                                         {theme == 'dark' ?
 
-                                            <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path opacity="0.35" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="currentColor" />
                                                 <path d="M17 7.625C17 7.15 16.968 6.567 16.75 6C16.75 6 15.324 6.01 13.979 7.284C13.358 7.103 12.694 7 12 7C11.306 7 10.642 7.103 10.021 7.284C8.67605 6.01 7.25005 6 7.25005 6C7.03305 6.567 7.00005 7.15 7.00005 7.625C7.00005 8.344 7.12805 8.785 7.20505 9.003C6.45205 9.839 6.00005 10.874 6.00005 12C6.00005 14.186 7.65505 15.531 10 16C9.47305 16.463 9.15005 17.11 9.04705 17.836C8.82405 17.944 8.50005 18 8.12505 18C7.82405 18 7.23905 17.858 6.69405 17.009C6.47405 16.665 6.00005 16 5.37505 16C5.25305 16 4.99605 15.992 5.00005 16.181C5.00205 16.271 5.14005 16.272 5.43505 16.535C5.68205 16.756 5.91205 17.118 6.00005 17.5C6.14505 18.127 6.72605 19.375 8.12505 19.375C8.62505 19.375 9.00005 19.25 9.00005 19.25V21.541C9.94705 21.838 10.955 22 12 22C13.045 22 14.053 21.838 15 21.541V18.25C15 17.351 14.626 16.55 14 16C16.345 15.531 18 14.186 18 12C18 10.894 17.564 9.875 16.834 9.047C16.897 8.852 17 8.4 17 7.625Z" fill="currentColor" />
                                             </svg>
                                             :
-                                            <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path opacity="0.35" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="currentColor" />
                                                 <path d="M17 7.625C17 7.15 16.968 6.567 16.75 6C16.75 6 15.324 6.01 13.979 7.284C13.358 7.103 12.694 7 12 7C11.306 7 10.642 7.103 10.021 7.284C8.67605 6.01 7.25005 6 7.25005 6C7.03305 6.567 7.00005 7.15 7.00005 7.625C7.00005 8.344 7.12805 8.785 7.20505 9.003C6.45205 9.839 6.00005 10.874 6.00005 12C6.00005 14.186 7.65505 15.531 10 16C9.47305 16.463 9.15005 17.11 9.04705 17.836C8.82405 17.944 8.50005 18 8.12505 18C7.82405 18 7.23905 17.858 6.69405 17.009C6.47405 16.665 6.00005 16 5.37505 16C5.25305 16 4.99605 15.992 5.00005 16.181C5.00205 16.271 5.14005 16.272 5.43505 16.535C5.68205 16.756 5.91205 17.118 6.00005 17.5C6.14505 18.127 6.72605 19.375 8.12505 19.375C8.62505 19.375 9.00005 19.25 9.00005 19.25V21.541C9.94705 21.838 10.955 22 12 22C13.045 22 14.053 21.838 15 21.541V18.25C15 17.351 14.626 16.55 14 16C16.345 15.531 18 14.186 18 12C18 10.894 17.564 9.875 16.834 9.047C16.897 8.852 17 8.4 17 7.625Z" fill="currentColor" />
                                             </svg>
@@ -550,13 +553,13 @@ const Sidebar = () => {
 
                                         {theme == 'dark' ?
 
-                                            <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path d="M6 17C9.31371 17 12 14.3137 12 11C12 7.68629 9.31371 5 6 5C2.68629 5 0 7.68629 0 11C0 14.3137 2.68629 17 6 17Z" fill="currentColor" />
                                                 <path opacity="0.35" d="M16.5 17C18.433 17 20 14.3137 20 11C20 7.68629 18.433 5 16.5 5C14.567 5 13 7.68629 13 11C13 14.3137 14.567 17 16.5 17Z" fill="currentColor" />
                                                 <path d="M22.5 16C23.3284 16 24 13.7614 24 11C24 8.23858 23.3284 6 22.5 6C21.6716 6 21 8.23858 21 11C21 13.7614 21.6716 16 22.5 16Z" fill="currentColor" />
                                             </svg>
                                             :
-                                            <svg style={{width:25,height:25}} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <svg style={{ width: 25, height: 25 }} className="group-hover:!text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path d="M6 17C9.31371 17 12 14.3137 12 11C12 7.68629 9.31371 5 6 5C2.68629 5 0 7.68629 0 11C0 14.3137 2.68629 17 6 17Z" fill="currentColor" />
                                                 <path opacity="0.35" d="M16.5 17C18.433 17 20 14.3137 20 11C20 7.68629 18.433 5 16.5 5C14.567 5 13 7.68629 13 11C13 14.3137 14.567 17 16.5 17Z" fill="currentColor" />
                                                 <path d="M22.5 16C23.3284 16 24 13.7614 24 11C24 8.23858 23.3284 6 22.5 6C21.6716 6 21 8.23858 21 11C21 13.7614 21.6716 16 22.5 16Z" fill="currentColor" />
