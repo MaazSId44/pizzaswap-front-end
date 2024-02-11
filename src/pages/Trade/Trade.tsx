@@ -389,7 +389,7 @@ const Trade = () => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="panel !h-[793px] border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-[580px] text-black dark:text-white-dark">
+                                <Dialog.Panel  id={'headlessui-dialog-panel-:rb'} className="panel !h-[793px] border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-[580px] text-black dark:text-white-dark">
                                     <div className=" px-[40px]">
                                         <button
                                             type="button"
@@ -474,7 +474,7 @@ const Trade = () => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="panel  border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-[580px] text-black dark:text-white-dark">
+                                <Dialog.Panel id={'headlessui-dialog-panel-:rb'} className="panel  border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-[580px] text-black dark:text-white-dark">
                                     <div className="px-[40px] pt-3 ">
                                         <button
                                             type="button"
@@ -565,7 +565,7 @@ const Trade = () => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="panel  border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-[580px] max-sm:pb-8 lg:h-[302px] text-black dark:text-white-dark">
+                                <Dialog.Panel id={'headlessui-dialog-panel-:rb'} className="panel  border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-[580px] max-sm:pb-8 lg:h-[302px] text-black dark:text-white-dark">
                                     <div className="px-[10px]">
                                         <button
                                             type="button"
@@ -590,7 +590,7 @@ const Trade = () => {
                                             Please connect your wallet to view your recent transactions
                                         </p>
                                     </div>
-                                    <div className="flex justify-center pt-[30px] ">
+                                    <div className="flex justify-center pt-[30px] mb-[30px] ">
                                         <div className=" rounded-full cursor-pointer bg-custombluebg py-[12px] px-[34px] ">
                                             <div className="text-[16px]  text-white text-center font-[500]">Connect</div>
                                         </div>

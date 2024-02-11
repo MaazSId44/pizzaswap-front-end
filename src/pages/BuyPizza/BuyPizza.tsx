@@ -376,7 +376,7 @@ const BuyPizza = () => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="panel !h-[793px] border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
+                                <Dialog.Panel id={'headlessui-dialog-panel-:rb'} className="panel !h-[793px] border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
                                     <div className="px-[25px]">
                                         <button
                                             type="button"
@@ -461,7 +461,7 @@ const BuyPizza = () => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="panel  border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
+                                <Dialog.Panel id={'headlessui-dialog-panel-:rb'} className="panel  border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
                                     <div className="px-[10px]">
                                         <button
                                             type="button"
@@ -554,7 +554,7 @@ const BuyPizza = () => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="panel  border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
+                                <Dialog.Panel id={'headlessui-dialog-panel-:rb'} className="panel  border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
                                     <div className="px-[10px]">
                                         <button
                                             type="button"
@@ -618,7 +618,7 @@ const BuyPizza = () => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="panel  border-0 p-0 rounded-[40px]  w-full max-w-lg text-black dark:text-white-dark">
+                                <Dialog.Panel id={'headlessui-dialog-panel-:rb'} className="panel  border-0 p-0 rounded-[40px]  w-full max-w-lg text-black dark:text-white-dark">
                                     <div className='px-[30px]'>
                                         <div className="text-[22px] pt-[47px] dark:text-white text-customblackbg font-[700] text-[Urbanist]  rtl:pr-5 py-3 ltr:pr-[50px] ">
                                             <div className='flex items-center gap-2'>

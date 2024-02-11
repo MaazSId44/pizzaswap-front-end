@@ -454,7 +454,7 @@ function Staking() {
                                             leaveFrom="opacity-100 scale-100"
                                             leaveTo="opacity-0 scale-95"
                                         >
-                                            <Dialog.Panel className="panel !h-[526px] border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
+                                            <Dialog.Panel id={'headlessui-dialog-panel-:rb'} className="panel !h-[526px] border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
                                                 <div className="px-[25px]">
                                                     <button
                                                         type="button"
