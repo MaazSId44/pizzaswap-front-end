@@ -125,8 +125,8 @@ const Lottery = () => {
             </div>
 
             <div className="w-[100%]">
-                <div className="flex items-center justify-center w-full">
-                    <div className="flex flex-1 min-[425px]:flex-col  items-center justify-between  max-sm:flex-col md:flex-row  gap-y-2 lg:w-[70%] md:mt-[30px] xl:max-w-fit rounded-[50px]  py-[20px] px-[20px]  bg-white dark:bg-[#1A1E1F] ">
+                <div className="flex items-center justify-center w-full max-sm:mt-[20px]">
+                    <div className="flex flex-1 min-[425px]:flex-col  items-center justify-between max-lg:rounded-[20px]  max-sm:flex-col md:flex-row  gap-y-2 lg:w-[70%] md:mt-[30px] xl:max-w-fit rounded-[50px]  py-[20px] px-[20px]  bg-white dark:bg-[#1A1E1F] ">
                         {navItems.map((item) => (
                             <div
                                 key={item.title}

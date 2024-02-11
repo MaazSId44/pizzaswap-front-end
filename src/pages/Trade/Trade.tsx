@@ -126,13 +126,13 @@ const Trade = () => {
             </div>
             <div className="lg:max-2xl:w-[80%] lg:max-2xl:mx-auto sm:w-auto sm:mx-0 pt-[70px]">
                 <div className="flex items-center justify-center w-full px-10">
-                    <div className="flex flex-1 min-[425px]:flex-col  items-center justify-center  max-sm:flex-col md:flex-row  gap-y-3   lg:max-2xl:w-[100%] w-[100%] 2xl:max-w-[45%] rounded-[50px]  py-[17px] px-[8px]  bg-white dark:bg-[#1A1E1F] mt-[10px]">
+                    <div className="flex flex-1 min-[425px]:flex-col  items-center justify-center  max-sm:flex-col md:flex-row  gap-y-3   lg:max-2xl:w-[100%] w-[100%] 2xl:max-w-[45%] rounded-[50px] max-lg:rounded-[20px]  py-[17px] px-[8px]  bg-white dark:bg-[#1A1E1F] mt-[10px]">
                         {navItems.map((item) => (
                             <div
                                 key={item.title}
-                                className={`py-[12px] px-[34px] cursor-pointer text-center sm:w-[100%] md:w-[100%] max-lg:w-[100%] xl:w-[100%] mx-[10px] 2xl:w-[100%] w-[228px]  ${
+                                className={`py-[12px]  px-[34px] cursor-pointer text-center sm:w-[100%] md:w-[100%] max-lg:w-[100%] xl:w-[100%] mx-[10px] 2xl:w-[100%] w-[228px]  ${
                                     activeTab === item.title ? 'bg-custombluebg text-white' : 'bg-customgraybg dark:bg-custommediumgraybg dark:text-white '
-                                } rounded-full`}
+                                } rounded-full `}
                                 onClick={() => handleTabClick(item.title)}
                             >
                                 {item.title}

@@ -92,7 +92,7 @@ const Home = () => {
                             <h5 className="text-[22px] dark:text-white text-customblackbg font-[700]">{homeData.FarmsAndStaking}</h5>
                         </div>
                         <div>
-                            <div className="flex flex-wrap items-center gap-[25.9px] text-[#e95f2b] py-[40px]">
+                            <div className="flex flex-wrap items-center gap-[8.9px] text-[#e95f2b] py-[40px]">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
                                     <g clip-path="url(#clip0_37_117)">
                                         <path

@@ -264,6 +264,7 @@ function Staking() {
                 <div className="flex items-center gap-3">
                     <span className="ms-3 text-[18px] font-[500] m-[0px] dark:text-[#B2BEC3] text-[#2D3436] ">Staked Only</span>
 
+
                     <label className="relative inline-flex items-center cursor-pointer mb-0">
                         <input
                             type="checkbox"
@@ -274,15 +275,14 @@ function Staking() {
                         <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px]  max-md:after:top-[2px] min-md:after:top-[10px] max-lg:after:top-[2px] max-xl:after:top-[2px] max-2xl:after:top-[2px]  after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                     </label>
                 </div>
-
-                <div className="bg-[#FFF] dark:bg-[#1A1E1F] rounded-[50px]  border-[1px] p-[20px] border-solid border-[#F0F3F5] dark:border-[#636E72] w-fit flex flex-row max-sm:flex-col max-md:flex-col flex-wrap justify-center max-sm:gap-y-[10px] max-md:gap-y-[10px] gap-[20px] max-sm:w-[100%] max-md:w-[60%]  ">
+                <div className="bg-[#FFF] dark:bg-[#1A1E1F] rounded-[50px] max-lg:rounded-[20px]  border-[1px] p-[20px] border-solid border-[#F0F3F5] dark:border-[#636E72] w-fit flex flex-row gap-[20px] max-sm:flex-col max-md:flex-col flex-wrap justify-center max-sm:gap-y-[10px] max-md:gap-y-[10px] max-sm:w-[100%] max-md:w-[60%]  ">
                     {navItems.map((item, index) => (
                         <button
                             ref={index === 0 ? firstBtnRef : null}
                             key={index}
                             onClick={() => setSelectedTab(index)}
                             className={`outline-none rounded-[30px] border-0 py-[12px] px-[34px] w-[228px]
-             text-center text-[18px] hover:text-white hover:bg-[#2B70FA] bg-none text-[#989CAA]   max-sm:w-[100%] max-md:w-[100%] max-lg:w-[100%] max-xl:w-[100%] dark:text-white 
+             text-center text-[18px] hover:text-white hover:bg-[#2B70FA] bg-none text-[#989CAA] max-md:mx-0  max-sm:w-[100%] max-md:w-[100%] max-lg:w-[100%] max-xl:w-[100%] dark:text-white 
              ${selectedTab === index ? 'bg-[#2B70FA] text-white border-[0px] ' : "dark:text-[#fff] dark:bg-[#636E72] bg-[#F0F3F5] text-'[#636E72]"}`}
                         >
                             {item.title}

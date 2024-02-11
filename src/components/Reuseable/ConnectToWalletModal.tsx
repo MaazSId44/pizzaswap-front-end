@@ -27,7 +27,7 @@ const CustomDialog = ({ isOpen, onClose, theme, setConnectWallet, itemsConnect }
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel className="panel !h-[793px] border-0 p-0 rounded-[40px] !overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
+                            <Dialog.Panel className="panel  border-0 p-0 rounded-[40px]  w-full max-w-lg text-black dark:text-white-dark">
                                 <div className="px-[25px]">
                                     <button
                                         type="button"
@@ -48,7 +48,7 @@ const CustomDialog = ({ isOpen, onClose, theme, setConnectWallet, itemsConnect }
                                     </div>
                                     <div className="border-b border-solid border-customlightgraybg opacity-[0.25] mt-[15px]"></div>
                                 </div>
-                                <div className="px-[25px]">
+                                <div className="px-[25px] custom-scrollbar h-[690px] overflow-y-scroll ">
                                     <div className="">
                                         <div className=" mt-[30px]">
                                             {itemsConnect.map((item: any) => (
