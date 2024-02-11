@@ -619,7 +619,7 @@ const BuyPizza = () => {
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <Dialog.Panel className="panel  border-0 p-0 rounded-[40px]  w-full max-w-lg text-black dark:text-white-dark">
-                                    <div className='px-[25px]'>
+                                    <div className='px-[30px]'>
                                         <div className="text-[22px] pt-[47px] dark:text-white text-customblackbg font-[700] text-[Urbanist]  rtl:pr-5 py-3 ltr:pr-[50px] ">
                                             <div className='flex items-center gap-2'>
                                                 <span>
@@ -634,7 +634,7 @@ const BuyPizza = () => {
                                         <div className="border-b border-solid border-customlightgraybg opacity-[0.25] mt-[15px] "></div>
 
                                     </div>
-                                    <div className="px-[25px] pt-[30px] !h-[670px] mb-[5px] overflow-y-scroll custom-scrollbar">
+                                    <div className="px-[30px] pt-[30px] !h-[670px] mb-[5px] overflow-y-scroll custom-scrollbar">
                                         <div className=''>
                                             <p className='text-[20px] leading-[170%] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Urbanist]'>
                                                 Anyone can create an BEP20 token on BSC with any name, including creating fake versions of existing tokens and tokens that claim to represent projects that do not have a token.
