@@ -121,10 +121,10 @@ const Trade = () => {
             <div className="flex items-center justify-between flex-wrap gap-4">
                 <div>
                     <h1 className="text-[28px] dark:text-white text-customblackbg font-[700] text-[Poppins] ">{mainTitle}</h1>
-                    <p className="text-[16px] dark:text-customlightgraybg text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">Lorem ipsum dolor sit amet</p>
+                    <p className="text-[16px] dark:text-customlightgraybg text-customlightgraybg font-[500]  leading-normal text-[Poppins] mt-[8px]">Lorem ipsum dolor sit amet</p>
                 </div>
             </div>
-            <div className="lg:max-2xl:w-[80%] lg:max-2xl:mx-auto sm:w-auto sm:mx-0">
+            <div className="lg:max-2xl:w-[80%] lg:max-2xl:mx-auto sm:w-auto sm:mx-0 pt-[70px]">
                 <div className="flex items-center justify-center w-full px-10">
                     <div className="flex flex-1 min-[425px]:flex-col  items-center justify-center  max-sm:flex-col md:flex-row  gap-y-3   lg:max-2xl:w-[100%] w-[100%] 2xl:max-w-[45%] rounded-[50px]  py-[17px] px-[8px]  bg-white dark:bg-[#1A1E1F] mt-[10px]">
                         {navItems.map((item) => (
@@ -355,7 +355,7 @@ const Trade = () => {
                                                     />
                                                 </svg>
                                             </div>
-                                            <p className="text-[30px] dark:text-custommediumgraybg text-center pt-[10px] text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">
+                                            <p className="text-[30px] dark:text-custommediumgraybg leading-normal text-center pt-[10px] text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">
                                                 Connect to a wallet to view your liquidity.
                                             </p>
                                         </div>
@@ -390,7 +390,7 @@ const Trade = () => {
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <Dialog.Panel className="panel !h-[793px] border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-[580px] text-black dark:text-white-dark">
-                                    <div className="px-[25px]">
+                                    <div className=" px-[40px]">
                                         <button
                                             type="button"
                                             onClick={() => setTokenModal(false)}
@@ -419,9 +419,9 @@ const Trade = () => {
                                         <div className="border-b border-solid border-customlightgraybg opacity-[0.25] mt-[15px]"></div>
                                     </div>
                                     <div className="px-[40px] pb-[35px]">
-                                        <div className="flex justify-between bg-transparent w-full mt-[30px] py-[10px] px-[35px] border border-solid border-customgraybg dark:border-[#404648] opacity dark:text-customlightgraybg rounded-[50px]">
-                                            <input placeholder="Search Name or Paste Address" className="bg-transparent w-full pe-[3px] text-customlightgraybg  outline-none" />
-                                            <div className=" rounded-[40px] cursor-pointer   bg-custombluebg py-[10px] px-[25px]">
+                                        <div className="flex justify-between bg-transparent w-full mt-[30px] py-[10px] px-[35px] max-sm:px-[15px] border border-solid border-customgraybg dark:border-[#404648] opacity dark:text-customlightgraybg rounded-[50px]">
+                                            <input placeholder="Search Name or Paste Address" className="bg-transparent text-[16px] max-sm:text-[9px] w-full pe-[3px] text-customlightgraybg  outline-none" />
+                                            <div className=" rounded-[40px] cursor-pointer   bg-custombluebg py-[10px] max-sm:py-[8px] px-[25px] max-sm:px-[13px]">
                                                 <div className="text-[16px] text-white font-[600] text-center">Search</div>
                                             </div>
                                         </div>
@@ -475,11 +475,11 @@ const Trade = () => {
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <Dialog.Panel className="panel  border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-[580px] text-black dark:text-white-dark">
-                                    <div className="px-[10px]">
+                                    <div className="px-[40px] pt-3 ">
                                         <button
                                             type="button"
                                             onClick={() => setSettingModal(false)}
-                                            className="absolute top-[35px] ltr:right-8  rtl:left-4 text-gray-400 hover:text-gray-800 dark:hover:text-gray-600 outline-none"
+                                            className="absolute top-[48px] ltr:right-8  rtl:left-4 text-gray-400 hover:text-gray-800 dark:hover:text-gray-600 outline-none"
                                         >
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path
@@ -488,8 +488,8 @@ const Trade = () => {
                                                 />
                                             </svg>
                                         </button>
-                                        <div className="text-[22px] pt-[35px] dark:text-white text-customblackbg font-[600] ltr:pl-5 rtl:pr-5 py-3 ltr:pr-[50px] rtl:pl-[50px]">Settings</div>
-                                        <div className="border-b border-solid border-customlightgraybg opacity-[0.25] my-[15px] mx-5"></div>
+                                        <div className="text-[22px] pt-[35px] dark:text-white text-customblackbg font-[600] ">Settings</div>
+                                        <div className="border-b border-solid border-customlightgraybg opacity-[0.25] my-[15px] "></div>
                                     </div>
 
                                     <div className="px-[40px] pb-[35px]">

@@ -280,11 +280,10 @@ function Pizzaswap() {
                             className="sr-only peer"
                             onChange={() => setShowStaked(!showStaked)}
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute  after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
-                        ></div>
+                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px]  max-md:after:top-[2px] min-md:after:top-[10px] max-lg:after:top-[2px] max-xl:after:top-[2px] max-2xl:after:top-[2px]  after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                     </label>
                 </div>
-                <div className="bg-[#FFF] dark:bg-[#1A1E1F] rounded-[50px]  border-[1px] p-[20px] border-solid border-[#F0F3F5] dark:border-[#636E72] w-fit flex flex-row gap-[20px] max-sm:flex-col max-md:flex-col flex-wrap justify-center max-sm:gap-y-[10px] max-md:gap-y-[10px] max-sm:w-[100%] max-md:w-[60%]  ">
+                <div className="bg-[#FFF] dark:bg-[#1A1E1F] rounded-[50px] max-lg:rounded-[20px]  border-[1px] p-[20px] border-solid border-[#F0F3F5] dark:border-[#636E72] w-fit flex flex-row gap-[20px] max-sm:flex-col max-md:flex-col flex-wrap justify-center max-sm:gap-y-[10px] max-md:gap-y-[10px] max-sm:w-[100%] max-md:w-[60%]  ">
                     {navItems.map((item, index) => (
                         <button
                             ref={index === 0 ? firstBtnRef : null}

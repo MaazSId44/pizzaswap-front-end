@@ -618,7 +618,7 @@ const BuyPizza = () => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="panel !h-[730px] border-0 p-0 rounded-[40px] !overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
+                                <Dialog.Panel className="panel !h-[730px] overflow-scroll border-0 p-0 rounded-[40px] !overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
                                     <div className='px-[25px]'>
                                         <div className="text-[22px] pt-[35px] dark:text-white text-customblackbg font-[700] text-[Urbanist]  rtl:pr-5 py-3 ltr:pr-[50px] ">
                                             <div className='flex items-center gap-2'>

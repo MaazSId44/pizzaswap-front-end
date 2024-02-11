@@ -87,7 +87,7 @@ const Home = () => {
 
             <div className="pt-5">
                 <div className="grid  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-3 gap-[40px] mb-[40px]">
-                    <div className="panel w-[100%] min-[350px]:px-[23px] h-full">
+                    <div className="panel w-[100%] min-[350px]:px-[40px] h-full">
                         <div className="flex justify-between dark:text-white-light">
                             <h5 className="text-[22px] dark:text-white text-customblackbg font-[700]">{homeData.FarmsAndStaking}</h5>
                         </div>
@@ -272,10 +272,10 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-wrap min-lg:flex-col xl:flex w-[100%] pt-[40px]">
+                    <div className="flex flex-wrap min-lg:flex-col xl:flex w-[100%] ">
                         {cardData.map((card, index) => (
                             <div key={index} className="w-full md:w-1/2 lg:w-[100%] xl:w-1/4 px-3">
-                                <div className="rounded-[18px] dark:bg-[#2F3334] bg-[rgba(178, 190, 195, 0.25)] border border-solid border-customgray py-[25px] px-[30px] overflow-hidden ">
+                                <div className="rounded-[18px] mt-10 dark:bg-[#2F3334] bg-[rgba(178, 190, 195, 0.25)] border border-solid border-customgray py-[25px] px-[30px] overflow-hidden ">
                                     <img
                                         className="w-full rounded-[15px] h-[160px] object-cover object-center"
                                         src={card.image}

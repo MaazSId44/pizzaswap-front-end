@@ -109,7 +109,7 @@ const Lottery = () => {
             <div className="pt-[60px]" style={backgroundLotryImageStyle}>
                 <div className='flex justify-center'>
                     <div>
-                        <p className="text-[38px] text-white font-[500] mt-[5px] text-center">{LoteryData.loteryupsidetitle}</p>
+                        <p className="text-[38px] text-white font-[500] mt-[5px] text-center leading-normal">{LoteryData.loteryupsidetitle}</p>
                         <p className="text-[16px] text-customlightgraybg font-[500] text-center leading-normal mt-[20px]">{LoteryData.loteryupsidedowntext}</p>
                         <div className="flex items-center flex-wrap justify-center gap-[120px] max-sm:gap-0  pt-[80px]">
                             <div>
@@ -314,7 +314,7 @@ const Lottery = () => {
                                 <>
                                     <div className='py-[25px] w-[100%]'>
                                         <div className='w-[100%] relative'>
-                                            <input type="text" className='bg-[#FFFFFF] dark:bg-[#1A1E1F] w-[100%] py-[28px] rounded-[50px] px-[35px] text-[16px] font-[500] ' placeholder='Search Lottery Number' />
+                                            <input type="text" className='bg-[#FFFFFF] dark:bg-[#1A1E1F] w-[100%] py-[28px] rounded-[50px] ps-[35px] pe-[122px] text-[16px] font-[500] ' placeholder='Search Lottery Number' />
                                             <button className='text-[16px] bg-[#2B70FA] rounded-[35px] text-[#ffffff] py-[10px] px-[20px] absolute right-[3%] top-[25%]'>Search</button>
                                         </div>
                                     </div>
