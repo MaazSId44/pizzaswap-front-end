@@ -393,9 +393,7 @@ function Staking() {
                                             <div className="py-[10px] max-sm:w-[100%] max-md:w-[100%]   max-2xl:w-[100%] ">
                                                 <button
                                                     className="text-[18px] font-[500] text-[#fff]  bg-[#2B70FA] py-[12px] px-[30px] rounded-[40px] max-sm:w-[100%]  max-md:w-[100%] max-lg:w-[100%] max-xl:w-[100%] max-2xl:w-[100%]"
-                                                    onClick={() => {
-                                                        console.log('ok response harvest btn');
-                                                    }}
+                                                   
                                                 >
                                                     {item.harvestbtn}
                                                 </button>
