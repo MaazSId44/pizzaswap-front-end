@@ -422,7 +422,7 @@ const Trade = () => {
                                         <div className="flex justify-between bg-transparent w-full mt-[30px] py-[10px] px-[35px] max-sm:px-[15px] border border-solid border-customgraybg dark:border-[#404648] opacity dark:text-customlightgraybg rounded-[50px]">
                                             <input placeholder="Search Name or Paste Address" className="bg-transparent text-[16px] max-sm:text-[9px] w-full pe-[3px] text-customlightgraybg  outline-none" />
                                             <div className=" rounded-[40px] cursor-pointer   bg-custombluebg py-[10px] max-sm:py-[8px] px-[25px] max-sm:px-[13px]">
-                                                <div className="text-[16px] text-white font-[600] text-center">Search</div>
+                                                <div className="text-[16px] text-white font-[600] max-sm:text-[9px]  text-center">Search</div>
                                             </div>
                                         </div>
 
