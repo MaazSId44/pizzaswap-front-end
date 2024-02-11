@@ -48,7 +48,7 @@ const CustomDialog = ({ isOpen, onClose, theme, setConnectWallet, itemsConnect }
                                     </div>
                                     <div className="border-b border-solid border-customlightgraybg opacity-[0.25] mt-[15px]"></div>
                                 </div>
-                                <div className="px-[25px] custom-scrollbar h-[690px] overflow-y-scroll ">
+                                <div className="px-[25px] custom-scrollbar h-[680px] overflow-y-scroll ">
                                     <div className="">
                                         <div className=" mt-[30px]">
                                             {itemsConnect.map((item: any) => (
