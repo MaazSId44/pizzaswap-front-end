@@ -314,7 +314,7 @@ const Lottery = () => {
                                 <>
                                     <div className='py-[25px] w-[100%]'>
                                         <div className='w-[100%] relative'>
-                                            <input type="text" className='bg-[#FFFFFF] dark:bg-[#1A1E1F] w-[100%] py-[28px] rounded-[50px] ps-[35px] pe-[122px] text-[16px] font-[500] ' placeholder='Search Lottery Number' />
+                                            <input type="text" className='bg-[#FFFFFF] dark:bg-[#1A1E1F] w-[100%] py-[28px] rounded-[50px] ps-[35px] pe-[122px] text-[16px]  font-[500] ' placeholder='Search Lottery Number' />
                                             <button className='text-[16px] bg-[#2B70FA] rounded-[35px] text-[#ffffff] py-[10px] px-[20px] absolute right-[3%] top-[25%]'>Search</button>
                                         </div>
                                     </div>
