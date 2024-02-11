@@ -41,7 +41,6 @@ const BuyPizza = () => {
     const handleConnect = () => {
         setTokenImported(false)
         navigate('/trade')
-        console.log("Connect button clicked");
     };
     useEffect(() => {
 
@@ -407,7 +406,7 @@ const BuyPizza = () => {
                                     </div>
                                     <div className="px-[25px]">
                                         <div className="flex justify-between bg-transparent w-full mt-[30px] py-[15px] px-[35px] border border-solid border-customgraybg dark:border-[#404648] opacity dark:text-customlightgraybg rounded-[50px]">
-                                            <input placeholder="Search Name or Paste Address" className="bg-transparent w-full pe-[3px] text-customlightgraybg  outline-none" />
+                                            <input placeholder="Search Name or Paste Address" className="bg-transparent w-full pe-[3px] dark:text-white placeholder-customlightgraybg text-customblackbg   outline-none" />
                                             <div className=" rounded-[40px] cursor-pointer   bg-custombluebg py-[12px] px-[34px]">
                                                 <div className="text-[16px] text-white font-[600] text-[Urbanist] text-center">Search</div>
                                             </div>
@@ -507,7 +506,7 @@ const BuyPizza = () => {
 
                                             <input
                                                 placeholder="Enter Percentage"
-                                                className=" dark:bg-customblackbg bg-customgraybg w-full text-[14px] py-[16px] px-[25px] opacity dark:text-customlightgraybg rounded-[50px]  outline-none"
+                                                className=" dark:bg-customblackbg bg-customgraybg w-full text-[14px] py-[16px] px-[25px] opacity dark:text-white placeholder-customlightgraybg text-customblackbg  rounded-[50px]  outline-none"
                                             />
                                         </div>
 
@@ -526,7 +525,7 @@ const BuyPizza = () => {
                                         <div>
                                             <input
                                                 placeholder="Enter Minutes"
-                                                className=" dark:bg-customblackbg w-[205px] bg-customgraybg text-[14px] py-[16px] px-[25px] opacity dark:text-customlightgraybg rounded-[50px]  outline-none"
+                                                className=" dark:bg-customblackbg w-[205px] bg-customgraybg text-[14px] py-[16px] px-[25px] opacitydark:text-white placeholder-customlightgraybg text-customblackbg  rounded-[50px]  outline-none"
                                             />
                                         </div>
                                     </div>

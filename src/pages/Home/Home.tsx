@@ -294,7 +294,7 @@ const Home = () => {
                 </div>
 
 
-                <p className="text-[16px] text-customblackbg font-[600] px-1 leading-normal tracking-[0.08px]">COPYRIGHT ©2024 PizzaSwap, All Rights Reserved</p>
+                <p className="text-[16px] text-customblackbg dark:text-customlightgraybg font-[600] px-1 leading-normal tracking-[0.08px]">COPYRIGHT ©2024 PizzaSwap, All Rights Reserved</p>
             </div>
             <CustomDialog
                 isOpen={connectWallet}

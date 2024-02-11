@@ -420,7 +420,7 @@ const Trade = () => {
                                     </div>
                                     <div className="px-[40px] pb-[35px]">
                                         <div className="flex justify-between bg-transparent w-full mt-[30px] py-[10px] px-[35px] max-sm:px-[15px] border border-solid border-customgraybg dark:border-[#404648] opacity dark:text-customlightgraybg rounded-[50px]">
-                                            <input placeholder="Search Name or Paste Address" className="bg-transparent text-[16px] max-sm:text-[9px] w-full pe-[3px] text-customlightgraybg  outline-none" />
+                                            <input placeholder="Search Name or Paste Address" className="bg-transparent text-[16px] max-sm:text-[9px] w-full pe-[3px] dark:text-white placeholder-customlightgraybg text-customblackbg  outline-none" />
                                             <div className=" rounded-[40px] cursor-pointer   bg-custombluebg py-[10px] max-sm:py-[8px] px-[25px] max-sm:px-[13px]">
                                                 <div className="text-[16px] text-white font-[600] max-sm:text-[9px]  text-center">Search</div>
                                             </div>
@@ -518,7 +518,7 @@ const Trade = () => {
 
                                             <input
                                                 placeholder="Enter Percentage"
-                                                className=" dark:bg-customblackbg bg-customgraybg w-full text-[16px] py-[16px] px-[25px] opacity dark:text-customlightgraybg text-custommediumgraybg rounded-[50px]  outline-none"
+                                                className=" dark:bg-customblackbg bg-customgraybg w-full text-[16px] py-[16px] px-[25px] opacity dark:text-white placeholder-customlightgraybg text-customblackbg  rounded-[50px]  outline-none"
                                             />
                                         </div>
 
@@ -537,7 +537,7 @@ const Trade = () => {
                                         <div>
                                             <input
                                                 placeholder="Enter Minutes"
-                                                className="dark:bg-customblackbg bg-customgraybg w-[205px] text-[16px] py-[16px] px-[25px] opacity dark:text-customlightgraybg text-custommediumgraybg rounded-[50px]  outline-none"
+                                                className="dark:bg-customblackbg bg-customgraybg w-[205px] text-[16px] py-[16px] px-[25px] opacitydark:text-white placeholder-customlightgraybg text-customblackbg  rounded-[50px]  outline-none"
                                             />
                                         </div>
                                     </div>
