@@ -183,7 +183,7 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <div className="panel h-full">
+                    <div className="panel h-full px-[40px]">
                         <div className="flex justify-between dark:text-white-light mb-5">
                             <h5 className="text-[22px] dark:text-white text-customblackbg font-[700]">{homeData.PizzaSwapStats.Title}</h5>
                         </div>
@@ -210,7 +210,7 @@ const Home = () => {
                     </div>
 
                     <div>
-                        <div className="panel" style={backgroundImageStyle}>
+                        <div className="panel px-[35px]" style={backgroundImageStyle}>
                             <div className="flex justify-between dark:text-white-light">
                                 <h5 className="text-[22px] text-white font-[700]">{homeData.TotalValueLocked.TotalValueLocked}</h5>
 
@@ -229,7 +229,7 @@ const Home = () => {
                         </div>
 
 
-                        <div className="panel mt-[30px]" style={backgroundLotryImageStyle}>
+                        <div className="panel mt-[30px] px-[35px]" style={backgroundLotryImageStyle}>
                             <div className="flex justify-between dark:text-white-light">
                                 <h5 className="text-[22px] text-customblackbg font-[700]">{homeData.LotteryWinningNumbers}</h5>
 
