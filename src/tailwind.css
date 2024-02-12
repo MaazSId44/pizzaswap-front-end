@@ -88,6 +88,9 @@
       .scrollbar::-webkit-scrollbar-track {
         background-color: #F0F3F5;
       }
+      .table-containe table tbody tr td{
+        text-align: right !important
+      }
 
     body.dark {
         @apply bg-[#2D3436];

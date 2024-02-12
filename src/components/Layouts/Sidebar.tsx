@@ -172,7 +172,7 @@ const Sidebar = () => {
 
                     </div>
                     <div className='relative'>
-                        {store.getState().themeConfig.sidebar ?
+                        {!store.getState().themeConfig.sidebar ?
                             <img
                                 onClick={() => {
                                     dispatch(toggleSidebar())

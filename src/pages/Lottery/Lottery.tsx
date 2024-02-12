@@ -110,7 +110,7 @@ const Lottery = () => {
                 <div className='flex justify-center'>
                     <div>
                         <p className="text-[38px] text-white font-[500] mt-[5px] text-center leading-normal">{LoteryData.loteryupsidetitle}</p>
-                        <p className="text-[16px] text-customlightgraybg font-[500] text-center leading-normal mt-[20px]">{LoteryData.loteryupsidedowntext}</p>
+                        <p className="text-[16px] text-customlightgraybg font-[500] text-center leading-normal">{LoteryData.loteryupsidedowntext}</p>
                         <div className="flex items-center flex-wrap justify-center gap-[120px] max-sm:gap-0  pt-[80px]">
                             <div>
                                 <CountdownTimer hours={3} minutes={38} seconds={19} label="Until Ticket Sale" />
@@ -126,11 +126,11 @@ const Lottery = () => {
 
             <div className="w-[100%]">
                 <div className="flex items-center justify-center w-full max-sm:mt-[20px]">
-                    <div className="flex flex-1 min-[425px]:flex-col  items-center justify-between max-lg:rounded-[20px]  max-sm:flex-col md:flex-row  gap-y-2 lg:w-[70%] md:mt-[30px] xl:max-w-fit rounded-[50px]  py-[20px] px-[20px]  bg-white dark:bg-[#1A1E1F] ">
+                    <div className="flex flex-1 min-[425px]:flex-col  items-center justify-between max-lg:rounded-[20px]  max-sm:flex-col md:flex-row  gap-y-2 lg:w-[70%] md:mt-[30px] xl:max-w-fit rounded-[50px]  py-[20px] px-[12px]  bg-white dark:bg-[#1A1E1F] ">
                         {navItems.map((item) => (
                             <div
                                 key={item.title}
-                                className={`py-[12px] px-[34px] mx-[10px] cursor-pointer text-center w-[100%] xl:w-[228px] text-[18px] font-[500]  ${activeTab === item.title ? 'bg-custombluebg text-white' : 'bg-customgraybg dark:bg-custommediumgraybg dark:text-white '
+                                className={`py-[12px] px-[34px] mx-[8px] cursor-pointer text-center w-[100%] xl:w-[228px] text-[18px] font-[500]  ${activeTab === item.title ? 'bg-custombluebg text-white' : 'bg-customgraybg dark:bg-custommediumgraybg text-custommediumgraybg dark:text-white '
                                     } rounded-full`}
                                 onClick={() => handleTabClick(item.title)}
                             >
@@ -220,24 +220,24 @@ const Lottery = () => {
                                             </div>
                                             <div className="flex flex-col">
                                                 <div className="flex justify-between mt-[18px]">
-                                                    <div className="text-[16px] font-[500]">{LoteryData.match1}</div>
-                                                    <div className="text-[16px] font-[500]">{LoteryData.pot1}</div>
+                                                    <div className="text-[16px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{LoteryData.match1}</div>
+                                                    <div className="text-[16px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{LoteryData.pot1}</div>
                                                 </div>
                                                 <div className="flex justify-between mt-[18px]">
-                                                    <div className="text-[16px] font-[500]">{LoteryData.match2}</div>
-                                                    <div className="text-[16px] font-[500]">{LoteryData.pot2}</div>
+                                                    <div className="text-[16px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{LoteryData.match2}</div>
+                                                    <div className="text-[16px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{LoteryData.pot2}</div>
                                                 </div>
                                                 <div className="flex justify-between mt-[18px]">
-                                                    <div className="text-[16px] font-[500]">{LoteryData.match3}</div>
-                                                    <div className="text-[16px] font-[500]">{LoteryData.pot3}</div>
+                                                    <div className="text-[16px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{LoteryData.match3}</div>
+                                                    <div className="text-[16px] font-[500] text-[#636E72] dark:text-[#B2BEC3] ">{LoteryData.pot3}</div>
                                                 </div>
                                             </div>
 
                                             <div className="border-b border-solid border-customlightgraybg opacity-[0.25] my-[43px]"></div>
 
                                             <div className="flex justify-between">
-                                                <div className="text-[20px] font-[500]">{LoteryData.burn}</div>
-                                                <div className="text-[20px] font-[500]">{LoteryData.burnpoint}</div>
+                                                <div className="text-[20px] font-[500] text-[#636E72] dark:text-[#B2BEC3]">{LoteryData.burn}</div>
+                                                <div className="text-[20px] font-[500] text-[#636E72] dark:text-[#B2BEC3]">{LoteryData.burnpoint}</div>
                                             </div>
                                         </div>
 
@@ -245,8 +245,10 @@ const Lottery = () => {
                                             <div className="w-[60%] mb-4">
                                                 <img src={img2} className="w-[100%]" alt="img2" />
                                             </div>
-                                            <div className="text-[22px] font-[600] my-[15px]">{LoteryData.unlock}</div>
-                                            <div className='mt-[5px]'>
+                                            <div className="text-[22px] font-[600] my-[15px] text-[#636E72] dark:text-[#B2BEC3]">
+                                                {LoteryData.unlock}
+                                                </div>
+                                            <div className='mt-[5px] w-full'>
                                                 <WalletButton onClick={() => setConnectWallet(true)} buttonText="Unlock Wallet" />
                                             </div>
 
@@ -321,8 +323,8 @@ const Lottery = () => {
                                     <div className="flex gap-[40px] max-sm:flex-col md:flex-col lg:flex-row">
                                         <div className="panel gap-y-4 w-[50%] max-sm:w-[100%] md:w-[100%] lg:w-[50%]">
                                             <div className="flex  items-center justify-between">
-                                                <div className="text-[22px] text-[600]">{LoteryData.round1}</div>
-                                                <div className="text-[16px] text-[400]">{LoteryData.round1time}</div>
+                                                <div className="text-[22px] text-[#636E72] dark:text-[#B2BEC3] font-[600]">{LoteryData.round1}</div>
+                                                <div className="text-[16px] text-[#636E72] dark:text-[#B2BEC3] font-[400]">{LoteryData.round1time}</div>
                                             </div>
                                             <div className="flex mt-[20px]">
                                                 <div className="p-[8px] bg-custombluebg rounded-[40px] w-fit">
@@ -385,7 +387,7 @@ const Lottery = () => {
                                                     </svg>
                                                 </div>
                                                 <div className="ms-[10px]">
-                                                    <div className="text-[14px] font-[500]">{LoteryData.totalprize}</div>
+                                                    <div className="text-[14px] font-[500] dark:text-[#B2BEC3] text-[#636E72]">{LoteryData.totalprize}</div>
                                                     <div className="text-[22px] font-[600] text-[#2D3436] dark:text-[#fff] mt-[5px]">{LoteryData.prizepoint}</div>
                                                 </div>
                                             </div>
@@ -399,7 +401,7 @@ const Lottery = () => {
                                                     </svg>
                                                 </div>
                                                 <div className="ms-[10px]">
-                                                    <div className="text-[14px] font-[500]">{LoteryData.winningno}</div>
+                                                    <div className="text-[14px] font-[500] dark:text-[#B2BEC3] text-[#636E72]">{LoteryData.winningno}</div>
                                                     <div className="text-[22px] font-[600] text-[#2D3436] dark:text-[#fff] mt-[5px] ">{LoteryData.winningnos}</div>
                                                 </div>
                                             </div>
@@ -427,18 +429,18 @@ const Lottery = () => {
                                             </div>
 
                                             <div className="flex justify-between">
-                                                <div className="text-[20px] font-[500] text-[#2B70FA] dark:text-[#B2BEC3]">{LoteryData.toburn}</div>
-                                                <div className="text-[20px] font-[500]">{LoteryData.burnpoints}</div>
+                                                <div className="text-[20px] font-[500] text-[#636E72] dark:text-[#B2BEC3]">{LoteryData.toburn}</div>
+                                                <div className="text-[20px] font-[500] text-[#636E72] dark:text-[#B2BEC3]">{LoteryData.burnpoints}</div>
                                             </div>
 
-                                            <div className='mt-[30px]'>
+                                            <div className='mt-[30px]  w-full'>
                                                 <WalletButton onClick={() => setConnectWallet(true)} buttonText="Unlock Wallet" />
                                             </div>
 
                                         </div>
 
                                         <div className="panel w-[50%] max-sm:w-[100%] md:w-[100%] lg:w-[50%]">
-                                            <div className="text-[600] text-[22px] font-[500] text-[#636E72] dark:text-[#B2BEC3]">{LoteryData.historycardtittle}</div>
+                                            <div className="text-[22px] font-[600] text-[#636E72] dark:text-[#B2BEC3]">{LoteryData.historycardtittle}</div>
                                             <div className="flex justify-center items-center mt-[100px]">
                                                 <img src={bgslice} className='' alt=".." />
                                             </div>

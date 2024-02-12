@@ -280,9 +280,9 @@ function Pizzaswap() {
                             className="sr-only peer"
                             onChange={() => setShowStaked(!showStaked)}
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px]  max-md:after:top-[2px] min-md:after:top-[10px] max-lg:after:top-[2px] max-xl:after:top-[2px] max-2xl:after:top-[2px]  after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                        <div className="w-11 h-6 bg-[#FFFFFF] peer-focus:outline-none rounded-full peer dark:bg-[#1A1E1F] peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full  after:content-[''] after:absolute after:top-[2px]  max-md:after:top-[2px] min-md:after:top-[10px] max-lg:after:top-[2px] max-xl:after:top-[2px] max-2xl:after:top-[2px]  after:start-[2px] after:bg-[#2B70FA] after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#ffffff] peer-checked:dark:bg-[#1A1E1F]"></div>
                     </label>
-                </div>
+                </div>  
                 <div className="bg-[#FFF] dark:bg-[#1A1E1F] rounded-[50px] max-lg:rounded-[20px]  border-[1px] p-[20px] border-solid border-[#F0F3F5] dark:border-[#636E72] w-fit flex flex-row gap-[20px] max-sm:flex-col max-md:flex-col flex-wrap justify-center max-sm:gap-y-[10px] max-md:gap-y-[10px] max-sm:w-[100%] max-md:w-[60%]  ">
                     {navItems.map((item, index) => (
                         <button
@@ -350,37 +350,37 @@ function Pizzaswap() {
                                                             />
                                                         </svg>
                                                     </div>
-                                                    <p className="text-[16px] max-sm:text-[16px] max-md:text-[16px] font-[500] text-[#2D3436] dark:text-[#FFF] ">{item.apr}</p>
+                                                    <p className="text-[16px] font-[500] text-[#2D3436] dark:text-[#FFF] ">{item.apr}</p>
                                                 </div>
                                             </div>
                                             <div className="flex justify-between items-center">
                                                 <div>
-                                                    <p className="text-[16px] max-sm:text-[16px] max-md:text-[16px] font-[500] text-[#636E72] dark:text-[#B2BEC3]   group-hover:text-[#20D091]">
+                                                    <p className="text-[16px] font-[500] text-[#636E72] dark:text-[#B2BEC3]   group-hover:text-[#20D091]">
                                                         Earn:
                                                     </p>
                                                 </div>
                                                 <div>
-                                                    <p className="text-[16px] max-sm:text-[16px] max-md:text-[16px] font-[500] text-[#2D3436] dark:text-[#FFF] ">{item.earn}</p>
+                                                    <p className="text-[16px]  font-[500] text-[#2D3436] dark:text-[#FFF] ">{item.earn}</p>
                                                 </div>
                                             </div>
                                             <div className="flex justify-between items-center">
                                                 <div>
-                                                    <p className="text-[16px] max-sm:text-[16px] max-md:text-[16px] font-[500px] text-[#636E72] dark:text-[#B2BEC3]   group-hover:text-[#20D091]">
+                                                    <p className="text-[16px]  font-[500] text-[#636E72] dark:text-[#B2BEC3]   group-hover:text-[#20D091]">
                                                         Deposit Fee:
                                                     </p>
                                                 </div>
                                                 <div>
-                                                    <p className="text-[16px] max-sm:text-[16px] max-md:text-[16px] font-[500] text-[#2D3436] dark:text-[#FFF] ">{item.deposit}</p>
+                                                    <p className="text-[16px]  font-[500] text-[#2D3436] dark:text-[#FFF] ">{item.deposit}</p>
                                                 </div>
                                             </div>
                                             <div className="flex justify-between items-center">
                                                 <div>
-                                                    <p className="text-[16px] max-sm:text-[16px] max-md:text-[16px] font-[500px] text-[#636E72] dark:text-[#B2BEC3] group-hover:text-[#20D091]">
+                                                    <p className="text-[16px] font-[500] text-[#636E72] dark:text-[#B2BEC3] group-hover:text-[#20D091]">
                                                         Harvest Lockup:
                                                     </p>
                                                 </div>
                                                 <div>
-                                                    <p className="text-[16px] max-sm:text-[16px] max-md:text-[16px] font-[500] text-[#2D3436] dark:text-[#FFF] ">{item.harvest}</p>
+                                                    <p className="text-[16px] font-[500] text-[#2D3436] dark:text-[#FFF] ">{item.harvest}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -389,7 +389,7 @@ function Pizzaswap() {
                                         <div className="flex justify-between items-center flex-wrap">
                                             <div>
                                                 <div>
-                                                    <p className="text-[16px] max-sm:text-[16px] max-md:text-[16px] font-[500px] text-[#B2BEC3]   group-hover:text-[#20D091]">PizzaSwap Earned</p>
+                                                    <p className="text-[16px]  font-[500] text-[#B2BEC3]   group-hover:text-[#20D091]">PizzaSwap Earned</p>
                                                 </div>
                                                 <div>
                                                     <p className="text-[22px] max-sm:text-[16px] max-md:text-[22px] font-[600] text-[#2D3436] dark:text-[#fff]  group-hover:text-[#20D091] leading-9">
@@ -398,10 +398,10 @@ function Pizzaswap() {
                                                 </div>
                                             </div>
 
-                                            <div className="py-[10px] max-sm:w-[100%] max-md:w-[100%]   max-2xl:w-[100%] ">
+                                            <div className="py-[10px] max-sm:w-[100%] max-md:w-[100%] max-2xl:w-[100%] ">
                                                 <button
-                                                    className="text-[18px] font-[500] text-[#fff]  bg-[#2B70FA] py-[12px] px-[30px] rounded-[40px] max-sm:w-[100%]  max-md:w-[100%] max-lg:w-[100%] max-xl:w-[100%] max-2xl:w-[100%]"
-                                                    
+                                                    className="text-[18px] font-[500] text-[#fff] bg-[#2B70FA] py-[12px] px-[30px] rounded-[40px] max-sm:w-[100%]  max-md:w-[100%] max-lg:w-[100%] max-xl:w-[100%] max-2xl:w-[100%]"
+
                                                 >
                                                     {item.harvestbtn}
                                                 </button>
@@ -460,11 +460,11 @@ function Pizzaswap() {
                                             leaveFrom="opacity-100 scale-100"
                                             leaveTo="opacity-0 scale-95"
                                         >
-                                            <Dialog.Panel id={'headlessui-dialog-panel-:rb'} className="panel !h-[526px] border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
-                                                <div className="px-[25px]">
+                                            <Dialog.Panel id={'headlessui-dialog-panel-:rb'} className="panel !h-[505px] border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
+                                                <div className="px-[40px]">
                                                     <button
                                                         type="button"
-                                                        onClick={() => setConnectWallet(false)}
+                                                        onClick={() => setAprModal(false)}
                                                         className="absolute top-[30px] max-sm:top-[20px] ltr:right-10  rtl:left-4 text-gray-400 hover:text-gray-800 dark:hover:text-gray-600 outline-none"
                                                     >
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -474,47 +474,45 @@ function Pizzaswap() {
                                                             />
                                                         </svg>
                                                     </button>
-                                                    <div className="text-[22px] pt-[30px]  max-sm:pt-[20px] dark:text-white text-customblackbg font-[700] text-[Urbanist] ltr:pl-5 rtl:pr-5 py-3 max-sm:py-2 ltr:pr-[50px] rtl:pl-[50px]">
+                                                    <div className="text-[22px] pt-[30px]  max-sm:pt-[20px] dark:text-white text-customblackbg font-[700] text-[Urbanist]  rtl:pr-5 py-3 max-sm:py-2 ltr:pr-[50px] ">
                                                         ROI
                                                     </div>
                                                     <div className="border-b border-solid border-customlightgraybg opacity-[0.25] mt-[15px] "></div>
                                                 </div>
 
-                                                <div className="px-[25px]">
+                                                <div className="px-[40px] pt-[20px]">
                                                     <div className="bg-[#fff] dark:bg-[#1A1E1F] rounded-[40px] flex flex-col gap-[25px] max-sm:gap-[20px]">
                                                         <div>
-                                                            <table className="w-[100%]">
-                                                                <tbody className="border-b-[1px] !border-[#B2BEC34d]">
-                                                                    <tr className="flex justify-between py-[18px] !bg-[none]">
-                                                                        <th className="font-[600] dark:font-[500] text-[18px] max-sm:text-[16px]  dark:text-[#fff] text-[#2D3436] w-[20%]">
-                                                                            Timeframe
-                                                                        </th>
+                                                            <div className="table-container">
+                                                                <table className="table w-[100%] last:border-[0px]">
+                                                                    <tbody className=" ">
+                                                                        <div className="table-row flex justify-between py-[18px] !bg-[none] border-b-[1px] border-[#B2BEC34d]">
+                                                                            <th className="table-cell font-[600] dark:font-[500] text-[18px] max-sm:text-[16px] text-start dark:text-[#fff] text-[#2D3436] py-[9px]">
+                                                                                Timeframe
+                                                                            </th>
+                                                                            <th className="table-cell font-[600] dark:font-[500] text-[18px] max-sm:text-[16px] dark:text-[#fff] text-[#2D3436] text-center py-[9px]">
+                                                                                ROI
+                                                                            </th>
+                                                                            <th className="table-cell font-[600] dark:font-[500] text-[18px] max-sm:text-[16px] dark:text-[#fff] text-[#2D3436] text-end py-[9px]">
+                                                                                PizzaSwap Per $1000
+                                                                            </th>
+                                                                        </div>
+                                                                        {table.map((item) => (
+                                                                            <div key={item.id} className="table-row w-[100%] last:border-[0px] justify-between border-b-[1px] !border-[#B2BEC34d] !text-start">
+                                                                                <td className="table-cell py-[10px] text-[#636E72] text-[16px] max-sm:text-[13px] font-[500] !text-start">{item.day}</td>
+                                                                                <td className="table-cell py-[10px] text-[#636E72] text-[16px] max-sm:text-[13px] font-[500] text-center">{item.roi}</td>
+                                                                                <td className="table-cell py-[10px] text-[#636E72] text-[16px] max-sm:text-[13px] font-[500] px-0 text-end">{item.eraned}</td>
+                                                                            </div>
+                                                                        ))}
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
 
-                                                                        <th className="font-[600] dark:font-[500] text-[18px] max-sm:text-[16px] dark:text-[#fff] text-[#2D3436] w-[30%]">ROI</th>
 
-                                                                        <th className="font-[600] dark:font-[500] text-[18px] max-sm:text-[16px] dark:text-[#fff] text-[#2D3436] text-end w-[40%]">
-                                                                            PizzaSwap Per $1000
-                                                                        </th>
-                                                                    </tr>
-                                                                    {table.map((item) => {
-                                                                        return (
-                                                                            <>
-                                                                                <tr key={item.id} className="w-[100%] flex  border-b-[1px] !border-[#B2BEC34d] ">
-                                                                                    <td className="text-[#636E72] text-[16px]  max-sm:text-[13px] text-start font-[500]  w-[33%]  ">{item.day}</td>
-
-                                                                                    <td className="text-[#636E72] text-[16px]  max-sm:text-[13px] font-[500] text-center w-[20%]">{item.roi}</td>
-
-                                                                                    <td className="text-[#636E72] text-[16px]  max-sm:text-[13px] font-[500] px-0 !text-end w-[47%]">{item.eraned}</td>
-                                                                                </tr>
-                                                                            </>
-                                                                        );
-                                                                    })}
-                                                                </tbody>
-                                                            </table>
                                                         </div>
 
                                                         <div>
-                                                            <p className="font-[500] text-[13px]  max-sm:text-[10px] text-[#2D3436] dark:text-[#fff]">
+                                                            <p className="font-[500] text-[13px] tracking-[0.065px]  max-sm:text-[10px] text-[#2D3436] dark:text-[#fff]">
                                                                 Calculated based on current rates. Compounding once daily. Rates are estimates provided for your convenience only, and by no means
                                                                 represent guaranteed returns.
                                                             </p>
