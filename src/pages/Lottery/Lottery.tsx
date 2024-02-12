@@ -245,7 +245,7 @@ const Lottery = () => {
                                             <div className="w-[60%] mb-4">
                                                 <img src={img2} className="w-[100%]" alt="img2" />
                                             </div>
-                                            <div className="text-[22px] font-[600] my-[15px] text-[#636E72] dark:text-[#B2BEC3]">
+                                            <div className="text-[22px] font-[600] my-[15px] text-center text-[#636E72] dark:text-[#B2BEC3]">
                                                 {LoteryData.unlock}
                                                 </div>
                                             <div className='mt-[5px] w-full'>
@@ -255,7 +255,7 @@ const Lottery = () => {
                                         </div>
                                     </div>
 
-                                    <div className="panel  mt-[30px] flex max-sm:flex-col md:flex-col lg:flex-row gap-y-4">
+                                    <div className="panel  mt-[30px] flex max-sm:flex-col md:flex-col lg:flex-row gap-y-4 gap-x-6">
                                         <div className="w-[45%] max-sm:w-[100%] md:w-[100%] lg:w-[45%]">
                                             <div className="flex justify-between dark:text-white-light">
                                                 <h5 className="text-[22px] text-[#1A1E1F] dark:text-[#fff] font-[600] text-[Urbanist]">{homeData.LotteryWinningNumbers}</h5>

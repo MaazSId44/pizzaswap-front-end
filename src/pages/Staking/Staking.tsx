@@ -264,15 +264,9 @@ function Staking() {
                 <div className="flex items-center gap-3">
                     <span className="ms-3 text-[18px] font-[500] m-[0px] dark:text-[#B2BEC3] text-[#2D3436] ">Staked Only</span>
 
-
                     <label className="relative inline-flex items-center cursor-pointer mb-0">
-                        <input
-                            type="checkbox"
-                            value="toggle"
-                            className="sr-only peer"
-                            onChange={() => setShowStaked(!showStaked)}
-                        />
-                        <div className="w-11 h-6 bg-[#FFFFFF] peer-focus:outline-none rounded-full peer dark:bg-[#1A1E1F] peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full  after:content-[''] after:absolute after:top-[2px]  max-md:after:top-[2px] min-md:after:top-[10px] max-lg:after:top-[2px] max-xl:after:top-[2px] max-2xl:after:top-[2px]  after:start-[2px] after:bg-[#2B70FA] after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#ffffff] peer-checked:dark:bg-[#1A1E1F]"></div>
+                        <input type="checkbox" value="toggle" className="sr-only peer" onChange={() => setShowStaked(!showStaked)} />
+                        <div className="w-10 h-6 px-[23px] bg-[#FFFFFF] peer-focus:outline-none rounded-full peer dark:bg-[#1A1E1F] peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full  after:content-[''] after:absolute after:top-[4px]  max-md:after:top-[4px] min-md:after:top-[10px] max-lg:after:top-[4px] max-xl:after:top-[4px] max-2xl:after:top-[4px]  after:start-[7px] after:bg-[#2B70FA] after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#ffffff] peer-checked:dark:bg-[#1A1E1F]"></div>
                     </label>
                 </div>
                 <div className="bg-[#FFF] dark:bg-[#1A1E1F] rounded-[50px] max-lg:rounded-[20px]  border-[1px] p-[20px] border-solid border-[#F0F3F5] dark:border-[#636E72] w-fit flex flex-row gap-[20px] max-sm:flex-col max-md:flex-col flex-wrap justify-center max-sm:gap-y-[10px] max-md:gap-y-[10px] max-sm:w-[100%] max-md:w-[60%]  ">
@@ -282,8 +276,8 @@ function Staking() {
                             key={index}
                             onClick={() => setSelectedTab(index)}
                             className={`outline-none rounded-[30px] border-0 py-[12px] px-[34px] w-[228px]
-             text-center text-[18px] hover:text-white hover:bg-[#2B70FA] bg-none text-[#989CAA] max-md:mx-0  max-sm:w-[100%] max-md:w-[100%] max-lg:w-[100%] max-xl:w-[100%] dark:text-white 
-             ${selectedTab === index ? 'bg-[#2B70FA] text-white border-[0px] ' : "dark:text-[#fff] dark:bg-[#636E72] bg-[#F0F3F5] text-'[#636E72]"}`}
+         text-center text-[18px] hover:text-white hover:bg-[#2B70FA] bg-none text-[#989CAA] max-md:mx-0  max-sm:w-[100%] max-md:w-[100%] max-lg:w-[100%] max-xl:w-[100%] dark:text-white 
+         ${selectedTab === index ? 'bg-[#2B70FA] text-white border-[0px] ' : "dark:text-[#fff] dark:bg-[#636E72] bg-[#F0F3F5] text-'[#636E72]"}`}
                         >
                             {item.title}
                         </button>
@@ -296,8 +290,8 @@ function Staking() {
                 <>
                     <div
                         className={`${filteredItems.length === 1
-                            ? ' mx-[32%] place-content-center max-md:mx-[20%] max-lg:mx-[20%]'
-                            : 'grid grid-cols-3 max-md:grid-cols-2 max-lg:grid-cols-2 max-xl:grid-cols-2   max-sm:grid-cols-1'
+                                ? ' mx-[32%] place-content-center max-md:mx-[20%] max-lg:mx-[20%]'
+                                : 'grid grid-cols-3 max-md:grid-cols-2 max-lg:grid-cols-2 max-xl:grid-cols-2   max-sm:grid-cols-1'
                             }   gap-[40px]  pt-[40px] max-sm:pt-[100px] max-md:pt-[100px]  max-lg:pt-[100px]`}
                     >
                         {filteredItems.slice(0, visibleItems).map((item, index) => (
@@ -325,13 +319,13 @@ function Staking() {
                                                 <p className="text-[22px] font-[600] m-[0px] dark:text-[#FFF] text-[#2D3436] ">{item.title}</p>
                                             </div>
                                             <div className="bg-[#2B70FA] rounded-[20px] px-[14px] py-[6px]">
-                                                <p className=" text-[16px] font-[600] m-[0px] p-[0px] text-[#FFF]">{item.mutli}</p>
+                                                <p className="text-[16px] font-[500] m-[0px] p-[0px] text-[#FFF]">{item.mutli}</p>
                                             </div>
                                         </div>
                                         <div className="flex flex-col gap-[18px]">
                                             <div className="flex justify-between items-center">
                                                 <div>
-                                                    <p className="text-[16px] max-sm:text-[16px] max-md:text-[16px] font-[500px] text-[#636E72] dark:text-[#B2BEC3]  group-hover:text-[#20D091]">APR</p>
+                                                    <p className="text-[16px]  font-[500] text-[#636E72] dark:text-[#B2BEC3]  group-hover:text-[#20D091]">APR</p>
                                                 </div>
                                                 <div className="flex gap-[10px]">
                                                     <div onClick={() => setAprModal(true)}>
@@ -347,29 +341,23 @@ function Staking() {
                                             </div>
                                             <div className="flex justify-between items-center">
                                                 <div>
-                                                    <p className="text-[16px] font-[500] text-[#636E72] dark:text-[#B2BEC3]   group-hover:text-[#20D091]">
-                                                        Earn:
-                                                    </p>
+                                                    <p className="text-[16px] font-[500] text-[#636E72] dark:text-[#B2BEC3]   group-hover:text-[#20D091]">Earn:</p>
                                                 </div>
                                                 <div>
-                                                    <p className="text-[16px]  font-[500] text-[#2D3436] dark:text-[#FFF] ">{item.earn}</p>
+                                                    <p className="text-[16px] font-[500] text-[#2D3436] dark:text-[#FFF] ">{item.earn}</p>
                                                 </div>
                                             </div>
                                             <div className="flex justify-between items-center">
                                                 <div>
-                                                    <p className="text-[16px]  font-[500] text-[#636E72] dark:text-[#B2BEC3]   group-hover:text-[#20D091]">
-                                                        Deposit Fee:
-                                                    </p>
+                                                    <p className="text-[16px] font-[500] text-[#636E72] dark:text-[#B2BEC3]   group-hover:text-[#20D091]">Deposit Fee:</p>
                                                 </div>
                                                 <div>
-                                                    <p className="text-[16px]  font-[500] text-[#2D3436] dark:text-[#FFF] ">{item.deposit}</p>
+                                                    <p className="text-[16px] font-[500] text-[#2D3436] dark:text-[#FFF] ">{item.deposit}</p>
                                                 </div>
                                             </div>
                                             <div className="flex justify-between items-center">
                                                 <div>
-                                                    <p className="text-[16px] font-[500] text-[#636E72] dark:text-[#B2BEC3] group-hover:text-[#20D091]">
-                                                        Harvest Lockup:
-                                                    </p>
+                                                    <p className="text-[16px] font-[500] text-[#636E72] dark:text-[#B2BEC3] group-hover:text-[#20D091]">Harvest Lockup:</p>
                                                 </div>
                                                 <div>
                                                     <p className="text-[16px] font-[500] text-[#2D3436] dark:text-[#FFF] ">{item.harvest}</p>
@@ -381,7 +369,7 @@ function Staking() {
                                         <div className="flex justify-between items-center flex-wrap">
                                             <div>
                                                 <div>
-                                                    <p className="text-[16px]  font-[500] text-[#B2BEC3]   group-hover:text-[#20D091]">PizzaSwap Earned</p>
+                                                    <p className="text-[16px]  font-[500] text-[#636E72] dark:text-[#B2BEC3] group-hover:text-[#20D091]">PizzaSwap Earned</p>
                                                 </div>
                                                 <div>
                                                     <p className="text-[22px] max-sm:text-[16px] max-md:text-[22px] font-[600] text-[#2D3436] dark:text-[#fff]  group-hover:text-[#20D091] leading-9">
@@ -391,10 +379,7 @@ function Staking() {
                                             </div>
 
                                             <div className="py-[10px] max-sm:w-[100%] max-md:w-[100%] max-2xl:w-[100%] ">
-                                                <button
-                                                    className="text-[18px] font-[500] text-[#fff] bg-[#2B70FA] py-[12px] px-[30px] rounded-[40px] max-sm:w-[100%]  max-md:w-[100%] max-lg:w-[100%] max-xl:w-[100%] max-2xl:w-[100%]"
-
-                                                >
+                                                <button className="text-[18px] font-[500] text-[#fff] bg-[#2B70FA] py-[12px] px-[30px] rounded-[40px] max-sm:w-[100%]  max-md:w-[100%] max-lg:w-[100%] max-xl:w-[100%] max-2xl:w-[100%]">
                                                     {item.harvestbtn}
                                                 </button>
                                             </div>
@@ -452,7 +437,10 @@ function Staking() {
                                             leaveFrom="opacity-100 scale-100"
                                             leaveTo="opacity-0 scale-95"
                                         >
-                                            <Dialog.Panel id={'headlessui-dialog-panel-:rb'} className="panel !h-[505px] border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-lg text-black dark:text-white-dark">
+                                            <Dialog.Panel
+                                                id={'headlessui-dialog-panel-:rb'}
+                                                className="panel !h-[505px] border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-lg text-black dark:text-white-dark"
+                                            >
                                                 <div className="px-[40px]">
                                                     <button
                                                         type="button"
@@ -490,21 +478,28 @@ function Staking() {
                                                                             </th>
                                                                         </div>
                                                                         {table.map((item) => (
-                                                                            <div key={item.id} className="table-row w-[100%] last:border-[0px] justify-between border-b-[1px] !border-[#B2BEC34d] !text-start">
-                                                                                <td className="table-cell py-[10px] text-[#636E72] text-[16px] max-sm:text-[13px] font-[500] !text-start">{item.day}</td>
-                                                                                <td className="table-cell py-[10px] text-[#636E72] text-[16px] max-sm:text-[13px] font-[500] text-center">{item.roi}</td>
-                                                                                <td className="table-cell py-[10px] text-[#636E72] text-[16px] max-sm:text-[13px] font-[500] px-0 text-end">{item.eraned}</td>
+                                                                            <div
+                                                                                key={item.id}
+                                                                                className="table-row w-[100%] last:border-[0px] justify-between border-b-[1px] !border-[#B2BEC34d] !text-start"
+                                                                            >
+                                                                                <td className="table-cell py-[10px] text-[#636E72] text-[16px] max-sm:text-[13px] font-[500] !text-start">
+                                                                                    {item.day}
+                                                                                </td>
+                                                                                <td className="table-cell py-[10px] text-[#636E72] text-[16px] max-sm:text-[13px] font-[500] text-center">
+                                                                                    {item.roi}
+                                                                                </td>
+                                                                                <td className="table-cell py-[10px] text-[#636E72] text-[16px] max-sm:text-[13px] font-[500] px-0 text-end">
+                                                                                    {item.eraned}
+                                                                                </td>
                                                                             </div>
                                                                         ))}
                                                                     </tbody>
                                                                 </table>
                                                             </div>
-
-
                                                         </div>
 
                                                         <div>
-                                                            <p className="font-[500] text-[13px]  max-sm:text-[10px] text-[#2D3436] dark:text-[#fff]">
+                                                            <p className="font-[500] text-[13px] tracking-[0.065px]  max-sm:text-[10px] text-[#2D3436] dark:text-[#fff]">
                                                                 Calculated based on current rates. Compounding once daily. Rates are estimates provided for your convenience only, and by no means
                                                                 represent guaranteed returns.
                                                             </p>
