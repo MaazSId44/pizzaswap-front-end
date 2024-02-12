@@ -266,7 +266,7 @@ function Staking() {
 
                     <label className="relative inline-flex items-center cursor-pointer mb-0">
                         <input type="checkbox" value="toggle" className="sr-only peer" onChange={() => setShowStaked(!showStaked)} />
-                        <div className="w-10 h-6 px-[23px] bg-[#FFFFFF] peer-focus:outline-none rounded-full peer dark:bg-[#1A1E1F] peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full  after:content-[''] after:absolute after:top-[4px]  max-md:after:top-[4px] min-md:after:top-[10px] max-lg:after:top-[4px] max-xl:after:top-[4px] max-2xl:after:top-[4px]  after:start-[7px] after:bg-[#2B70FA] after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#ffffff] peer-checked:dark:bg-[#1A1E1F]"></div>
+                        <div className="w-11 h-7 px-[23px] bg-[#FFFFFF] peer-focus:outline-none rounded-full peer dark:bg-[#1A1E1F] peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full  after:content-[''] after:absolute after:top-[6px]  max-md:after:top-[6px] min-md:after:top-[10px] max-lg:after:top-[6px] max-xl:after:top-[6px] max-2xl:after:top-[6px]  after:start-[7px] after:bg-[#2B70FA] after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#ffffff] peer-checked:dark:bg-[#1A1E1F]"></div>
                     </label>
                 </div>
                 <div className="bg-[#FFF] dark:bg-[#1A1E1F] rounded-[50px] max-lg:rounded-[20px]  border-[1px] p-[20px] border-solid border-[#F0F3F5] dark:border-[#636E72] w-fit flex flex-row gap-[20px] max-sm:flex-col max-md:flex-col flex-wrap justify-center max-sm:gap-y-[10px] max-md:gap-y-[10px] max-sm:w-[100%] max-md:w-[60%]  ">
@@ -290,8 +290,8 @@ function Staking() {
                 <>
                     <div
                         className={`${filteredItems.length === 1
-                                ? ' mx-[32%] place-content-center max-md:mx-[20%] max-lg:mx-[20%]'
-                                : 'grid grid-cols-3 max-md:grid-cols-2 max-lg:grid-cols-2 max-xl:grid-cols-2   max-sm:grid-cols-1'
+                            ? ' mx-[32%] place-content-center max-md:mx-[20%] max-lg:mx-[20%]'
+                            : 'grid grid-cols-3 max-md:grid-cols-2 max-lg:grid-cols-2 max-xl:grid-cols-2   max-sm:grid-cols-1'
                             }   gap-[40px]  pt-[40px] max-sm:pt-[100px] max-md:pt-[100px]  max-lg:pt-[100px]`}
                     >
                         {filteredItems.slice(0, visibleItems).map((item, index) => (

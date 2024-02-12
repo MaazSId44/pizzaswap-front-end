@@ -214,7 +214,7 @@ const Lottery = () => {
                                                 <div className="text-[22px] font-[600] text-[#2D3436] dark:text-[#fff]">{LoteryData.totalpotpoint}</div>
                                             </div>
 
-                                            <div className="flex justify-between mt-[18px]">
+                                            <div className="flex justify-between mt-[22px]">
                                                 <div className="text-[18px] font-[500] text-[#2B70FA]">{LoteryData.nomatched}</div>
                                                 <div className="text-[18px] font-[500] text-[#2B70FA]">{LoteryData.pizepot}</div>
                                             </div>
