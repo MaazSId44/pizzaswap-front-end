@@ -288,11 +288,11 @@ function Pizzaswap() {
                         className={`${filteredItems.length === 1
                                 ? ' mx-[32%] place-content-center max-md:mx-[20%] max-lg:mx-[20%]'
                                 : 'grid grid-cols-3 max-md:grid-cols-2 max-lg:grid-cols-2 max-xl:grid-cols-2   max-sm:grid-cols-1'
-                            }   gap-[40px]  pt-[40px] max-sm:pt-[100px] max-md:pt-[100px]  max-lg:pt-[100px]`}
+                            }   gap-[40px]  pt-[40px] max-sm:pt-[100px] max-md:pt-[100px]  max-lg:pt-[100px] `}
                     >
                         {filteredItems.slice(0, visibleItems).map((item, index) => (
                             <>
-                                <div className="bg-[#fff] dark:bg-[#1A1E1F]  rounded-[20px] border-[1px] border-solid border-[#B2BEC34D] md:py-[35px] py-[35px] px-[30px] md:p-[30px] sm:p-[20px]">
+                                <div key={index} className="bg-[#fff] dark:bg-[#1A1E1F]  rounded-[20px] dark:border-[#b2bec340] dark:border-[1px]  dark:border-solid md:py-[35px] py-[35px] px-[30px] md:p-[30px] sm:p-[20px]">
                                     <div className="flex gap-[10px] items-center mb-[18px]">
                                         <div>
                                             <img src={item.main} alt="" />

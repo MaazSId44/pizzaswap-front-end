@@ -109,14 +109,15 @@ const BuyPizza = () => {
                     <p className="text-[16px] dark:text-customlightgraybg text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">Lorem ipsum dolor sit amet</p>
                 </div>
             </div>
-            <div className='lg:max-2xl:w-[80%] lg:max-2xl:mx-auto sm:w-auto sm:mx-0'>
+            <div className="lg:max-2xl:w-[80%] lg:max-2xl:mx-auto sm:w-auto sm:mx-0 pt-[70px]">
                 <div className="flex items-center justify-center w-full px-10">
-                    <div className="flex flex-1 min-[425px]:flex-col  items-center justify-center  max-sm:flex-col md:flex-row  gap-y-3   lg:max-2xl:w-[100%] w-[100%] 2xl:max-w-[45%] rounded-[50px]  py-[17px] px-[8px]  bg-white dark:bg-[#1A1E1F] mt-[10px]">
+                    <div className="flex flex-1 min-[425px]:flex-col items-center justify-center max-sm:flex-col md:flex-row gap-y-3   lg:max-2xl:w-[100%] w-[100%] 2xl:max-w-[45%] rounded-[50px] max-lg:rounded-[20px]  py-[17px] px-[8px] bg-white dark:bg-[#1A1E1F] mt-[10px] dark:border-[#636E72] dark:border-[1px]  dark:border-solid">
                         {navItems.map((item) => (
                             <div
                                 key={item.title}
-                                className={`py-[12px] px-[34px] cursor-pointer text-center sm:w-[100%] md:w-[100%] max-lg:w-[100%] xl:w-[100%] mx-[10px] 2xl:w-[100%] w-[228px]  ${activeTab === item.title ? 'bg-custombluebg text-white' : 'bg-customgraybg dark:bg-custommediumgraybg dark:text-white '
-                                    } rounded-full`}
+                                className={`py-[12px]  px-[34px] cursor-pointer text-center sm:w-[100%] md:w-[100%] max-lg:w-[100%] xl:w-[100%] mx-[10px] 2xl:w-[100%] w-[228px]  ${
+                                    activeTab === item.title ? 'bg-custombluebg text-white' : 'bg-customgraybg dark:bg-custommediumgraybg dark:text-white '
+                                } rounded-full `}
                                 onClick={() => handleTabClick(item.title)}
                             >
                                 {item.title}
@@ -126,14 +127,13 @@ const BuyPizza = () => {
                     </div>
                 </div>
                 <div className="flex justify-center pt-[20px]">
-                    <div className="panel h-full w-[45%] max-sm:w-[100%] max-md:w-[100%] max-lg:w-[100%] lg:w-[100%] xl:w-[100%] 2xl:max-w-[45%] ">
+                    <div className="panel h-full w-[45%] max-sm:w-[100%] max-md:w-[100%] max-lg:w-[100%] lg:w-[100%] xl:w-[100%] 2xl:max-w-[45%] dark:border-[#b2bec340] dark:border-[1px]  dark:border-solid">
                         <div>
                             {activeTab === 'Swap' && (
-                                <div>
-                                    <div className="flex flex-wrap items-center justify-between">
+                                <div className=''>
+                                    <div className="flex flex-wrap items-center justify-between ">
                                         <div>
-                                            {' '}
-                                            <h5 className="text-[22px] dark:text-white text-customblackbg font-[700] text-[Urbanist]">Exchange</h5>
+                                            <h5 className="text-[22px] dark:text-white text-customblackbg font-[700]">Exchange</h5>
                                             <p className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Poppins] mt-[5px]">Trade tokens in an instant</p>
                                         </div>
                                         <div className="flex gap-[12px]">
@@ -160,7 +160,7 @@ const BuyPizza = () => {
 
                                     <div className="py-[18px] px-[35px] bg-customgraybg dark:bg-customblackbg rounded-[50px] ">
                                         <div className="flex justify-between items-center">
-                                            <p className="text-[16px] dark:text-white text-customblackbg font-[600] text-[Urbanist]">0.00</p>
+                                            <p className="text-[16px] dark:text-white text-customblackbg font-[600]">0.00</p>
                                             <div onClick={() => setTokenModal(true)} className=" cursor-pointer bg-white dark:bg-[#1A1E1F] py-[8px] px-[10px] rounded-[40px]">
                                                 <div className="flex gap-[29px] items-center">
                                                     <div className="flex gap-[7px] items-center">
@@ -176,7 +176,7 @@ const BuyPizza = () => {
                                                                 />
                                                             </svg>
                                                         </div>
-                                                        <p className="text-[16px] dark:text-white text-customblackbg font-[600] text-[Urbanist]">BNB</p>
+                                                        <p className="text-[16px] dark:text-white text-customblackbg font-[600]">BNB</p>
                                                     </div>
 
                                                     <svg className="fill-customblackbg dark-fill-white" xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 18" fill="none">
@@ -195,13 +195,13 @@ const BuyPizza = () => {
 
                                     <div className="py-[18px] px-[35px] bg-customgraybg dark:bg-customblackbg rounded-[50px]">
                                         <div className="flex justify-between items-center">
-                                            <p className="text-[16px] dark:text-white text-customblackbg font-[600] text-[Urbanist]">0.00</p>
+                                            <p className="text-[16px] dark:text-white text-customblackbg font-[600]">0.00</p>
                                             <div onClick={() => setTokenModal(true)} className=" cursor-pointer bg-white dark:bg-[#1A1E1F] py-[8px] px-[10px] rounded-[40px]">
                                                 <div className="flex gap-[29px] items-center">
                                                     <div className="flex gap-[7px] items-center">
                                                         <div className="p-[6px] bg-custombluebg rounded-[40px]">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                                <g clip-path="url(#clip0_94_12424)">
+                                                                <g clipPath="url(#clip0_94_12424)">
                                                                     <path
                                                                         d="M10.0007 17.712C5.74832 17.712 2.28797 14.2532 2.28797 10.0008C2.28797 5.74833 5.74832 2.28797 10.0007 2.28797C12.5661 2.28797 14.8424 3.54758 16.2435 5.47958L18.2683 4.38275C16.4666 1.7388 13.4322 0 10.0007 0C4.4872 0 0 4.48721 0 10.0008C0 15.5143 4.4872 20 10.0007 20C13.4327 20 16.4666 18.2612 18.2668 15.6188L16.2435 14.5219C14.8424 16.4539 12.5656 17.712 10.0007 17.712Z"
                                                                         fill="white"
@@ -258,7 +258,7 @@ const BuyPizza = () => {
                                                                 </defs>
                                                             </svg>
                                                         </div>
-                                                        <p className="text-[16px] dark:text-white text-customblackbg font-[600] text-[Urbanist]">PizzaSwap</p>
+                                                        <p className="text-[16px] dark:text-white text-customblackbg font-[600]">PizzaSwap</p>
                                                     </div>
 
                                                     <svg className="fill-customblackbg dark-fill-white" xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 18" fill="none">
@@ -273,11 +273,10 @@ const BuyPizza = () => {
                                     </div>
 
                                     <div className="flex flex-warap justify-between my-[25px]">
-                                        <p className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[600] text-[Urbanist]">Slippage Tolerance</p>
-                                        <p className="text-[16px] dark:text-white text-customblackbg font-[600] text-[Urbanist]">0.1%</p>
+                                        <p className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[600]">Slippage Tolerance</p>
+                                        <p className="text-[16px] dark:text-white text-customblackbg font-[600]">0.1%</p>
                                     </div>
                                     <WalletButton onClick={() => setConnectWallet(true)} buttonText="Unlock Wallet" />
-
                                 </div>
                             )}
                             {activeTab === 'Liquidity' && (
@@ -285,7 +284,7 @@ const BuyPizza = () => {
                                     <div className="flex flex-wrap items-center justify-between">
                                         <div>
                                             {' '}
-                                            <h5 className="text-[22px] dark:text-white text-customblackbg font-[700] text-[Urbanist]">Liquidity</h5>
+                                            <h5 className="text-[22px] dark:text-white text-customblackbg font-[700]">Liquidity</h5>
                                             <p className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Poppins] mt-[5px]">Add liquidity to receive LP tokens</p>
                                         </div>
                                         <div className="flex gap-[12px]">
@@ -312,7 +311,7 @@ const BuyPizza = () => {
 
                                     <div>
                                         <div className="flex  items-center justify-center gap-[10px] rounded-[40px] cursor-pointer bg-custombluebg py-[22px] px-[34px] ">
-                                            <div className="text-[18px] text-center text-white font-[500] text-[Urbanist]">Add Liquidity</div>
+                                            <div className="text-[18px] text-center text-white font-[500]">Add Liquidity</div>
                                         </div>
 
                                         <div className="flex justify-between py-[30px]">
@@ -341,7 +340,7 @@ const BuyPizza = () => {
                                                     />
                                                 </svg>
                                             </div>
-                                            <p className="text-[30px] dark:text-custommediumgraybg text-center pt-[10px] text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">
+                                            <p className="text-[30px] dark:text-custommediumgraybg leading-normal text-center pt-[10px] text-customlightgraybg font-[500] text-[Poppins] mt-[5px]">
                                                 Connect to a wallet to view your liquidity.
                                             </p>
                                         </div>

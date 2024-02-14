@@ -296,7 +296,7 @@ function Staking() {
                     >
                         {filteredItems.slice(0, visibleItems).map((item, index) => (
                             <>
-                                <div className="bg-[#fff] dark:bg-[#1A1E1F]  rounded-[20px] border-[1px] border-solid border-[#B2BEC34D] md:py-[35px] py-[35px] px-[30px] md:p-[30px] sm:p-[20px]">
+                                <div key={index} className="bg-[#fff] dark:bg-[#1A1E1F] rounded-[20px] md:py-[35px] py-[35px] px-[30px] md:p-[30px] sm:p-[20px] dark:border-[#b2bec340] dark:border-[1px]  dark:border-solid">
                                     <div className="flex gap-[10px] items-center mb-[18px]">
                                         <div>
                                             <img src={item.main} alt="" />

@@ -126,7 +126,7 @@ const Lottery = () => {
 
             <div className="w-[100%]">
                 <div className="flex items-center justify-center w-full max-sm:mt-[20px]">
-                    <div className="flex flex-1 min-[425px]:flex-col  items-center justify-between max-lg:rounded-[20px]  max-sm:flex-col md:flex-row  gap-y-2 lg:w-[70%] md:mt-[30px] xl:max-w-fit rounded-[50px]  py-[20px] px-[12px]  bg-white dark:bg-[#1A1E1F] ">
+                    <div className="flex flex-1 min-[425px]:flex-col  items-center justify-between max-lg:rounded-[20px]  max-sm:flex-col md:flex-row  gap-y-2 lg:w-[70%] md:mt-[30px] xl:max-w-fit rounded-[50px]  py-[20px] px-[12px]  bg-white dark:bg-[#1A1E1F] dark:border-[#636E72] border-[1px] border-[solid] ">
                         {navItems.map((item) => (
                             <div
                                 key={item.title}
@@ -145,12 +145,12 @@ const Lottery = () => {
                         <div>
                             {activeTab === 'Next Draw' && (
                                 <>
-                                    <div className="flex gap-[40px] max-md:flex-col">
-                                        <div className="panel w-[50%] max-md:w-[100%]">
+                                    <div className="flex gap-[40px] max-md:flex-col  ">
+                                        <div className="panel w-[50%] max-md:w-[100%] dark:border-[#b2bec340] dark:border-[1px]  dark:border-solid">
                                             <div className=" flex flex-wrap items-center justify-between">
                                                 <div className="p-[8px] bg-custombluebg rounded-[40px]">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20" fill="none">
-                                                        <g clip-path="url(#clip0_94_12424)">
+                                                        <g clipPath="url(#clip0_94_12424)">
                                                             <path
                                                                 d="M10.0007 17.712C5.74832 17.712 2.28797 14.2532 2.28797 10.0008C2.28797 5.74833 5.74832 2.28797 10.0007 2.28797C12.5661 2.28797 14.8424 3.54758 16.2435 5.47958L18.2683 4.38275C16.4666 1.7388 13.4322 0 10.0007 0C4.4872 0 0 4.48721 0 10.0008C0 15.5143 4.4872 20 10.0007 20C13.4327 20 16.4666 18.2612 18.2668 15.6188L16.2435 14.5219C14.8424 16.4539 12.5656 17.712 10.0007 17.712Z"
                                                                 fill="white"
@@ -241,7 +241,7 @@ const Lottery = () => {
                                             </div>
                                         </div>
 
-                                        <div className="panel flex flex-col items-center w-[50%] max-md:w-[100%]">
+                                        <div className="panel flex flex-col items-center w-[50%] max-md:w-[100%] dark:border-[#b2bec340] dark:border-[1px]  dark:border-solid">
                                             <div className="w-[60%] mb-4">
                                                 <img src={img2} className="w-[100%]" alt="img2" />
                                             </div>
@@ -255,7 +255,7 @@ const Lottery = () => {
                                         </div>
                                     </div>
 
-                                    <div className="panel  mt-[30px] flex max-sm:flex-col md:flex-col lg:flex-row gap-y-4 gap-x-6">
+                                    <div className="panel dark:border-[#b2bec340] dark:border-[1px]  dark:border-solid  mt-[30px] flex max-sm:flex-col md:flex-col lg:flex-row gap-y-4 gap-x-6">
                                         <div className="w-[45%] max-sm:w-[100%] md:w-[100%] lg:w-[45%]">
                                             <div className="flex justify-between dark:text-white-light">
                                                 <h5 className="text-[22px] text-[#1A1E1F] dark:text-[#fff] font-[600] text-[Urbanist]">{homeData.LotteryWinningNumbers}</h5>
@@ -316,12 +316,12 @@ const Lottery = () => {
                                 <>
                                     <div className='py-[25px] w-[100%]'>
                                         <div className='w-[100%] relative'>
-                                            <input type="text" className='bg-[#FFFFFF] dark:bg-[#1A1E1F] w-[100%] py-[28px] rounded-[50px] ps-[35px] pe-[122px] placeholder-customlightgraybg text-customblackbg dark:text-white outline-none text-[16px]  font-[500] ' placeholder='Search Lottery Number' />
+                                            <input type="text" className='bg-[#FFFFFF] dark:bg-[#1A1E1F] w-[100%] py-[28px] rounded-[50px] ps-[35px] pe-[122px] placeholder-customlightgraybg text-customblackbg dark:text-white outline-none text-[16px]  font-[500] dark:border-[#b2bec340] dark:border-[1px]  dark:border-solid' placeholder='Search Lottery Number' />
                                             <button className='text-[16px] bg-[#2B70FA] rounded-[35px] text-[#ffffff] py-[10px] px-[20px] absolute right-[3%] top-[25%]'>Search</button>
                                         </div>
                                     </div>
-                                    <div className="flex gap-[40px] max-sm:flex-col md:flex-col lg:flex-row">
-                                        <div className="panel gap-y-4 w-[50%] max-sm:w-[100%] md:w-[100%] lg:w-[50%]">
+                                    <div className="flex gap-[40px] max-sm:flex-col md:flex-col lg:flex-row ">
+                                        <div className="panel gap-y-4 w-[50%] max-sm:w-[100%] md:w-[100%] lg:w-[50%] dark:border-[#b2bec340] dark:border-[1px]  dark:border-solid">
                                             <div className="flex  items-center justify-between">
                                                 <div className="text-[22px] text-[#636E72] dark:text-[#B2BEC3] font-[600]">{LoteryData.round1}</div>
                                                 <div className="text-[16px] text-[#636E72] dark:text-[#B2BEC3] font-[400]">{LoteryData.round1time}</div>
@@ -329,7 +329,7 @@ const Lottery = () => {
                                             <div className="flex mt-[20px]">
                                                 <div className="p-[8px] bg-custombluebg rounded-[40px] w-fit">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20" fill="none">
-                                                        <g clip-path="url(#clip0_94_12424)">
+                                                        <g clipPath="url(#clip0_94_12424)">
                                                             <path
                                                                 d="M10.0007 17.712C5.74832 17.712 2.28797 14.2532 2.28797 10.0008C2.28797 5.74833 5.74832 2.28797 10.0007 2.28797C12.5661 2.28797 14.8424 3.54758 16.2435 5.47958L18.2683 4.38275C16.4666 1.7388 13.4322 0 10.0007 0C4.4872 0 0 4.48721 0 10.0008C0 15.5143 4.4872 20 10.0007 20C13.4327 20 16.4666 18.2612 18.2668 15.6188L16.2435 14.5219C14.8424 16.4539 12.5656 17.712 10.0007 17.712Z"
                                                                 fill="white"
@@ -439,7 +439,7 @@ const Lottery = () => {
 
                                         </div>
 
-                                        <div className="panel w-[50%] max-sm:w-[100%] md:w-[100%] lg:w-[50%]">
+                                        <div className="panel dark:border-[#b2bec340] dark:border-[1px]  dark:border-solid w-[50%] max-sm:w-[100%] md:w-[100%] lg:w-[50%]">
                                             <div className="text-[22px] font-[600] text-[#636E72] dark:text-[#B2BEC3]">{LoteryData.historycardtittle}</div>
                                             <div className="flex justify-center items-center mt-[100px]">
                                                 <img src={bgslice} className='' alt=".." />

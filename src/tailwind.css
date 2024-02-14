@@ -73,8 +73,6 @@
         border-radius: 8px;
         background: var(--Brandis-Blue, #2B70FA);
         height: 8px;  /* Adjust the height as needed */
-
-
       }
 
       
@@ -87,6 +85,10 @@
       
       .scrollbar::-webkit-scrollbar-track {
         background-color: #F0F3F5;
+      }
+      .dark-scrollbar::-webkit-scrollbar-track{
+        background-color: #2D3436
+        ;
       }
       .table-containe table tbody tr td{
         text-align: right !important

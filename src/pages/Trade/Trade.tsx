@@ -126,7 +126,7 @@ const Trade = () => {
             </div>
             <div className="lg:max-2xl:w-[80%] lg:max-2xl:mx-auto sm:w-auto sm:mx-0 pt-[70px]">
                 <div className="flex items-center justify-center w-full px-10">
-                    <div className="flex flex-1 min-[425px]:flex-col  items-center justify-center  max-sm:flex-col md:flex-row  gap-y-3   lg:max-2xl:w-[100%] w-[100%] 2xl:max-w-[45%] rounded-[50px] max-lg:rounded-[20px]  py-[17px] px-[8px]  bg-white dark:bg-[#1A1E1F] mt-[10px]">
+                    <div className="flex flex-1 min-[425px]:flex-col items-center justify-center max-sm:flex-col md:flex-row gap-y-3   lg:max-2xl:w-[100%] w-[100%] 2xl:max-w-[45%] rounded-[50px] max-lg:rounded-[20px]  py-[17px] px-[8px] bg-white dark:bg-[#1A1E1F] mt-[10px] dark:border-[#636E72] dark:border-[1px]  dark:border-solid">
                         {navItems.map((item) => (
                             <div
                                 key={item.title}
@@ -142,11 +142,11 @@ const Trade = () => {
                     </div>
                 </div>
                 <div className="flex justify-center pt-[20px]">
-                    <div className="panel h-full w-[45%] max-sm:w-[100%] max-md:w-[100%] max-lg:w-[100%] lg:w-[100%] xl:w-[100%] 2xl:max-w-[45%] ">
+                    <div className="panel h-full w-[45%] max-sm:w-[100%] max-md:w-[100%] max-lg:w-[100%] lg:w-[100%] xl:w-[100%] 2xl:max-w-[45%] dark:border-[#b2bec340] dark:border-[1px]  dark:border-solid">
                         <div>
                             {activeTab === 'Swap' && (
-                                <div>
-                                    <div className="flex flex-wrap items-center justify-between">
+                                <div className=''>
+                                    <div className="flex flex-wrap items-center justify-between ">
                                         <div>
                                             <h5 className="text-[22px] dark:text-white text-customblackbg font-[700]">Exchange</h5>
                                             <p className="text-[16px] dark:text-customlightgraybg text-custommediumgraybg font-[500] text-[Poppins] mt-[5px]">Trade tokens in an instant</p>
@@ -216,7 +216,7 @@ const Trade = () => {
                                                     <div className="flex gap-[7px] items-center">
                                                         <div className="p-[6px] bg-custombluebg rounded-[40px]">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                                <g clip-path="url(#clip0_94_12424)">
+                                                                <g clipPath="url(#clip0_94_12424)">
                                                                     <path
                                                                         d="M10.0007 17.712C5.74832 17.712 2.28797 14.2532 2.28797 10.0008C2.28797 5.74833 5.74832 2.28797 10.0007 2.28797C12.5661 2.28797 14.8424 3.54758 16.2435 5.47958L18.2683 4.38275C16.4666 1.7388 13.4322 0 10.0007 0C4.4872 0 0 4.48721 0 10.0008C0 15.5143 4.4872 20 10.0007 20C13.4327 20 16.4666 18.2612 18.2668 15.6188L16.2435 14.5219C14.8424 16.4539 12.5656 17.712 10.0007 17.712Z"
                                                                         fill="white"
@@ -436,7 +436,7 @@ const Trade = () => {
                                             </svg>
                                         </div>
 
-                                        <div className="overflow-y-scroll  pe-[16px] scrollbar">
+                                        <div className="overflow-y-scroll  pe-[16px] scrollbar dark:dark-scrollbar ">
                                             <div className="h-[500px]  mb-[-25px]">
                                                 {items.map((item) => (
                                                     <div
