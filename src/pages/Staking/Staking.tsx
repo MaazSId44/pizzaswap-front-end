@@ -477,9 +477,9 @@ function Staking() {
                                                                                 PizzaSwap Per $1000
                                                                             </th>
                                                                         </div>
-                                                                        {table.map((item) => (
+                                                                        {table.map((item, index) => (
                                                                             <div
-                                                                                key={item.id}
+                                                                                key={index}
                                                                                 className="table-row w-[100%] last:border-[0px] justify-between border-b-[1px] !border-[#B2BEC34d] !text-start"
                                                                             >
                                                                                 <td className="table-cell py-[10px] text-[#636E72] text-[16px] max-sm:text-[13px] font-[500] !text-start">

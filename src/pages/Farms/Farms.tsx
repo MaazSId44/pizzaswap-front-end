@@ -197,6 +197,7 @@ function Pizzaswap() {
             stacked: 'UnStaked',
         },
     ];
+    
     const theme = localStorage.getItem('theme');
     const itemsConnect = [
         { id: 1, name: 'Metamask', icon: connect1 },
@@ -280,14 +281,13 @@ function Pizzaswap() {
                     ))}
                 </div>
             </div>
-            {/* flex justify-center flex-wrap  items-center   */}
 
             {filteredItems.length >= 1 ? (
                 <>
                     <div
                         className={`${filteredItems.length === 1
-                                ? ' mx-[32%] place-content-center max-md:mx-[20%] max-lg:mx-[20%]'
-                                : 'grid grid-cols-3 max-md:grid-cols-2 max-lg:grid-cols-2 max-xl:grid-cols-2   max-sm:grid-cols-1'
+                            ? ' mx-[32%] place-content-center max-md:mx-[20%] max-lg:mx-[20%]'
+                            : 'grid grid-cols-3 max-md:grid-cols-2 max-lg:grid-cols-2 max-xl:grid-cols-2   max-sm:grid-cols-1'
                             }   gap-[40px]  pt-[40px] max-sm:pt-[100px] max-md:pt-[100px]  max-lg:pt-[100px] `}
                     >
                         {filteredItems.slice(0, visibleItems).map((item, index) => (
@@ -295,7 +295,7 @@ function Pizzaswap() {
                                 <div key={index} className="bg-[#fff] dark:bg-[#1A1E1F]  rounded-[20px] dark:border-[#b2bec340] dark:border-[1px]  dark:border-solid md:py-[35px] py-[35px] px-[30px] md:p-[30px] sm:p-[20px]">
                                     <div className="flex gap-[10px] items-center mb-[18px]">
                                         <div>
-                                            <img src={item.main} alt="" />
+                                            <img src={item.main} alt="main" />
                                         </div>
                                         <div>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
@@ -473,9 +473,9 @@ function Pizzaswap() {
                                                                                 PizzaSwap Per $1000
                                                                             </th>
                                                                         </div>
-                                                                        {table.map((item) => (
+                                                                        {table.map((item, index) => (
                                                                             <div
-                                                                                key={item.id}
+                                                                                key={index}
                                                                                 className="table-row w-[100%] last:border-[0px] justify-between border-b-[1px] !border-[#B2BEC34d] !text-start"
                                                                             >
                                                                                 <td className="table-cell py-[10px] text-[#636E72] text-[16px] max-sm:text-[13px] font-[500] !text-start">

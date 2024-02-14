@@ -127,12 +127,11 @@ const Trade = () => {
             <div className="lg:max-2xl:w-[80%] lg:max-2xl:mx-auto sm:w-auto sm:mx-0 pt-[70px]">
                 <div className="flex items-center justify-center w-full px-10">
                     <div className="flex flex-1 min-[425px]:flex-col items-center justify-center max-sm:flex-col md:flex-row gap-y-3   lg:max-2xl:w-[100%] w-[100%] 2xl:max-w-[45%] rounded-[50px] max-lg:rounded-[20px]  py-[17px] px-[8px] bg-white dark:bg-[#1A1E1F] mt-[10px] dark:border-[#636E72] dark:border-[1px]  dark:border-solid">
-                        {navItems.map((item) => (
+                        {navItems.map((item, index) => (
                             <div
-                                key={item.title}
-                                className={`py-[12px]  px-[34px] cursor-pointer text-center sm:w-[100%] md:w-[100%] max-lg:w-[100%] xl:w-[100%] mx-[10px] 2xl:w-[100%] w-[228px]  ${
-                                    activeTab === item.title ? 'bg-custombluebg text-white' : 'bg-customgraybg dark:bg-custommediumgraybg dark:text-white '
-                                } rounded-full `}
+                                key={index}
+                                className={`py-[12px]  px-[34px] cursor-pointer text-center sm:w-[100%] md:w-[100%] max-lg:w-[100%] xl:w-[100%] mx-[10px] 2xl:w-[100%] w-[228px]  ${activeTab === item.title ? 'bg-custombluebg text-white' : 'bg-customgraybg dark:bg-custommediumgraybg dark:text-white '
+                                    } rounded-full `}
                                 onClick={() => handleTabClick(item.title)}
                             >
                                 {item.title}
@@ -389,7 +388,7 @@ const Trade = () => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel  id={'headlessui-dialog-panel-:rb'} className="panel !h-[793px] border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-[580px] text-black dark:text-white-dark">
+                                <Dialog.Panel id={'headlessui-dialog-panel-:rb'} className="panel !h-[793px] border-0 p-0 rounded-[40px] overflow-hidden w-full max-w-[580px] text-black dark:text-white-dark">
                                     <div className=" px-[40px]">
                                         <button
                                             type="button"
@@ -438,9 +437,9 @@ const Trade = () => {
 
                                         <div className="overflow-y-scroll  pe-[16px] scrollbar dark:dark-scrollbar ">
                                             <div className="h-[500px]  mb-[-25px]">
-                                                {items.map((item) => (
+                                                {items.map((item, index) => (
                                                     <div
-                                                        key={item.id}
+                                                        key={index}
                                                         className="flex mt-[12px] gap-[10px] items-center py-[15px] px-[20px] bg-customgraybg dark:bg-customblackbg rounded-[50px] cursor-pointer"
                                                     >
                                                         <img src={item.icon} alt={`${item.name} Icon`} />

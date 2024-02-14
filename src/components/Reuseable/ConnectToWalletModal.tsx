@@ -51,9 +51,9 @@ const CustomDialog = ({ isOpen, onClose, theme, setConnectWallet, itemsConnect }
                                 <div className="px-[25px] custom-scrollbar h-[680px] overflow-y-scroll ">
                                     <div className="">
                                         <div className=" mt-[30px]">
-                                            {itemsConnect.map((item: any) => (
+                                            {itemsConnect.map((item: any, index: any) => (
                                                 <div
-                                                    key={item.id}
+                                                    key={index}
                                                     className="flex mt-[12px] gap-[10px] items-center py-[15px] px-[20px] bg-customgraybg dark:bg-customblackbg rounded-[50px] cursor-pointer"
                                                 >
                                                     <img src={item.icon} alt={`${item.name} Icon`} />

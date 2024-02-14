@@ -127,9 +127,9 @@ const Lottery = () => {
             <div className="w-[100%]">
                 <div className="flex items-center justify-center w-full max-sm:mt-[20px]">
                     <div className="flex flex-1 min-[425px]:flex-col  items-center justify-between max-lg:rounded-[20px]  max-sm:flex-col md:flex-row  gap-y-2 lg:w-[70%] md:mt-[30px] xl:max-w-fit rounded-[50px]  py-[20px] px-[12px]  bg-white dark:bg-[#1A1E1F] dark:border-[#636E72] border-[1px] border-[solid] ">
-                        {navItems.map((item) => (
+                        {navItems.map((item, index) => (
                             <div
-                                key={item.title}
+                                key={index}
                                 className={`py-[12px] px-[34px] mx-[8px] cursor-pointer text-center w-[100%] xl:w-[228px] text-[18px] font-[500]  ${activeTab === item.title ? 'bg-custombluebg text-white' : 'bg-customgraybg dark:bg-custommediumgraybg text-custommediumgraybg dark:text-white '
                                     } rounded-full`}
                                 onClick={() => handleTabClick(item.title)}
@@ -247,7 +247,7 @@ const Lottery = () => {
                                             </div>
                                             <div className="text-[22px] font-[600] my-[15px] text-center text-[#636E72] dark:text-[#B2BEC3]">
                                                 {LoteryData.unlock}
-                                                </div>
+                                            </div>
                                             <div className='mt-[5px] w-full'>
                                                 <WalletButton onClick={() => setConnectWallet(true)} buttonText="Unlock Wallet" />
                                             </div>
